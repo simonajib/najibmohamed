@@ -1,0 +1,190 @@
+/* ========== BASE ========== */
+body {
+  font-family: 'Muli', sans-serif;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* ========== HEADER ========== */
+header {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#v-card {
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+  color: #fff;
+}
+
+#v-card h4, #v-card h6 {
+  margin: 0;
+  padding: 0;
+}
+
+/* ========== SIDEBAR MENU ========== */
+#menu-options a {
+  display: block;
+  padding: 12px 20px;
+  color: #ffffff;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  transition: 0.3s ease;
+  font-weight: bold;
+}
+
+#menu-options a:hover, #menu-options a:focus {
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+  color: #fff;
+}
+
+/* ========== SECTIONS ========== */
+.section {
+  padding: 80px 20px;
+}
+
+.section-title h4 {
+  color: #00c6ff;
+  font-weight: 700;
+  margin-bottom: 40px;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* ========== SKILLS ========== */
+.skillbar {
+  position: relative;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  margin-bottom: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.skillbar-title {
+  position: absolute;
+  top: -25px;
+  font-size: 14px;
+  color: #00c6ff;
+  font-weight: bold;
+}
+
+.skillbar-bar {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(45deg, #00c6ff, #0072ff);
+  animation: loadBar 2s ease forwards;
+}
+
+@keyframes loadBar {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* ========== TIMELINE ========== */
+.timeline-content {
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: 0.3s ease;
+}
+
+.timeline-content:hover {
+  box-shadow: 0 0 10px #00c6ff80;
+}
+
+/* ========== BLOG / PROJECTS ========== */
+.blog {
+  margin-bottom: 30px;
+  border-radius: 15px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 198, 255, 0.2);
+}
+
+.blog .image img {
+  width: 100%;
+  display: block;
+  filter: brightness(0.8);
+  transition: 0.3s ease;
+}
+
+.blog:hover .image img {
+  filter: brightness(1);
+}
+
+.blog .content h6 {
+  color: #00c6ff;
+  font-weight: 600;
+}
+
+/* ========== INTERESTS ========== */
+.interest-icon i {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #00c6ff;
+}
+
+.interest-icon span {
+  font-weight: 500;
+  display: block;
+}
+
+/* ========== FOOTER ========== */
+footer {
+  padding: 20px;
+  background: #111;
+  color: #ccc;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+footer a {
+  color: #00c6ff;
+  text-decoration: none;
+}
+
+/* ========== BUTTONS ========== */
+.btn {
+  background: linear-gradient(45deg, #00c6ff, #0072ff);
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: linear-gradient(to right, #0072ff, #00c6ff);
+}
+
+/* ========== FORM ========== */
+input, textarea {
+  background: rgba(255, 255, 255, 0.07);
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  padding: 10px;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border: 1px solid #00c6ff;
+  box-shadow: 0 0 8px #00c6ff90;
+}
+
+::placeholder {
+  color: #bbb;
+}
