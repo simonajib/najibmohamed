@@ -1694,5 +1694,65 @@ footer {
     color: #fff;
     margin-top: -18px;
     margin-bottom: 9px; }
+/*
+-------------------------------------------------------------------------------
+16. CERTIFICATIONS SECTION / #certifications
+-------------------------------------------------------------------------------
+*/
+#certifications {
+    padding-top: 50px;
+    padding-bottom: 30px;
+    background-color: transparent;
+}
+
+#certifications .section-title {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+#certifications .section-title h4 {
+    color: #038175;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+#certifications .collection {
+    background-color: #fff;
+    border-radius: 4px;
+    padding: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-top: 20px;
+}
+
+#certifications .collection-item {
+    padding: 18px 25px;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 15px;
+    font-weight: 500;
+    color: #333;
+    transition: background-color 0.3s ease;
+}
+
+#certifications .collection-item:last-child {
+    border-bottom: none;
+}
+
+#certifications .collection-item a {
+    color: #9C27B0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+#certifications .collection-item a:hover {
+    color: #701c7e;
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+    #certifications .collection-item {
+        font-size: 14px;
+        padding: 14px 18px;
+    }
+}
 
 /*# sourceMappingURL=style.css.map */
