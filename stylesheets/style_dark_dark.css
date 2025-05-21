@@ -1703,12 +1703,22 @@ footer {
   background-color: #282b2e; /* harmonisé avec .card et .body */
   color: #7b7b7b;
 
-  .section-title h4 {
-    font-size: 26px;
-    margin-bottom: 30px;
-    color: #06A763; /* vert principal */
-    font-weight: 600;
+  .section {
+    /*section properties*/
+    position: relative;
+    padding-top: 15px;
+    padding-bottom: 30px;
+    background-color: transparent;
+    .section-title {
+      /*section title*/
+      margin-bottom: 30px;
+      .title-icon {
+        /*icon*/
+        margin-right: 20px;
+      }
+    }
   }
+
 
   ul.collection {
     margin: 0 auto;
