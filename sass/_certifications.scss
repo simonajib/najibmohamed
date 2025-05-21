@@ -1,18 +1,17 @@
+//===========================================================================//
+// CERTIFICATIONS SECTION
+//===========================================================================//
 
-@import "variables";
-@import "mediamixins";
 #certifications {
   padding: 60px 0;
-  background-color: #121212;
-  color: #f1f1f1;
+  background-color: $body-color;
+  color: $primary-text;
 
-  .section-title {
-    h4 {
-      font-size: 26px;
-      margin-bottom: 30px;
-      color: #00bcd4;
-      font-weight: 600;
-    }
+  .section-title h4 {
+    font-size: 26px;
+    margin-bottom: 30px;
+    color: $accent-color;
+    font-weight: 600;
   }
 
   ul.collection {
@@ -23,82 +22,70 @@
     padding: 0;
 
     .collection-item {
-      background-color: #1e1e1e;
+      background-color: lighten($body-color, 3%);
       border-radius: 8px;
       margin-bottom: 12px;
       padding: 18px 25px;
-      border: 1px solid rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.05);
       transition: all 0.3s ease-in-out;
       font-size: 16px;
-      color: #ffffff;
+      color: $primary-text;
       transform: translateY(20px);
       opacity: 0;
       animation: fadeInUp 0.8s ease forwards;
 
       &:hover {
-        background-color: #263238;
+        background-color: lighten($body-color, 7%);
         transform: scale(1.02);
-        border-left: 4px solid #00bcd4;
+        border-left: 4px solid $accent-color;
       }
 
       a {
         text-decoration: none;
-        color: #ffffff;
+        color: $primary-text;
         display: inline-block;
         width: 100%;
         transition: color 0.3s ease;
 
         &:hover {
-          color: #00bcd4;
+          color: $accent-color;
         }
 
         &:focus {
-          outline: 2px dashed #00bcd4;
+          outline: 2px dashed $accent-color;
           outline-offset: 4px;
         }
       }
 
-      // Optional: icon before each item
-      // &::before {
-      //   content: "🎓";
-      //   margin-right: 10px;
-      // }
+      &::before {
+        content: "🎓";
+        margin-right: 10px;
+      }
     }
 
-    // Delay animations for a nicer fade-in staggered effect
-    .collection-item:nth-child(1) { animation-delay: 0.1s; }
-    .collection-item:nth-child(2) { animation-delay: 0.2s; }
-    .collection-item:nth-child(3) { animation-delay: 0.3s; }
-    .collection-item:nth-child(4) { animation-delay: 0.4s; }
-    .collection-item:nth-child(5) { animation-delay: 0.5s; }
-    .collection-item:nth-child(6) { animation-delay: 0.6s; }
-    .collection-item:nth-child(7) { animation-delay: 0.7s; }
-    .collection-item:nth-child(8) { animation-delay: 0.8s; }
-    .collection-item:nth-child(9) { animation-delay: 0.9s; }
-    .collection-item:nth-child(10) { animation-delay: 1s; }
-  }
-}
-
-// Animation keyframes
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-// Responsive
-@media screen and (max-width: 600px) {
-  #certifications {
-    ul.collection {
-      .collection-item {
-        padding: 14px 18px;
-        font-size: 15px;
+    // Animations pour chaque élément (décalage progressif)
+    @for $i from 1 through 12 {
+      .collection-item:nth-child(#{$i}) {
+        animation-delay: 0.1s * $i;
       }
+    }
+  }
+
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    ul.collection .collection-item {
+      padding: 14px 18px;
+      font-size: 15px;
     }
   }
 }
