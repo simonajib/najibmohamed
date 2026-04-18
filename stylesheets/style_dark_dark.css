@@ -1700,7 +1700,7 @@ footer {
 
 #certifications {
   padding: 60px 0;
-  background-color: #282b2e; /* harmonisé avec .card et .body */
+  background-color: transparent;
   color: #7b7b7b;
 
   .section {

@@ -1,0 +1,5206 @@
+:root {
+    --bg: #f6efe6;
+    --surface: rgba(255, 253, 248, 0.82);
+    --surface-dark: #10233f;
+    --text: #10233f;
+    --muted: #5e6f87;
+    --line: rgba(16, 35, 63, 0.1);
+    --accent: #0f8b8d;
+    --accent-strong: #4f7cff;
+    --shadow-lg: 0 28px 80px rgba(16, 35, 63, 0.16);
+    --shadow-md: 0 20px 48px rgba(16, 35, 63, 0.11);
+    --radius-xl: 34px;
+}
+
+body.portfolio-refresh {
+    font-family: "Manrope", sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text);
+    background:
+        radial-gradient(circle at top left, rgba(79, 124, 255, 0.12), transparent 28%),
+        radial-gradient(circle at right 15%, rgba(15, 139, 141, 0.16), transparent 24%),
+        linear-gradient(180deg, #f8f3eb 0%, #f3ece4 48%, #f8f4ee 100%);
+    overflow-x: hidden;
+}
+
+body.portfolio-refresh::before,
+body.portfolio-refresh::after {
+    content: "";
+    position: fixed;
+    z-index: -1;
+    border-radius: 999px;
+    filter: blur(40px);
+    opacity: 0.65;
+    animation: floatAura 18s ease-in-out infinite;
+}
+
+body.portfolio-refresh::before {
+    width: 18rem;
+    height: 18rem;
+    top: 6%;
+    left: -4rem;
+    background: rgba(15, 139, 141, 0.12);
+}
+
+body.portfolio-refresh::after {
+    width: 20rem;
+    height: 20rem;
+    right: -5rem;
+    bottom: 10%;
+    background: rgba(79, 124, 255, 0.12);
+    animation-delay: -8s;
+}
+
+body.portfolio-refresh * {
+    box-sizing: border-box;
+}
+
+body.portfolio-refresh h1,
+body.portfolio-refresh h2,
+body.portfolio-refresh h3,
+body.portfolio-refresh h4,
+body.portfolio-refresh h5,
+body.portfolio-refresh h6,
+body.portfolio-refresh span,
+body.portfolio-refresh .btn {
+    font-family: "Sora", sans-serif;
+}
+
+body.portfolio-refresh p,
+body.portfolio-refresh li,
+body.portfolio-refresh label,
+body.portfolio-refresh input,
+body.portfolio-refresh textarea,
+body.portfolio-refresh a,
+body.portfolio-refresh div {
+    font-family: "Manrope", sans-serif;
+}
+
+body.portfolio-refresh a {
+    color: var(--accent);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+body.portfolio-refresh a:hover,
+body.portfolio-refresh a:focus {
+    color: var(--accent-strong);
+    text-decoration: none;
+}
+
+body.portfolio-refresh p {
+    color: var(--muted);
+}
+
+body.portfolio-refresh img {
+    max-width: 100%;
+    display: block;
+}
+
+body.portfolio-refresh .container {
+    width: calc(100% - 48px);
+    max-width: 1180px;
+    padding: 0;
+}
+
+body.portfolio-refresh .section {
+    padding: 92px 0;
+}
+
+body.portfolio-refresh .section-title {
+    margin-bottom: 2.75rem;
+    text-align: center;
+}
+
+body.portfolio-refresh .section-title h4 {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    margin: 0;
+    font-size: clamp(1.6rem, 2vw, 2.25rem);
+    letter-spacing: -0.03em;
+    text-transform: none !important;
+    color: var(--text);
+}
+
+body.portfolio-refresh .section-title .title-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    margin-right: 0;
+    border-radius: 18px;
+    color: #fff;
+    background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+    box-shadow: 0 18px 40px rgba(15, 139, 141, 0.28);
+}
+
+body.portfolio-refresh .card {
+    border-radius: var(--radius-xl);
+    background: var(--surface);
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+}
+
+body.portfolio-refresh .card .card-content {
+    padding: clamp(1.75rem, 3vw, 3rem);
+}
+
+body.portfolio-refresh .card .card-content p {
+    text-align: left;
+    color: var(--muted);
+}
+
+body.portfolio-refresh .btn,
+body.portfolio-refresh .btn-large {
+    height: auto;
+    line-height: 1;
+    padding: 1rem 1.5rem;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    font-size: 0.82rem;
+    font-weight: 800;
+    color: #fff !important;
+    background: linear-gradient(135deg, var(--accent), var(--accent-strong)) !important;
+    box-shadow: 0 18px 36px rgba(16, 35, 63, 0.2);
+}
+
+body.portfolio-refresh .btn:hover,
+body.portfolio-refresh .btn:focus,
+body.portfolio-refresh .btn-large:hover,
+body.portfolio-refresh .btn-large:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 22px 40px rgba(16, 35, 63, 0.24);
+}
+
+body.portfolio-refresh #loading {
+    position: fixed;
+    inset: 0;
+    z-index: 5001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    visibility: visible;
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding: 2rem;
+    padding-top: calc(2rem + env(safe-area-inset-top));
+    padding-right: calc(2rem + env(safe-area-inset-right));
+    padding-bottom: calc(2rem + env(safe-area-inset-bottom));
+    padding-left: calc(2rem + env(safe-area-inset-left));
+    overflow: hidden;
+    background:
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.24), transparent 24%),
+        radial-gradient(circle at bottom left, rgba(255, 255, 255, 0.12), transparent 28%),
+        linear-gradient(135deg, #0f8b8d, #10233f);
+}
+
+body.portfolio-refresh #loading.preloader-hidden {
+    display: none !important;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+body.portfolio-refresh #loading #loading-center {
+    width: 100%;
+    height: auto;
+    position: static;
+}
+
+body.portfolio-refresh #loading #loading-center-absolute {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: min(100%, 36rem);
+    height: auto;
+    margin: 0 auto;
+    padding: 2.4rem 2rem 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 32px;
+    background: rgba(10, 24, 44, 0.32);
+    box-shadow:
+        0 28px 64px rgba(6, 16, 31, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.16);
+    backdrop-filter: blur(18px);
+    text-align: center;
+}
+
+body.portfolio-refresh #loading .text-holder {
+    position: static;
+    width: auto;
+    margin-top: 1.35rem;
+    color: #fff7f0;
+}
+
+body.portfolio-refresh #loading .text-holder h2 {
+    margin: 0;
+    font-family: "Sora", sans-serif;
+    font-size: clamp(1.7rem, 4vw, 2.5rem);
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-shadow: none;
+}
+
+body.portfolio-refresh #loading .text-holder h6 {
+    max-width: 32ch;
+    margin: 0.7rem auto 0;
+    color: rgba(247, 250, 255, 0.82);
+    font-size: clamp(0.92rem, 2vw, 1rem);
+    line-height: 1.65;
+    text-shadow: none;
+}
+
+body.portfolio-refresh #loading .box-holder {
+    position: static;
+    top: auto;
+    left: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body.portfolio-refresh #loading .box-holder .load-box {
+    width: 42px;
+    height: 42px;
+    border-width: 4px;
+    border-color: #fff;
+    top: auto;
+    box-shadow: 0 16px 36px rgba(16, 35, 63, 0.3);
+}
+
+body.portfolio-refresh #loading .box-holder .load-box .box-inner {
+    background: #fff;
+}
+
+body.portfolio-refresh #home .menu {
+    left: -290px;
+    width: 290px;
+    background: transparent;
+    z-index: 1200;
+}
+
+body.portfolio-refresh #home .menu.menu-open {
+    left: 0;
+}
+
+body.portfolio-refresh #home .menu .menu-wrap {
+    width: 290px;
+    height: 100%;
+    padding: 5px 40px 0px;
+    background: rgba(16, 35, 63, 0.93);
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    box-shadow: 18px 0 48px rgba(16, 35, 63, 0.28);
+}
+
+body.portfolio-refresh #home .menu .logo-flat {
+    height: auto;
+    margin: 0 4px 22px;
+    padding: 14px;
+    border-radius: 26px;
+    background: linear-gradient(145deg, rgba(15, 139, 141, 0.9), rgba(79, 124, 255, 0.9));
+}
+
+body.portfolio-refresh #home .menu .logo-flat img {
+    padding: 18px !important;
+    filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.16));
+}
+
+body.portfolio-refresh #home .menu a {
+    margin: 0 4px 8px;
+    padding: 14px 18px;
+    border-radius: 18px;
+    color: rgba(243, 246, 251, 0.82);
+    font-size: 0.78rem;
+    line-height: 1.2;
+    letter-spacing: 0.12em;
+    background: transparent;
+}
+
+body.portfolio-refresh #home .menu a:hover,
+body.portfolio-refresh #home .menu a:focus {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateX(6px);
+}
+
+body.portfolio-refresh #home .menu i {
+    padding: 0;
+    margin-right: 10px;
+    color: rgba(243, 246, 251, 0.74);
+}
+
+body.portfolio-refresh #home #menuToggle {
+    top: 24px;
+    right: -84px;
+    width: 58px;
+    border: 0;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.76);
+    box-shadow: 0 18px 40px rgba(16, 35, 63, 0.18);
+    backdrop-filter: blur(20px);
+}
+
+body.portfolio-refresh #home #menuToggle:hover {
+    background: rgba(255, 255, 255, 0.92);
+    transform: translateY(-2px);
+}
+
+body.portfolio-refresh #home #menuToggle .toggle-normal i {
+    color: var(--accent) !important;
+}
+
+body.portfolio-refresh #home .header-background {
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    padding: clamp(6rem, 9vw, 7.5rem) 0 5rem;
+    background:
+        linear-gradient(125deg, rgba(16, 35, 63, 0.78), rgba(15, 139, 141, 0.36)),
+        url("../images/2.jpg") center/cover no-repeat;
+    border-radius: 0 0 44px 44px;
+    overflow: hidden;
+}
+
+body.portfolio-refresh #home .header-background::before,
+body.portfolio-refresh #home .header-background::after {
+    content: "";
+    position: absolute;
+    border-radius: 999px;
+    pointer-events: none;
+}
+
+body.portfolio-refresh #home .header-background::before {
+    width: 26rem;
+    height: 26rem;
+    top: -10rem;
+    right: -4rem;
+    background: rgba(79, 124, 255, 0.16);
+    filter: blur(10px);
+}
+
+body.portfolio-refresh #home .header-background::after {
+    width: 16rem;
+    height: 16rem;
+    left: -4rem;
+    bottom: -6rem;
+    background: rgba(255, 255, 255, 0.08);
+    animation: floatAura 12s ease-in-out infinite;
+}
+
+body.portfolio-refresh #home .header-background #v-card-holder {
+    position: relative;
+    top: auto;
+    height: auto;
+    z-index: 1;
+}
+
+body.portfolio-refresh #home .header-background #v-card-holder #v-card {
+    display: grid;
+    grid-template-columns: minmax(320px, 38%) 1fr;
+    align-items: stretch;
+    height: auto !important;
+    min-height: 0;
+    margin: 0;
+    background: rgba(255, 252, 247, 0.94);
+    backdrop-filter: blur(18px);
+    border-radius: 36px;
+    overflow: hidden;
+}
+
+body.portfolio-refresh #home .header-background #v-card-holder #v-card #profile {
+    position: relative;
+    right: auto;
+    float: none !important;
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    min-height: clamp(420px, 42vw, 620px);
+    height: 100%;
+    overflow: hidden;
+    align-self: stretch;
+    justify-self: stretch;
+    background:
+        linear-gradient(180deg, rgba(16, 35, 63, 0.12), rgba(16, 35, 63, 0.28)),
+        linear-gradient(135deg, rgba(15, 139, 141, 0.3), rgba(79, 124, 255, 0.18));
+}
+
+body.portfolio-refresh #home .header-background #v-card-holder #v-card #profile::after {
+    display: none;
+}
+
+body.portfolio-refresh #home .header-background #v-card-holder #v-card #profile img {
+    display: block;
+    flex: 1 1 auto;
+    width: 100% !important;
+    max-width: none;
+    min-height: 100%;
+    height: 100% !important;
+    object-fit: cover;
+    object-position: center 14%;
+}
+
+body.portfolio-refresh #home .header-background #v-card-holder #v-card #profile .slant {
+    display: none;
+}
+
+body.portfolio-refresh #home .header-background #v-card-holder #v-card #profile .add-btn {
+    display: none;
+}
+
+body.portfolio-refresh #home .header-background #v-card-holder #v-card #profile .add-btn i {
+    color: #fff;
+    font-size: 30px;
+    padding-bottom: 0;
+}
+
+body.portfolio-refresh #home .header-background #v-card-holder #v-card .card-content {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 1.6rem;
+    padding: clamp(2rem, 3.2vw, 3.4rem) !important;
+}
+
+body.portfolio-refresh #home .header-background #v-card-holder #v-card .info-headings {
+    max-width: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    position: relative;
+}
+
+body.portfolio-refresh #home .header-background #v-card-holder #v-card .info-headings::before {
+    content: "FullStack Software Engineer";
+    display: inline-flex;
+    align-items: center;
+    padding: 0.62rem 1rem;
+    margin-bottom: 1.4rem;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(15, 139, 141, 0.12), rgba(79, 124, 255, 0.12));
+    border: 1px solid rgba(15, 139, 141, 0.14);
+    color: var(--accent);
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+body.portfolio-refresh #home .header-background #v-card-holder #v-card .info-headings .hero-name {
+    display: block;
+    width: 100%;
+    margin: 0 0 1.2rem;
+    color: var(--text);
+    max-width: none;
+    font-size: clamp(2.7rem, 4.8vw, 4.4rem);
+    line-height: 0.94;
+    letter-spacing: -0.055em;
+    text-shadow: none;
+    text-transform: none !important;
+    white-space: nowrap;
+    background: none;
+    -webkit-text-fill-color: currentColor;
+    filter: none;
+}
+
+body.portfolio-refresh #home .header-background #v-card-holder #v-card .info-headings .hero-name::after {
+    content: "";
+    display: block;
+    width: clamp(92px, 18vw, 156px);
+    height: 0.4rem;
+    margin-top: 0.95rem;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent-strong) 100%);
+    box-shadow: 0 10px 24px rgba(15, 139, 141, 0.14);
+}
+
+body.portfolio-refresh #home .header-background #v-card-holder #v-card .info-headings .hero-role {
+    display: block;
+    width: 100%;
+    position: relative;
+    margin: 0;
+    padding-left: 1.05rem;
+    max-width: 50ch;
+    color: var(--muted);
+    font-size: clamp(0.98rem, 1.35vw, 1.14rem);
+    line-height: 1.6;
+    font-weight: 600;
+    text-shadow: none;
+    text-transform: none !important;
+    letter-spacing: -0.01em;
+    white-space: normal;
+    text-wrap: balance;
+}
+
+body.portfolio-refresh #home .header-background #v-card-holder #v-card .info-headings .hero-role::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.72rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+    box-shadow: 0 0 0 6px rgba(15, 139, 141, 0.08);
+}
+
+body.portfolio-refresh #home .header-background #v-card-holder #v-card .infos {
+    max-width: none;
+    margin-top: 0;
+}
+
+body.portfolio-refresh #home .header-background #v-card-holder #v-card .infos .profile-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body.portfolio-refresh #home .header-background #v-card-holder #v-card .infos .profile-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    min-height: 0;
+    padding: 18px 20px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(16, 35, 63, 0.08);
+    box-shadow: 0 14px 30px rgba(16, 35, 63, 0.08);
+}
+
+body.portfolio-refresh #home .header-background #v-card-holder #v-card .infos .profile-list .title {
+    float: none;
+    color: var(--accent);
+    line-height: 1;
+}
+
+body.portfolio-refresh #home .header-background #v-card-holder #v-card .infos .profile-list .title i {
+    font-size: 1.4rem;
+}
+
+body.portfolio-refresh #home .header-background #v-card-holder #v-card .infos .profile-list .content {
+    margin-left: 0;
+    color: var(--text);
+    font-size: 1.08rem;
+    font-weight: 700;
+    line-height: 1.45;
+    word-break: break-word;
+}
+
+body.portfolio-refresh #home .header-background #v-card-holder #v-card .infos .profile-list .content a {
+    color: inherit;
+}
+
+body.portfolio-refresh #home .header-background #v-card-holder #v-card .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    max-width: none;
+    height: auto;
+    margin: 0.2rem 0 0;
+    padding-top: 0.2rem;
+}
+
+body.portfolio-refresh #home .header-background #v-card-holder #v-card .links .social {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 54px;
+    height: 54px;
+    margin: 0;
+    border-radius: 18px;
+    background: var(--surface-dark) !important;
+    box-shadow: 0 18px 36px rgba(16, 35, 63, 0.18);
+}
+
+body.portfolio-refresh #home .header-background #v-card-holder #v-card .links .social:hover {
+    transform: translateY(-4px);
+    background: linear-gradient(135deg, var(--accent), var(--accent-strong)) !important;
+}
+
+body.portfolio-refresh #home .header-background #v-card-holder #v-card .links .social i {
+    padding-bottom: 0;
+    color: #fff;
+    font-size: 1.15rem;
+}
+
+body.portfolio-refresh #about {
+    margin-top: 0;
+    padding-top: 88px;
+}
+
+body.portfolio-refresh #about-card {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at top right, rgba(79, 124, 255, 0.08), transparent 26%),
+        radial-gradient(circle at bottom left, rgba(15, 139, 141, 0.08), transparent 28%),
+        rgba(255, 253, 248, 0.94);
+}
+
+body.portfolio-refresh #about-card::before {
+    content: "";
+    position: absolute;
+    inset: 24px auto auto 24px;
+    width: 92px;
+    height: 92px;
+    border-radius: 26px;
+    border: 1px solid rgba(16, 35, 63, 0.08);
+    background: rgba(255, 255, 255, 0.45);
+    transform: rotate(10deg);
+}
+
+body.portfolio-refresh #about-card .card-content {
+    position: relative;
+    display: grid;
+    gap: 28px;
+}
+
+body.portfolio-refresh #about-card p {
+    margin: 0;
+    text-align: left;
+}
+
+body.portfolio-refresh #about-card .about-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.18fr) minmax(0, 0.82fr);
+    gap: 22px;
+    align-items: start;
+}
+
+body.portfolio-refresh #about-card .about-panel {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: auto;
+    padding: 30px;
+    border-radius: 28px;
+    border: 1px solid rgba(16, 35, 63, 0.08);
+    background: rgba(255, 255, 255, 0.74);
+    box-shadow: 0 18px 40px rgba(16, 35, 63, 0.08);
+}
+
+body.portfolio-refresh #about-card .about-signature {
+    isolation: isolate;
+    background:
+        linear-gradient(145deg, rgba(15, 139, 141, 0.08), rgba(79, 124, 255, 0.08)),
+        rgba(255, 255, 255, 0.9);
+}
+
+body.portfolio-refresh #about-card .about-signature::after {
+    content: "";
+    position: absolute;
+    right: -44px;
+    bottom: -52px;
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(79, 124, 255, 0.2), transparent 68%);
+    z-index: 0;
+}
+
+body.portfolio-refresh #about-card .about-signature > * {
+    position: relative;
+    z-index: 1;
+}
+
+body.portfolio-refresh #about-card .about-kicker {
+    align-self: flex-start;
+    align-items: center;
+    width: fit-content;
+    padding: 0.58rem 0.9rem;
+    margin-bottom: 1.2rem;
+    border-radius: 999px;
+    background: rgba(16, 35, 63, 0.06);
+    color: var(--accent);
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+body.portfolio-refresh #about-card .about-title {
+    margin: 0 0 1rem;
+    max-width: none;
+    color: var(--text);
+    font-size: clamp(1.42rem, 1.9vw, 1.92rem);
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+    font-weight: 700;
+    text-wrap: pretty;
+}
+
+body.portfolio-refresh #about-card .about-lead {
+    max-width: 80ch;
+    color: #415b79;
+    font-size: 0.98rem;
+    line-height: 1.78;
+    font-weight: 500;
+}
+
+body.portfolio-refresh #about-card .about-note {
+    margin: 1.45rem 0 0;
+    padding: 1rem 1.1rem;
+    border-radius: 24px;
+    border: 1px solid rgba(16, 35, 63, 0.08);
+    background: rgba(255, 255, 255, 0.66);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+body.portfolio-refresh #about-card .about-note strong {
+    display: block;
+    margin-bottom: 0.45rem;
+    color: var(--text);
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+body.portfolio-refresh #about-card .about-note p {
+    color: #4d6480;
+    font-size: 0.92rem;
+    line-height: 1.72;
+}
+
+body.portfolio-refresh #about-card .about-story {
+    position: relative;
+    justify-content: space-between;
+    gap: 22px;
+}
+
+body.portfolio-refresh #about-card .about-story p {
+    color: #506880;
+    font-size: 0.94rem;
+    line-height: 1.82;
+    white-space: pre-line;
+}
+
+body.portfolio-refresh #about-card .about-path {
+    display: grid;
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body.portfolio-refresh #about-card .about-path li {
+    position: relative;
+    padding: 1rem 1rem 1rem 3rem;
+    border-radius: 22px;
+    border: 1px solid rgba(16, 35, 63, 0.07);
+    background: rgba(16, 35, 63, 0.035);
+    color: #4d6480;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    font-weight: 600;
+}
+
+body.portfolio-refresh #about-card .about-path li::before {
+    content: "";
+    position: absolute;
+    top: 1.18rem;
+    left: 1rem;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+    box-shadow: 0 0 0 6px rgba(79, 124, 255, 0.08);
+}
+
+body.portfolio-refresh #about-card .about-path li strong {
+    display: block;
+    margin-bottom: 0.28rem;
+    color: var(--text);
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+body.portfolio-refresh #about-card .about-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 1.2rem;
+}
+
+body.portfolio-refresh #about-card .about-tags span {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.62rem 0.92rem;
+    border-radius: 999px;
+    background: rgba(15, 139, 141, 0.08);
+    color: var(--text);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+}
+
+body.portfolio-refresh #about-card .about-highlights {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+}
+
+body.portfolio-refresh #about-card .about-highlight {
+    position: relative;
+    padding: 22px 20px 20px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.82);
+    border: 1px solid rgba(16, 35, 63, 0.08);
+    box-shadow: 0 16px 36px rgba(16, 35, 63, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.portfolio-refresh #about-card .about-highlight:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 22px 42px rgba(16, 35, 63, 0.12);
+}
+
+body.portfolio-refresh #about-card .about-highlight i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    margin-bottom: 1rem;
+    border-radius: 18px;
+    color: #fff;
+    background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+    box-shadow: 0 14px 30px rgba(15, 139, 141, 0.2);
+}
+
+body.portfolio-refresh #about-card .about-highlight h6 {
+    margin: 0 0 0.7rem;
+    color: var(--text);
+    font-size: 0.96rem;
+    letter-spacing: -0.02em;
+}
+
+body.portfolio-refresh #about-card .about-highlight p {
+    color: var(--muted);
+    font-size: 0.88rem;
+    line-height: 1.68;
+}
+
+body.portfolio-refresh #about-btn {
+    padding: 0 0 2.5rem;
+    border-top: 1px solid var(--line);
+    background: transparent;
+}
+
+body.portfolio-refresh #about .about-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 1.6rem 2rem 0;
+}
+
+body.portfolio-refresh #about .about-cta {
+    max-width: 80ch;
+    color: var(--muted);
+    font-size: 0.98rem;
+    line-height: 1.8;
+}
+
+body.portfolio-refresh #about .about-btn .btn {
+    width: auto;
+    min-width: 220px;
+    margin: 0;
+}
+
+body.portfolio-refresh #timeline-education,
+body.portfolio-refresh #timeline-experience {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-left: 0;
+}
+
+body.portfolio-refresh #timeline-education {
+    max-width: 900px;
+    margin: 0 auto;
+    --education-stack-gap: 1.1rem;
+    --education-dot-size: 52px;
+    --education-dot-top: 18px;
+    --education-rail-width: 4px;
+    --education-connector-gap: 4px;
+    gap: var(--education-stack-gap);
+}
+
+body.portfolio-refresh #timeline-education::before {
+    display: none;
+}
+
+body.portfolio-refresh #timeline-education::before,
+body.portfolio-refresh #timeline-experience::before {
+    content: "";
+    position: absolute;
+    top: 8px;
+    bottom: 8px;
+    left: 24px;
+    width: 2px;
+    background: linear-gradient(180deg, rgba(15, 139, 141, 0.18), rgba(79, 124, 255, 0.48), rgba(15, 139, 141, 0.18));
+}
+
+body.portfolio-refresh .timeline-block {
+    margin: 0 !important;
+    padding-left: 4.5rem;
+}
+
+body.portfolio-refresh #education .timeline-block {
+    padding-left: 4.35rem;
+}
+
+body.portfolio-refresh #education .timeline-block:not(:last-child)::before {
+    content: "";
+    position: absolute;
+    top: calc(var(--education-dot-top) + var(--education-dot-size) + var(--education-connector-gap));
+    bottom: calc(-1 * (var(--education-stack-gap) + var(--education-dot-top) - var(--education-connector-gap)));
+    left: calc((var(--education-dot-size) - var(--education-rail-width)) / 2);
+    width: var(--education-rail-width);
+    border-radius: 999px;
+    opacity: 0.95;
+    background: linear-gradient(
+        180deg,
+        rgba(79, 124, 255, 0.06) 0%,
+        rgba(15, 139, 141, 0.42) 18%,
+        rgba(79, 124, 255, 0.62) 52%,
+        rgba(15, 139, 141, 0.34) 82%,
+        rgba(79, 124, 255, 0.06) 100%
+    );
+    box-shadow:
+        0 0 0 4px rgba(79, 124, 255, 0.05),
+        0 0 18px rgba(79, 124, 255, 0.1);
+}
+
+body.portfolio-refresh .timeline-block::after,
+body.portfolio-refresh .timeline-block .timeline-content::before,
+body.portfolio-refresh .timeline-block .timeline-content::after {
+    display: none;
+}
+
+body.portfolio-refresh .timeline-block .timeline-dot {
+    top: 24px;
+    left: 0;
+    right: auto;
+    width: 48px;
+    height: 48px;
+    color: #fff;
+    border: 4px solid rgba(255, 255, 255, 0.75);
+    background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+    box-shadow: 0 18px 34px rgba(16, 35, 63, 0.18);
+}
+
+body.portfolio-refresh .timeline-block .timeline-dot i {
+    margin-top: 11px;
+    font-size: 1.1rem;
+    text-shadow: none;
+}
+
+body.portfolio-refresh .timeline-block .timeline-content {
+    margin: 0 !important;
+    border-left: 0 !important;
+    border-radius: 26px;
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid rgba(16, 35, 63, 0.08);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+}
+
+body.portfolio-refresh #education .timeline-block .timeline-content {
+    width: 100%;
+    float: none !important;
+    position: relative;
+    background:
+        radial-gradient(circle at top right, rgba(79, 124, 255, 0.1), transparent 28%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(247, 250, 255, 0.9));
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+body.portfolio-refresh #education .timeline-block .timeline-content:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 28px 56px rgba(16, 35, 63, 0.14);
+}
+
+body.portfolio-refresh #education .timeline-block .timeline-dot {
+    top: 18px;
+    left: 0;
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1b9ca0, #4f7cff);
+    box-shadow:
+        0 18px 34px rgba(16, 35, 63, 0.18),
+        0 0 0 8px rgba(255, 255, 255, 0.52);
+}
+
+body.portfolio-refresh #education .timeline-block .timeline-dot::before {
+    content: "";
+    position: absolute;
+    inset: 6px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.34);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.02));
+}
+
+body.portfolio-refresh #education .timeline-block .timeline-dot i {
+    position: relative;
+    z-index: 1;
+    margin-top: 0;
+    font-size: 1rem;
+    line-height: 1;
+    transform: translateY(-1px);
+}
+
+body.portfolio-refresh #education .timeline-block .timeline-content::before {
+    content: "";
+    display: block;
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-strong), rgba(79, 124, 255, 0));
+    opacity: 0.9;
+}
+
+body.portfolio-refresh #education .timeline-block:nth-child(2) .timeline-content {
+    background:
+        radial-gradient(circle at bottom left, rgba(15, 139, 141, 0.11), transparent 28%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(250, 249, 255, 0.9));
+}
+
+body.portfolio-refresh #education .timeline-block:nth-child(2) .timeline-content::before {
+    background: linear-gradient(90deg, var(--accent-strong), var(--accent), rgba(15, 139, 141, 0));
+}
+
+body.portfolio-refresh .timeline-block .card-content {
+    padding: 1.75rem !important;
+}
+
+body.portfolio-refresh .timeline-block .timeline-content .timeline-title {
+    margin: 0 0 0.85rem;
+    color: var(--text);
+    font-size: 1.3rem;
+    line-height: 1.35;
+    letter-spacing: -0.03em;
+}
+
+body.portfolio-refresh #education .timeline-title {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.65rem;
+}
+
+body.portfolio-refresh #education .timeline-school-short {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.28rem 0.55rem;
+    border-radius: 999px;
+    background: rgba(79, 124, 255, 0.12);
+    color: var(--accent-strong);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+body.portfolio-refresh #education .timeline-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 0.8rem;
+}
+
+body.portfolio-refresh #education .timeline-info h6,
+body.portfolio-refresh #experience .timeline-info h6 {
+    margin: 0;
+}
+
+body.portfolio-refresh #education .timeline-info h6 small,
+body.portfolio-refresh #experience .timeline-info h6:first-child small {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    padding: 0.45rem 0.8rem;
+    border-radius: 999px;
+    background: rgba(15, 139, 141, 0.1);
+    color: var(--accent);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+body.portfolio-refresh #education .timeline-badge {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    margin-bottom: 0.9rem;
+    padding: 0.48rem 0.82rem;
+    border-radius: 999px;
+    background: rgba(16, 35, 63, 0.06);
+    color: var(--text);
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+body.portfolio-refresh #education .education-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(230px, 0.8fr);
+    gap: 1.1rem;
+    align-items: start;
+}
+
+body.portfolio-refresh #education .education-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 0.95rem;
+}
+
+body.portfolio-refresh #education .education-copy p {
+    margin: 0;
+    max-width: 58ch;
+}
+
+body.portfolio-refresh #education .education-aside {
+    position: relative;
+    padding: 1rem 1.05rem;
+    border-radius: 22px;
+    border: 1px solid rgba(16, 35, 63, 0.08);
+    background: rgba(16, 35, 63, 0.035);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.76);
+}
+
+body.portfolio-refresh #education .education-label {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 0.85rem;
+    color: var(--accent-strong);
+    font-size: 0.73rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+body.portfolio-refresh #education .education-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+body.portfolio-refresh #education .education-tags span {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.55rem 0.82rem;
+    border-radius: 999px;
+    border: 1px solid rgba(16, 35, 63, 0.08);
+    background: rgba(255, 255, 255, 0.92);
+    color: var(--text);
+    font-size: 0.77rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    box-shadow: 0 10px 24px rgba(16, 35, 63, 0.05);
+}
+
+body.portfolio-refresh #experience .container {
+    display: grid;
+    gap: 1.4rem;
+}
+
+body.portfolio-refresh #experience .section-title {
+    margin-bottom: 0;
+}
+
+body.portfolio-refresh #experience .experience-intro {
+    position: relative;
+    overflow: hidden;
+    border-radius: 32px;
+    background:
+        radial-gradient(circle at left top, rgba(79, 124, 255, 0.14), transparent 26%),
+        radial-gradient(circle at right 18%, rgba(15, 139, 141, 0.14), transparent 24%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(246, 249, 255, 0.95));
+    border: 1px solid rgba(255, 255, 255, 0.74);
+}
+
+body.portfolio-refresh #experience .experience-intro::before,
+body.portfolio-refresh #experience .experience-intro::after {
+    content: "";
+    position: absolute;
+    border-radius: 999px;
+    pointer-events: none;
+    filter: blur(14px);
+}
+
+body.portfolio-refresh #experience .experience-intro::before {
+    width: 16rem;
+    height: 16rem;
+    top: -7rem;
+    right: -4rem;
+    background: rgba(79, 124, 255, 0.14);
+}
+
+body.portfolio-refresh #experience .experience-intro::after {
+    width: 12rem;
+    height: 12rem;
+    left: -3rem;
+    bottom: -5rem;
+    background: rgba(15, 139, 141, 0.14);
+}
+
+body.portfolio-refresh #experience .experience-intro .card-content {
+    position: relative;
+    display: grid;
+    gap: 1.15rem;
+    padding: clamp(1.45rem, 2.8vw, 2rem) !important;
+}
+
+body.portfolio-refresh #experience .experience-intro-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.22fr) minmax(280px, 0.78fr);
+    gap: 1.2rem;
+    align-items: start;
+}
+
+body.portfolio-refresh #experience .experience-intro-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+body.portfolio-refresh #experience .experience-kicker {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    padding: 0.5rem 0.88rem;
+    border-radius: 999px;
+    background: rgba(16, 35, 63, 0.06);
+    color: var(--accent);
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+body.portfolio-refresh #experience .experience-heading {
+    margin: 0;
+    max-width: 21ch;
+    color: var(--text);
+    font-size: clamp(1.9rem, 3.1vw, 2.7rem);
+    line-height: 1.02;
+    letter-spacing: -0.045em;
+    text-wrap: balance;
+}
+
+body.portfolio-refresh #experience .experience-lead {
+    margin: 0;
+    max-width: 62ch;
+    font-size: 1rem;
+    line-height: 1.82;
+}
+
+body.portfolio-refresh #experience .experience-signals {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+}
+
+body.portfolio-refresh #experience .experience-signals span {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.54rem 0.84rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.86);
+    border: 1px solid rgba(16, 35, 63, 0.08);
+    color: var(--text);
+    font-size: 0.77rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    box-shadow: 0 10px 20px rgba(16, 35, 63, 0.05);
+}
+
+body.portfolio-refresh #experience .experience-metrics {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.8rem;
+}
+
+body.portfolio-refresh #experience .experience-metric {
+    position: relative;
+    overflow: hidden;
+    min-height: 112px;
+    padding: 1rem 1rem 1.15rem;
+    border-radius: 22px;
+    border: 1px solid rgba(16, 35, 63, 0.08);
+    background: rgba(255, 255, 255, 0.76);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.82),
+        0 16px 28px rgba(16, 35, 63, 0.06);
+}
+
+body.portfolio-refresh #experience .experience-metric::before {
+    content: "";
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-strong), rgba(79, 124, 255, 0));
+    opacity: 0.88;
+}
+
+body.portfolio-refresh #experience .experience-metric strong {
+    display: block;
+    margin-bottom: 0.38rem;
+    color: var(--text);
+    font-family: "Sora", sans-serif;
+    font-size: 1.22rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+}
+
+body.portfolio-refresh #experience .experience-metric span {
+    display: block;
+    margin-bottom: 0.32rem;
+    color: var(--text);
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+body.portfolio-refresh #experience .experience-metric small {
+    display: block;
+    color: var(--muted);
+    font-size: 0.82rem;
+    line-height: 1.55;
+}
+
+body.portfolio-refresh #timeline-experience {
+    max-width: 1040px;
+    margin: 0 auto;
+    --experience-stack-gap: 1.2rem;
+    --experience-dot-size: 56px;
+    --experience-dot-top: 18px;
+    --experience-rail-width: 3px;
+    --experience-connector-gap: 8px;
+    gap: var(--experience-stack-gap);
+}
+
+body.portfolio-refresh #timeline-experience::before {
+    display: none;
+}
+
+body.portfolio-refresh #experience .timeline-block {
+    padding-left: 5rem;
+}
+
+body.portfolio-refresh #experience .timeline-block:not(:last-child)::before {
+    content: "";
+    position: absolute;
+    top: calc(var(--experience-dot-top) + var(--experience-dot-size) + var(--experience-connector-gap));
+    bottom: calc(-1 * (var(--experience-stack-gap) + var(--experience-dot-top) - var(--experience-connector-gap)));
+    left: calc((var(--experience-dot-size) - var(--experience-rail-width)) / 2);
+    width: var(--experience-rail-width);
+    border-radius: 999px;
+    background: linear-gradient(
+        180deg,
+        rgba(16, 35, 63, 0.08) 0%,
+        rgba(79, 124, 255, 0.64) 34%,
+        rgba(15, 139, 141, 0.34) 68%,
+        rgba(16, 35, 63, 0.08) 100%
+    );
+    box-shadow:
+        0 0 0 4px rgba(79, 124, 255, 0.04),
+        0 0 14px rgba(79, 124, 255, 0.08);
+}
+
+body.portfolio-refresh #experience .timeline-block .timeline-dot {
+    top: var(--experience-dot-top);
+    width: var(--experience-dot-size);
+    height: var(--experience-dot-size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #10233f 0%, #4f7cff 58%, #1aa2a4 100%);
+    box-shadow:
+        0 18px 34px rgba(16, 35, 63, 0.18),
+        0 0 0 8px rgba(255, 255, 255, 0.54);
+}
+
+body.portfolio-refresh #experience .timeline-block .timeline-dot::before {
+    content: "";
+    position: absolute;
+    inset: 6px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.32);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.02));
+}
+
+body.portfolio-refresh #experience .timeline-block .timeline-dot i {
+    position: relative;
+    z-index: 1;
+    margin-top: 0;
+    font-size: 0.98rem;
+    line-height: 1;
+    transform: translateY(-1px);
+}
+
+body.portfolio-refresh #experience .timeline-block .timeline-content {
+    width: 100%;
+    float: none !important;
+    position: relative;
+    background:
+        radial-gradient(circle at top right, rgba(79, 124, 255, 0.12), transparent 30%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.97), rgba(247, 250, 255, 0.92));
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+body.portfolio-refresh #experience .timeline-block .timeline-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 30px 56px rgba(16, 35, 63, 0.14);
+}
+
+body.portfolio-refresh #experience .timeline-block .timeline-content::before {
+    content: "";
+    display: block;
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 4px;
+    background: linear-gradient(90deg, #10233f, var(--accent-strong), var(--accent), rgba(15, 139, 141, 0));
+    opacity: 0.95;
+}
+
+body.portfolio-refresh #experience .timeline-block:nth-child(2) .timeline-content {
+    background:
+        radial-gradient(circle at bottom left, rgba(15, 139, 141, 0.12), transparent 28%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.97), rgba(249, 251, 255, 0.92));
+}
+
+body.portfolio-refresh #experience .timeline-block:nth-child(2) .timeline-content::before {
+    background: linear-gradient(90deg, var(--accent), var(--accent-strong), rgba(79, 124, 255, 0));
+}
+
+body.portfolio-refresh #experience .timeline-block:nth-child(3) .timeline-content::before {
+    background: linear-gradient(90deg, var(--accent-strong), #87b8ff, rgba(79, 124, 255, 0));
+}
+
+body.portfolio-refresh #experience .timeline-block:nth-child(4) .timeline-content::before {
+    background: linear-gradient(90deg, #10233f, #1b9ca0, rgba(15, 139, 141, 0));
+}
+
+body.portfolio-refresh #experience .timeline-block .card-content {
+    display: grid;
+    gap: 1.2rem;
+    padding: clamp(1.45rem, 2.8vw, 1.9rem) !important;
+}
+
+body.portfolio-refresh #experience .experience-card-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+body.portfolio-refresh #experience .experience-card-heading {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    min-width: 0;
+}
+
+body.portfolio-refresh #experience .experience-role {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    padding: 0.42rem 0.76rem;
+    border-radius: 999px;
+    background: rgba(79, 124, 255, 0.1);
+    color: var(--accent-strong);
+    font-size: 0.73rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+body.portfolio-refresh #experience .timeline-title {
+    margin: 0;
+    max-width: 20ch;
+    color: var(--text);
+    font-size: clamp(1.28rem, 1.85vw, 1.72rem);
+    line-height: 1.16;
+    letter-spacing: -0.04em;
+    text-wrap: balance;
+}
+
+body.portfolio-refresh #experience .experience-period {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    padding: 0.55rem 0.86rem;
+    border-radius: 999px;
+    border: 1px solid rgba(79, 124, 255, 0.15);
+    background: rgba(255, 255, 255, 0.74);
+    color: var(--accent-strong);
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+body.portfolio-refresh #experience .experience-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.38fr) minmax(240px, 0.82fr);
+    gap: 1.15rem;
+    align-items: start;
+}
+
+body.portfolio-refresh #experience .experience-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-width: 0;
+}
+
+body.portfolio-refresh #experience .experience-summary {
+    margin: 0;
+    max-width: 60ch;
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.82;
+}
+
+body.portfolio-refresh #experience .experience-points {
+    display: grid;
+    gap: 0.72rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body.portfolio-refresh #experience .experience-points li {
+    position: relative;
+    padding-left: 1.15rem;
+    color: var(--text);
+    font-size: 0.94rem;
+    line-height: 1.72;
+}
+
+body.portfolio-refresh #experience .experience-points li::before {
+    content: "";
+    position: absolute;
+    top: 0.72em;
+    left: 0;
+    width: 0.46rem;
+    height: 0.46rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+    box-shadow: 0 0 0 4px rgba(79, 124, 255, 0.08);
+}
+
+body.portfolio-refresh #experience .experience-side {
+    position: relative;
+    padding: 1rem 1.05rem;
+    border-radius: 24px;
+    border: 1px solid rgba(16, 35, 63, 0.08);
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(247, 250, 255, 0.72));
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+body.portfolio-refresh #experience .experience-side-label {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 0.85rem;
+    color: var(--accent);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+body.portfolio-refresh #experience .experience-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.58rem;
+}
+
+body.portfolio-refresh #experience .experience-tags span {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.54rem 0.8rem;
+    border-radius: 999px;
+    border: 1px solid rgba(16, 35, 63, 0.08);
+    background: rgba(255, 255, 255, 0.92);
+    color: var(--text);
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    box-shadow: 0 10px 22px rgba(16, 35, 63, 0.05);
+}
+
+body.portfolio-refresh .timeline-block .card-content p {
+    color: var(--muted);
+    font-size: 0.98rem;
+    line-height: 1.8;
+}
+
+body.portfolio-refresh #skills-card {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at top left, rgba(79, 124, 255, 0.14), transparent 22%),
+        radial-gradient(circle at right 18%, rgba(15, 139, 141, 0.12), transparent 24%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(246, 250, 255, 0.96));
+    border: 1px solid rgba(255, 255, 255, 0.72);
+}
+
+body.portfolio-refresh #skills-card::before,
+body.portfolio-refresh #skills-card::after {
+    content: "";
+    position: absolute;
+    border-radius: 999px;
+    pointer-events: none;
+    filter: blur(12px);
+}
+
+body.portfolio-refresh #skills-card::before {
+    width: 14rem;
+    height: 14rem;
+    top: -6rem;
+    right: -4rem;
+    background: rgba(79, 124, 255, 0.12);
+}
+
+body.portfolio-refresh #skills-card::after {
+    width: 11rem;
+    height: 11rem;
+    left: -3rem;
+    bottom: -4rem;
+    background: rgba(15, 139, 141, 0.12);
+}
+
+body.portfolio-refresh #skills-card .card-content {
+    position: relative;
+    display: grid;
+    gap: 1.4rem;
+    padding: clamp(1.35rem, 2.6vw, 2rem) !important;
+}
+
+body.portfolio-refresh #skills-card br {
+    display: none;
+}
+
+body.portfolio-refresh #skills-card .skills-intro {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1.26fr) auto;
+    gap: 1.15rem;
+    align-items: center;
+    padding: 1.2rem 1.25rem;
+    border-radius: 32px;
+    border: 1px solid rgba(16, 35, 63, 0.08);
+    background:
+        radial-gradient(circle at top right, rgba(79, 124, 255, 0.1), transparent 26%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.74), rgba(247, 251, 255, 0.96));
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.78),
+        0 16px 36px rgba(16, 35, 63, 0.06);
+}
+
+body.portfolio-refresh #skills-card .skills-intro-copy {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    max-width: 72ch;
+}
+
+body.portfolio-refresh #skills-card .skills-kicker {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    padding: 0.5rem 0.82rem;
+    margin-bottom: 0.95rem;
+    border-radius: 999px;
+    background: rgba(16, 35, 63, 0.06);
+    color: var(--accent);
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+body.portfolio-refresh #skills-card .skills-heading {
+    margin: 0;
+    max-width: 50ch;
+    color: var(--text);
+    font-size: clamp(1.28rem, 1.72vw, 1.72rem);
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+    text-wrap: pretty;
+}
+
+body.portfolio-refresh #skills-card .skills-lead {
+    margin: 0;
+    max-width: 62ch;
+    color: #4f6786;
+    font-size: 0.98rem;
+    line-height: 1.82;
+}
+
+body.portfolio-refresh #skills-card .skills-signals {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+body.portfolio-refresh #skills-card .skills-signals span {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.52rem 0.78rem;
+    border-radius: 999px;
+    border: 1px solid rgba(16, 35, 63, 0.08);
+    background: rgba(255, 255, 255, 0.82);
+    color: var(--text);
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    box-shadow: 0 8px 18px rgba(16, 35, 63, 0.05);
+}
+
+body.portfolio-refresh #skills-card .skills-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(116px, 1fr));
+    gap: 0.85rem;
+    align-self: center;
+}
+
+body.portfolio-refresh #skills-card .skills-metric {
+    position: relative;
+    overflow: hidden;
+    min-width: 0;
+    padding: 1rem 1.05rem;
+    border-radius: 22px;
+    border: 1px solid rgba(16, 35, 63, 0.08);
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(242, 247, 255, 0.94)),
+        rgba(16, 35, 63, 0.05);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+body.portfolio-refresh #skills-card .skills-metric::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--metric-accent, var(--accent)), transparent);
+}
+
+body.portfolio-refresh #skills-card .skills-metric::after {
+    content: "";
+    position: absolute;
+    width: 4.8rem;
+    height: 4.8rem;
+    right: -1.4rem;
+    top: -1.5rem;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--metric-accent, var(--accent)) 16%, white);
+}
+
+body.portfolio-refresh #skills-card .skills-metric:nth-child(1) {
+    --metric-accent: #4f7cff;
+}
+
+body.portfolio-refresh #skills-card .skills-metric:nth-child(2) {
+    --metric-accent: #0f8b8d;
+}
+
+body.portfolio-refresh #skills-card .skills-metric:nth-child(3) {
+    --metric-accent: #10233f;
+}
+
+body.portfolio-refresh #skills-card .skills-metric strong {
+    position: relative;
+    z-index: 1;
+    display: block;
+    margin-bottom: 0.35rem;
+    color: var(--text);
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    font-variant-numeric: tabular-nums;
+}
+
+body.portfolio-refresh #skills-card .skills-metric span {
+    position: relative;
+    z-index: 1;
+    display: block;
+    color: var(--muted);
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+body.portfolio-refresh #skills-card .skills-grid {
+    margin: 0 -10px;
+}
+
+body.portfolio-refresh #skills-card .col-md-4,
+body.portfolio-refresh #skills-card .col-sm-4,
+body.portfolio-refresh #skills-card .col-xs-12 {
+    margin-bottom: 0;
+    padding: 10px;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    transition: none;
+}
+
+body.portfolio-refresh #skills-card .col-md-4:hover,
+body.portfolio-refresh #skills-card .col-sm-4:hover,
+body.portfolio-refresh #skills-card .col-xs-12:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+body.portfolio-refresh #skills-card .skills-panel {
+    --panel-accent: var(--accent);
+    --panel-accent-strong: var(--accent-strong);
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    flex-direction: column;
+    gap: 0.95rem;
+    min-height: auto;
+    padding: 1.2rem 1.05rem 1.05rem;
+    overflow: hidden;
+    border-radius: 30px;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.74), rgba(255, 255, 255, 0.94)),
+        rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(16, 35, 63, 0.08);
+    box-shadow: 0 18px 42px rgba(16, 35, 63, 0.1);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+body.portfolio-refresh #skills-card .skills-panel > * {
+    position: relative;
+    z-index: 1;
+}
+
+body.portfolio-refresh #skills-card .skills-panel::before {
+    content: "";
+    position: absolute;
+    top: 0.9rem;
+    left: 1.05rem;
+    width: 7.25rem;
+    height: 4px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--panel-accent), var(--panel-accent-strong));
+    opacity: 0.95;
+    box-shadow: 0 6px 14px color-mix(in srgb, var(--panel-accent-strong) 18%, transparent);
+}
+
+body.portfolio-refresh #skills-card .skills-panel::after {
+    content: "01";
+    position: absolute;
+    top: 0.78rem;
+    right: 1rem;
+    color: color-mix(in srgb, var(--panel-accent-strong) 10%, white);
+    font-family: "Sora", sans-serif;
+    font-size: 3.9rem;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.06em;
+    z-index: 0;
+}
+
+body.portfolio-refresh #skills-card .col-md-4:nth-child(2) .skills-panel,
+body.portfolio-refresh #skills-card .col-sm-4:nth-child(2) .skills-panel {
+    --panel-accent: #2577c9;
+    --panel-accent-strong: #0f8b8d;
+}
+
+body.portfolio-refresh #skills-card .col-md-4:nth-child(3) .skills-panel,
+body.portfolio-refresh #skills-card .col-sm-4:nth-child(3) .skills-panel {
+    --panel-accent: #0f8b8d;
+    --panel-accent-strong: #10233f;
+}
+
+body.portfolio-refresh #skills-card .col-md-4:nth-child(2) .skills-panel::after,
+body.portfolio-refresh #skills-card .col-sm-4:nth-child(2) .skills-panel::after {
+    content: "02";
+}
+
+body.portfolio-refresh #skills-card .col-md-4:nth-child(3) .skills-panel::after,
+body.portfolio-refresh #skills-card .col-sm-4:nth-child(3) .skills-panel::after {
+    content: "03";
+}
+
+body.portfolio-refresh #skills-card .skills-panel:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 50px rgba(16, 35, 63, 0.14);
+}
+
+body.portfolio-refresh #skills-card .skills-panel-head {
+    display: flex;
+    align-items: center;
+    gap: 0.72rem;
+    min-height: 3rem;
+}
+
+body.portfolio-refresh #skills-card .skills-panel-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 15px;
+    background: linear-gradient(135deg, var(--panel-accent), var(--panel-accent-strong));
+    color: #fff;
+    box-shadow: 0 14px 30px color-mix(in srgb, var(--panel-accent-strong) 24%, transparent);
+}
+
+body.portfolio-refresh #skills-card .skills-panel-icon i {
+    font-size: 1rem;
+}
+
+body.portfolio-refresh #skills-card .skills-panel-kicker {
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    width: fit-content;
+    margin-top: 0;
+    padding: 0.46rem 0.74rem;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--panel-accent) 12%, white);
+    color: var(--panel-accent-strong);
+    font-size: 0.73rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+body.portfolio-refresh #skills-card .skills-group {
+    display: grid;
+    gap: 0.7rem;
+    padding: 1rem;
+    border-radius: 24px;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.68), rgba(247, 250, 255, 0.88)),
+        rgba(16, 35, 63, 0.035);
+    border: 1px solid rgba(16, 35, 63, 0.08);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.76);
+}
+
+body.portfolio-refresh #skills-card .skills-group + .skills-group {
+    margin-top: 0;
+}
+
+body.portfolio-refresh #skills-card .skills-title {
+    margin-bottom: 0.8rem;
+}
+
+body.portfolio-refresh #skills-card .skills-title h6 {
+    margin: 0;
+    text-align: left !important;
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text);
+    line-height: 1.4;
+}
+
+body.portfolio-refresh #skills-card .skills-title h6::after {
+    content: "";
+    display: block;
+    width: 2.3rem;
+    height: 3px;
+    margin-top: 0.55rem;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--panel-accent), var(--panel-accent-strong));
+}
+
+body.portfolio-refresh #skills-card .skillbar {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0.9rem 0.95rem 1.9rem;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(16, 35, 63, 0.08);
+    box-shadow: 0 10px 24px rgba(16, 35, 63, 0.05);
+}
+
+body.portfolio-refresh #skills-card .skillbar::before {
+    content: "";
+    position: absolute;
+    left: 1rem;
+    right: 1rem;
+    bottom: 0.9rem;
+    height: 10px;
+    border-radius: 999px;
+    background: rgba(16, 35, 63, 0.08);
+}
+
+body.portfolio-refresh #skills-card .skillbar:last-child {
+    margin-bottom: 0;
+}
+
+body.portfolio-refresh #skills-card .skillbar::after {
+    content: attr(data-percent);
+    position: absolute;
+    top: 0.95rem;
+    right: 1rem;
+    padding: 0.24rem 0.46rem;
+    border-radius: 12px;
+    border: 1px solid color-mix(in srgb, var(--panel-accent-strong) 16%, white);
+    background: rgba(255, 255, 255, 0.88);
+    color: var(--panel-accent-strong);
+    font-family: "Manrope", sans-serif;
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    line-height: 1;
+    box-shadow: 0 6px 14px rgba(16, 35, 63, 0.06);
+    font-variant-numeric: tabular-nums;
+}
+
+body.portfolio-refresh #skills-card .skillbar .skillbar-title {
+    position: relative;
+    top: auto;
+    left: auto;
+    z-index: 1;
+    display: block;
+    width: auto;
+    background: transparent;
+    padding-right: 3.6rem;
+}
+
+body.portfolio-refresh #skills-card .skillbar .skillbar-title span {
+    display: block;
+    padding: 0;
+    margin-top: 0;
+    color: var(--text);
+    font-size: 0.9rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+body.portfolio-refresh #skills-card .skillbar .skillbar-bar {
+    position: absolute;
+    left: 1rem;
+    bottom: 0.9rem;
+    width: 0;
+    max-width: calc(100% - 2rem);
+    height: 10px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--panel-accent), var(--panel-accent-strong));
+    box-shadow: 0 8px 18px color-mix(in srgb, var(--panel-accent-strong) 24%, transparent);
+}
+
+body.portfolio-refresh #blog .section-title span {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.35rem 0.75rem;
+    margin-left: 0.45rem;
+    border-radius: 999px;
+    background: rgba(15, 139, 141, 0.1);
+    color: var(--accent);
+    font-family: "Manrope", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 800;
+}
+
+body.portfolio-refresh #blog {
+    position: relative;
+}
+
+body.portfolio-refresh #blog .container {
+    position: relative;
+    display: grid;
+    gap: 1.5rem;
+}
+
+body.portfolio-refresh #blog .container::before,
+body.portfolio-refresh #blog .container::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    z-index: 0;
+    border-radius: 999px;
+    filter: blur(16px);
+}
+
+body.portfolio-refresh #blog .container::before {
+    width: 16rem;
+    height: 16rem;
+    top: 8rem;
+    left: -5rem;
+    background: rgba(79, 124, 255, 0.1);
+}
+
+body.portfolio-refresh #blog .container::after {
+    width: 13rem;
+    height: 13rem;
+    right: -4rem;
+    bottom: 6rem;
+    background: rgba(15, 139, 141, 0.1);
+}
+
+body.portfolio-refresh #blog .section-title,
+body.portfolio-refresh #blog-card {
+    position: relative;
+    z-index: 1;
+}
+
+body.portfolio-refresh #blog .section-title {
+    margin-bottom: 0;
+}
+
+body.portfolio-refresh #blog-card {
+    margin: 0;
+}
+
+body.portfolio-refresh #blog-card .col-md-12,
+body.portfolio-refresh #blog-card .col-sm-12 {
+    padding: 0;
+}
+
+body.portfolio-refresh #blog .projects-intro {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 1.35rem;
+    border-radius: 34px;
+    background:
+        radial-gradient(circle at top left, rgba(79, 124, 255, 0.18), transparent 24%),
+        radial-gradient(circle at 92% 12%, rgba(15, 139, 141, 0.16), transparent 20%),
+        linear-gradient(145deg, rgba(255, 255, 255, 0.88), rgba(244, 249, 255, 0.96));
+    border: 1px solid rgba(255, 255, 255, 0.76);
+    box-shadow: 0 26px 58px rgba(16, 35, 63, 0.12);
+}
+
+body.portfolio-refresh #blog .projects-intro::before,
+body.portfolio-refresh #blog .projects-intro::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+}
+
+body.portfolio-refresh #blog .projects-intro::before {
+    inset: 18px;
+    border-radius: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+body.portfolio-refresh #blog .projects-intro::after {
+    width: 9rem;
+    height: 9rem;
+    right: -2rem;
+    top: -2rem;
+    border-radius: 28px;
+    background: linear-gradient(135deg, rgba(79, 124, 255, 0.18), rgba(15, 139, 141, 0.06));
+    transform: rotate(18deg);
+}
+
+body.portfolio-refresh #blog .projects-intro .card-content {
+    position: relative;
+    display: grid;
+    gap: 1.25rem;
+    padding: clamp(1.5rem, 3vw, 2.2rem) !important;
+}
+
+body.portfolio-refresh #blog .projects-intro-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(290px, 0.85fr);
+    gap: 1.3rem;
+    align-items: start;
+}
+
+body.portfolio-refresh #blog .projects-intro-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 0.86rem;
+}
+
+body.portfolio-refresh #blog .projects-kicker {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    padding: 0.52rem 0.9rem;
+    border-radius: 999px;
+    background: rgba(16, 35, 63, 0.06);
+    color: var(--accent);
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+body.portfolio-refresh #blog .projects-heading {
+    margin: 0;
+    max-width: 50ch;
+    color: var(--text);
+    font-size: clamp(2rem, 3.2vw, 2.9rem);
+    line-height: 0.98;
+    letter-spacing: -0.05em;
+    text-wrap: balance;
+}
+
+body.portfolio-refresh #blog .projects-lead {
+    margin: 0;
+    max-width: 62ch;
+    font-size: 1rem;
+    line-height: 1.82;
+}
+
+body.portfolio-refresh #blog .projects-signals {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+}
+
+body.portfolio-refresh #blog .projects-signals span {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.55rem 0.84rem;
+    border-radius: 999px;
+    border: 1px solid rgba(16, 35, 63, 0.08);
+    background: rgba(255, 255, 255, 0.92);
+    color: var(--text);
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    box-shadow: 0 10px 22px rgba(16, 35, 63, 0.05);
+}
+
+body.portfolio-refresh #blog .projects-metrics {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.82rem;
+}
+
+body.portfolio-refresh #blog .projects-metric {
+    position: relative;
+    overflow: hidden;
+    min-height: 108px;
+    padding: 1rem 1rem 1.08rem;
+    border-radius: 24px;
+    border: 1px solid rgba(16, 35, 63, 0.08);
+    background: rgba(255, 255, 255, 0.78);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.82),
+        0 16px 30px rgba(16, 35, 63, 0.06);
+}
+
+body.portfolio-refresh #blog .projects-metric::before {
+    content: "";
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-strong), rgba(79, 124, 255, 0));
+    opacity: 0.88;
+}
+
+body.portfolio-refresh #blog .projects-metric:first-child {
+    grid-row: span 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background: linear-gradient(155deg, #10233f, #17375b);
+    border-color: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 22px 44px rgba(16, 35, 63, 0.18);
+}
+
+body.portfolio-refresh #blog .projects-metric:first-child::before {
+    height: 100%;
+    inset: 0;
+    opacity: 1;
+    background:
+        radial-gradient(circle at top right, rgba(79, 124, 255, 0.24), transparent 34%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0));
+}
+
+body.portfolio-refresh #blog .projects-metric strong {
+    position: relative;
+    z-index: 1;
+    display: block;
+    margin-bottom: 0.38rem;
+    color: var(--text);
+    font-family: "Sora", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+}
+
+body.portfolio-refresh #blog .projects-metric:first-child strong {
+    color: #fff;
+    font-size: clamp(2rem, 4vw, 2.7rem);
+    line-height: 0.95;
+}
+
+body.portfolio-refresh #blog .projects-metric span {
+    position: relative;
+    z-index: 1;
+    display: block;
+    color: var(--text);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+body.portfolio-refresh #blog .projects-metric:first-child span {
+    color: rgba(239, 244, 249, 0.82);
+}
+
+body.portfolio-refresh #blog .projects-showcase {
+    position: relative;
+    z-index: 1;
+    counter-reset: project-counter;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    align-items: start;
+}
+
+body.portfolio-refresh #blog .project-card {
+    --project-offset: 0px;
+    counter-increment: project-counter;
+    position: relative;
+    grid-column: span 1;
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: 220px auto;
+    border-radius: 30px;
+    overflow: hidden;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(247, 250, 255, 0.9));
+    border: 1px solid rgba(16, 35, 63, 0.08);
+    box-shadow: var(--shadow-md);
+    transform: translateY(var(--project-offset));
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+body.portfolio-refresh #blog .project-card:hover {
+    transform: translateY(calc(var(--project-offset) - 6px));
+    box-shadow: 0 30px 58px rgba(16, 35, 63, 0.16);
+    border-color: rgba(79, 124, 255, 0.16);
+}
+
+body.portfolio-refresh #blog .project-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 4px;
+    z-index: 3;
+    background: linear-gradient(90deg, var(--accent), var(--accent-strong), rgba(79, 124, 255, 0));
+}
+
+body.portfolio-refresh #blog .project-card::after {
+    content: counter(project-counter, decimal-leading-zero);
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 2;
+    padding: 0.42rem 0.64rem;
+    border-radius: 999px;
+    border: 1px solid rgba(16, 35, 63, 0.08);
+    background: rgba(255, 255, 255, 0.78);
+    color: rgba(16, 35, 63, 0.42);
+    font-family: "Sora", sans-serif;
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    line-height: 1;
+    pointer-events: none;
+}
+
+body.portfolio-refresh #blog .project-card:nth-child(2) {
+    --project-offset: 0px;
+    grid-column: span 1;
+    background:
+        radial-gradient(circle at top right, rgba(79, 124, 255, 0.12), transparent 28%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(242, 248, 255, 0.92));
+}
+
+body.portfolio-refresh #blog .project-card:nth-child(2)::before {
+    background: linear-gradient(90deg, #10233f, var(--accent-strong), rgba(79, 124, 255, 0));
+}
+
+body.portfolio-refresh #blog .project-card:nth-child(3)::before {
+    background: linear-gradient(90deg, var(--accent-strong), #87b8ff, rgba(79, 124, 255, 0));
+}
+
+body.portfolio-refresh #blog .project-card:nth-child(4)::before {
+    background: linear-gradient(90deg, var(--accent), #1fb0b2, rgba(15, 139, 141, 0));
+}
+
+body.portfolio-refresh #blog .project-card:nth-child(5) {
+    --project-offset: 0px;
+    grid-column: span 1;
+}
+
+body.portfolio-refresh #blog .project-card:nth-child(5)::before {
+    background: linear-gradient(90deg, #10233f, #1aa2a4, rgba(15, 139, 141, 0));
+}
+
+body.portfolio-refresh #blog .project-card:nth-child(6) {
+    --project-offset: 0px;
+    grid-column: span 1;
+    grid-template-columns: none;
+    grid-template-rows: 220px auto;
+    min-height: 100%;
+    background:
+        radial-gradient(circle at top right, rgba(15, 139, 141, 0.12), transparent 28%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(244, 250, 249, 0.92));
+}
+
+body.portfolio-refresh #blog .project-card:nth-child(6)::before {
+    background: linear-gradient(90deg, var(--accent-strong), #10233f, rgba(16, 35, 63, 0));
+}
+
+body.portfolio-refresh #blog .project-card-featured {
+    grid-column: span 1;
+    grid-template-columns: none;
+    grid-template-rows: 220px auto;
+    min-height: 100%;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(247, 250, 255, 0.9));
+}
+
+body.portfolio-refresh #blog .project-card-featured .project-body {
+    margin: 0;
+    border-radius: 0;
+    border-left: 0;
+    background: transparent;
+}
+
+body.portfolio-refresh #blog .project-card-featured::before {
+    background: linear-gradient(90deg, var(--accent), var(--accent-strong), rgba(79, 124, 255, 0));
+}
+
+body.portfolio-refresh #blog .project-card-featured::after {
+    background: rgba(255, 255, 255, 0.82);
+    border-color: rgba(16, 35, 63, 0.08);
+    color: rgba(16, 35, 63, 0.42);
+}
+
+body.portfolio-refresh #blog .project-media {
+    position: relative;
+    overflow: hidden;
+    min-height: 100%;
+    isolation: isolate;
+}
+
+body.portfolio-refresh #blog .project-media::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+        linear-gradient(135deg, rgba(79, 124, 255, 0.28), transparent 40%, rgba(15, 139, 141, 0.24)),
+        linear-gradient(180deg, rgba(16, 35, 63, 0.04), rgba(16, 35, 63, 0.18));
+}
+
+body.portfolio-refresh #blog .project-media::after {
+    content: "";
+    position: absolute;
+    inset: 1rem 1rem auto auto;
+    width: 5rem;
+    height: 5rem;
+    z-index: 1;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.02));
+    transform: rotate(16deg);
+}
+
+body.portfolio-refresh #blog .project-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease, filter 0.8s ease;
+}
+
+body.portfolio-refresh #blog .project-card:hover .project-media img {
+    transform: scale(1.07);
+    filter: saturate(1.06);
+}
+
+body.portfolio-refresh #blog .project-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.44rem 0.74rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.92);
+    color: var(--text);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    box-shadow: 0 10px 22px rgba(16, 35, 63, 0.1);
+}
+
+body.portfolio-refresh #blog .project-body {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.35rem 1.35rem 1.45rem;
+}
+
+body.portfolio-refresh #blog .project-body::before {
+    content: "";
+    position: absolute;
+    inset: auto auto 1rem 1rem;
+    width: 3.4rem;
+    height: 3.4rem;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(79, 124, 255, 0.12), rgba(15, 139, 141, 0.04));
+    filter: blur(2px);
+    opacity: 0.45;
+    pointer-events: none;
+}
+
+body.portfolio-refresh #blog .project-topline {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.7rem;
+}
+
+body.portfolio-refresh #blog .project-type,
+body.portfolio-refresh #blog .project-status {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.42rem 0.72rem;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+body.portfolio-refresh #blog .project-type {
+    background: rgba(15, 139, 141, 0.1);
+    color: var(--accent);
+}
+
+body.portfolio-refresh #blog .project-status {
+    background: rgba(79, 124, 255, 0.1);
+    color: var(--accent-strong);
+}
+
+body.portfolio-refresh #blog .project-card-featured .project-type,
+body.portfolio-refresh #blog .project-card-featured .project-status {
+    color: inherit;
+}
+
+body.portfolio-refresh #blog .project-card-featured .project-type {
+    background: rgba(15, 139, 141, 0.1);
+    color: var(--accent);
+}
+
+body.portfolio-refresh #blog .project-card-featured .project-status {
+    background: rgba(79, 124, 255, 0.1);
+    color: var(--accent-strong);
+}
+
+body.portfolio-refresh #blog .project-title {
+    margin: 0;
+    color: var(--text);
+    font-size: 1.36rem;
+    line-height: 1.14;
+    letter-spacing: -0.04em;
+    text-wrap: balance;
+}
+
+body.portfolio-refresh #blog .project-card-featured .project-title {
+    color: var(--text);
+    font-size: 1.36rem;
+}
+
+body.portfolio-refresh #blog .project-summary {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.96rem;
+    line-height: 1.78;
+}
+
+body.portfolio-refresh #blog .project-card-featured .project-summary {
+    color: var(--muted);
+}
+
+body.portfolio-refresh #blog .project-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.58rem;
+}
+
+body.portfolio-refresh #blog .project-stack span {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 0.76rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.94);
+    color: var(--text);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+body.portfolio-refresh #blog .project-card-featured .project-stack span {
+    background: rgba(255, 255, 255, 0.94);
+    border-color: rgba(16, 35, 63, 0.08);
+    color: var(--text);
+}
+
+body.portfolio-refresh #blog .project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    width: fit-content;
+    margin-top: auto;
+    padding: 0.8rem 1.02rem;
+    border-radius: 999px;
+    border: 1px solid rgba(16, 35, 63, 0.08);
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--text);
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    box-shadow: 0 12px 22px rgba(16, 35, 63, 0.06);
+}
+
+body.portfolio-refresh #blog .project-card-featured .project-link {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(16, 35, 63, 0.08);
+    color: var(--text);
+    box-shadow: 0 12px 22px rgba(16, 35, 63, 0.06);
+}
+
+body.portfolio-refresh #blog .project-link i {
+    transition: transform 0.3s ease;
+}
+
+body.portfolio-refresh #blog .project-link:hover,
+body.portfolio-refresh #blog .project-link:focus {
+    color: #fff;
+    background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+    border-color: transparent;
+}
+
+body.portfolio-refresh #blog .project-link:hover i,
+body.portfolio-refresh #blog .project-link:focus i {
+    transform: translateX(4px);
+}
+
+body.portfolio-refresh #certifications {
+    position: relative;
+    isolation: isolate;
+}
+
+body.portfolio-refresh #certifications .container {
+    max-width: 1320px;
+}
+
+body.portfolio-refresh #certifications::before {
+    content: none;
+}
+
+body.portfolio-refresh #certifications .section-title,
+body.portfolio-refresh #certifications .collection {
+    position: relative;
+    z-index: 1;
+}
+
+body.portfolio-refresh #certifications .collection {
+    counter-reset: cert-counter;
+    isolation: isolate;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    width: 100%;
+    max-width: none;
+    gap: 22px;
+    margin: 0;
+    padding: 0.65rem 0 0;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    align-items: stretch;
+}
+
+body.portfolio-refresh #certifications .collection::before {
+    content: none;
+}
+
+body.portfolio-refresh #certifications .collection-item {
+    --cert-accent-start: #0f8b8d;
+    --cert-accent-end: #4f7cff;
+    --cert-accent-soft: rgba(79, 124, 255, 0.18);
+    --cert-ribbon: rgba(15, 139, 141, 0.16);
+    counter-increment: cert-counter;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    min-height: 272px;
+    border-radius: 30px;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(255, 252, 246, 0.94)),
+        rgba(255, 253, 248, 0.96);
+    border: 1px solid rgba(16, 35, 63, 0.08);
+    box-shadow:
+        0 22px 54px rgba(16, 35, 63, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+body.portfolio-refresh #certifications .collection-item:nth-child(4n + 2) {
+    --cert-accent-start: #10233f;
+    --cert-accent-end: #0f8b8d;
+    --cert-accent-soft: rgba(15, 139, 141, 0.18);
+    --cert-ribbon: rgba(16, 35, 63, 0.12);
+}
+
+body.portfolio-refresh #certifications .collection-item:nth-child(4n + 3) {
+    --cert-accent-start: #c07a18;
+    --cert-accent-end: #d65a31;
+    --cert-accent-soft: rgba(214, 90, 49, 0.18);
+    --cert-ribbon: rgba(192, 122, 24, 0.12);
+}
+
+body.portfolio-refresh #certifications .collection-item:nth-child(4n + 4) {
+    --cert-accent-start: #4f7cff;
+    --cert-accent-end: #10233f;
+    --cert-accent-soft: rgba(79, 124, 255, 0.18);
+    --cert-ribbon: rgba(79, 124, 255, 0.12);
+}
+
+body.portfolio-refresh #certifications .collection-item::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background:
+        linear-gradient(90deg, var(--cert-accent-start), var(--cert-accent-end)) top 1.05rem left 1.2rem / calc(100% - 2.4rem) 5px no-repeat,
+        radial-gradient(circle at top right, var(--cert-accent-soft), transparent 42%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0) 34%);
+    pointer-events: none;
+}
+
+body.portfolio-refresh #certifications .collection-item::after {
+    content: counter(cert-counter, decimal-leading-zero);
+    position: absolute;
+    top: 1.2rem;
+    right: 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 3.1rem;
+    height: 3.1rem;
+    padding: 0 0.8rem;
+    border-radius: 999px;
+    border: 4px solid rgba(255, 255, 255, 0.96);
+    background: linear-gradient(135deg, var(--cert-accent-start), var(--cert-accent-end));
+    color: #fff;
+    font-family: "Sora", sans-serif;
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    box-shadow: 0 16px 30px rgba(16, 35, 63, 0.18);
+}
+
+body.portfolio-refresh #certifications .collection-item:hover {
+    transform: translateY(-10px);
+    border-color: rgba(79, 124, 255, 0.18);
+    box-shadow:
+        0 30px 68px rgba(16, 35, 63, 0.14),
+        inset 0 1px 0 rgba(255, 255, 255, 0.86);
+}
+
+body.portfolio-refresh #certifications .collection-item a {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    gap: 1rem;
+    height: 100%;
+    min-height: 272px;
+    padding: 1.45rem 1.35rem 1.35rem;
+    padding-right: 4.7rem;
+    color: var(--text);
+    text-decoration: none;
+}
+
+body.portfolio-refresh #certifications .collection-item a::before {
+    content: "\f0a3";
+    position: absolute;
+    right: 0.95rem;
+    bottom: 0.7rem;
+    color: rgba(16, 35, 63, 0.06);
+    font-family: FontAwesome;
+    font-size: 4.6rem;
+    line-height: 1;
+    transform: rotate(-10deg);
+    pointer-events: none;
+}
+
+body.portfolio-refresh #certifications .cert-platform {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    padding: 0.5rem 0.86rem;
+    border-radius: 999px;
+    border: 1px solid rgba(16, 35, 63, 0.06);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(250, 249, 246, 0.9));
+    color: var(--text);
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    box-shadow: 0 12px 24px rgba(16, 35, 63, 0.07);
+}
+
+body.portfolio-refresh #certifications .cert-platform::before {
+    content: "";
+    width: 0.48rem;
+    height: 0.48rem;
+    margin-right: 0.5rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--cert-accent-start), var(--cert-accent-end));
+}
+
+body.portfolio-refresh #certifications .cert-title {
+    display: block;
+    padding-right: 0.35rem;
+    color: var(--text);
+    font-size: 1.18rem;
+    font-weight: 800;
+    line-height: 1.4;
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+}
+
+body.portfolio-refresh #certifications .cert-footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: auto;
+}
+
+body.portfolio-refresh #certifications .cert-footer span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.44rem;
+    padding: 0.54rem 0.8rem;
+    border-radius: 999px;
+    border: 1px solid rgba(16, 35, 63, 0.08);
+    background: rgba(255, 255, 255, 0.82);
+    color: var(--text);
+    font-size: 0.72rem;
+    font-weight: 700;
+    line-height: 1;
+    box-shadow: 0 10px 18px rgba(16, 35, 63, 0.04);
+}
+
+body.portfolio-refresh #certifications .cert-footer span::before {
+    content: "";
+    width: 0.4rem;
+    height: 0.4rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--cert-accent-start), var(--cert-accent-end));
+}
+
+body.portfolio-refresh #certifications .cert-level {
+    color: var(--cert-accent-start);
+}
+
+body.portfolio-refresh #certifications .collection-item a::after {
+    content: "Voir le certificat \f061";
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    justify-self: stretch;
+    margin-top: 0.2rem;
+    padding: 0.92rem 1rem;
+    border-radius: 18px;
+    border: 1px solid rgba(16, 35, 63, 0.08);
+    background: linear-gradient(135deg, rgba(16, 35, 63, 0.05), rgba(255, 255, 255, 0.92));
+    color: var(--text);
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-family: "Manrope", FontAwesome, sans-serif;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.78);
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.portfolio-refresh #certifications .collection-item:hover .cert-platform {
+    background: rgba(255, 255, 255, 0.96);
+    color: var(--cert-accent-end);
+}
+
+body.portfolio-refresh #certifications .collection-item:hover .cert-footer span {
+    background: rgba(255, 255, 255, 0.96);
+    border-color: rgba(16, 35, 63, 0.12);
+}
+
+body.portfolio-refresh #certifications .collection-item:hover a::after {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, var(--cert-accent-start), var(--cert-accent-end));
+    border-color: transparent;
+    color: #fff;
+    box-shadow: 0 16px 28px rgba(16, 35, 63, 0.16);
+}
+
+body.portfolio-refresh #interest-card .card-content p {
+    max-width: 60ch;
+    margin: 0 auto;
+    text-align: center;
+}
+
+body.portfolio-refresh #interest-card .row.no-gutters {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 18px;
+    margin: 0;
+    padding: 0 2rem 2rem;
+}
+
+body.portfolio-refresh #interest-card .box {
+    width: auto;
+    padding: 0;
+}
+
+body.portfolio-refresh .interest-icon,
+body.portfolio-refresh .interest-icon-even {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-height: 146px;
+    padding: 1.2rem 1rem;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(16, 35, 63, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+body.portfolio-refresh .interest-icon:hover,
+body.portfolio-refresh .interest-icon-even:hover {
+    transform: translateY(-6px);
+    border-color: rgba(15, 139, 141, 0.2);
+    box-shadow: 0 20px 48px rgba(16, 35, 63, 0.12);
+}
+
+body.portfolio-refresh .interest-icon i,
+body.portfolio-refresh .interest-icon-even i {
+    font-size: 1.7rem;
+    color: var(--accent);
+}
+
+body.portfolio-refresh .interest-icon span,
+body.portfolio-refresh .interest-icon-even span {
+    color: var(--text);
+    font-weight: 700;
+}
+
+body.portfolio-refresh #interest .section-title + #interest-card {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at top right, rgba(79, 124, 255, 0.12), transparent 28%),
+        radial-gradient(circle at bottom left, rgba(15, 139, 141, 0.1), transparent 24%),
+        linear-gradient(160deg, rgba(255, 255, 255, 0.98), rgba(247, 241, 234, 0.94));
+    border: 1px solid rgba(16, 35, 63, 0.08);
+    box-shadow:
+        0 26px 58px rgba(16, 35, 63, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+body.portfolio-refresh #interest .section-title + #interest-card::before,
+body.portfolio-refresh #interest .section-title + #interest-card::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    border-radius: 50%;
+    filter: blur(0);
+}
+
+body.portfolio-refresh #interest .section-title + #interest-card::before {
+    top: -7rem;
+    right: -4rem;
+    width: 18rem;
+    height: 18rem;
+    background: radial-gradient(circle, rgba(79, 124, 255, 0.16), transparent 68%);
+}
+
+body.portfolio-refresh #interest .section-title + #interest-card::after {
+    left: -6rem;
+    bottom: -8rem;
+    width: 20rem;
+    height: 20rem;
+    background: radial-gradient(circle, rgba(15, 139, 141, 0.12), transparent 72%);
+}
+
+body.portfolio-refresh #interest .section-title + #interest-card .card-content,
+body.portfolio-refresh #interest .section-title + #interest-card .row.no-gutters {
+    position: relative;
+    z-index: 1;
+}
+
+body.portfolio-refresh #interest .section-title + #interest-card .card-content {
+    display: grid;
+    gap: 1rem;
+    padding: clamp(1.9rem, 3vw, 2.5rem) !important;
+    padding-bottom: 1.45rem !important;
+}
+
+body.portfolio-refresh #interest .section-title + #interest-card .card-content::before {
+    content: "Hors Du Code";
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    padding: 0.54rem 0.88rem;
+    border-radius: 999px;
+    background: rgba(16, 35, 63, 0.05);
+    color: var(--accent);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+body.portfolio-refresh #interest .section-title + #interest-card .card-content p {
+    width: 100%;
+    max-width: 76ch;
+    margin: 0;
+    color: #536983;
+    font-size: 0.99rem;
+    line-height: 1.86;
+    text-align: left;
+    text-wrap: pretty;
+}
+
+body.portfolio-refresh #interest .section-title + #interest-card .row.no-gutters {
+    counter-reset: interest-count;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 18px;
+    margin-top: 0;
+    padding: 0 clamp(1.45rem, 2vw, 2rem) clamp(1.45rem, 2vw, 2rem);
+    border-top: 1px solid rgba(16, 35, 63, 0.08);
+}
+
+body.portfolio-refresh #interest .section-title + #interest-card .row.no-gutters::before,
+body.portfolio-refresh #interest .section-title + #interest-card .row.no-gutters::after {
+    content: none;
+    display: none;
+}
+
+body.portfolio-refresh #interest .section-title + #interest-card .box {
+    --interest-icon-start: var(--accent);
+    --interest-icon-end: var(--accent-strong);
+    --interest-surface: linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(251, 246, 238, 0.92));
+    --interest-border: rgba(16, 35, 63, 0.08);
+    --interest-text: var(--text);
+    --interest-number: rgba(16, 35, 63, 0.34);
+    --interest-glow: rgba(79, 124, 255, 0.16);
+    --interest-shadow:
+        0 18px 36px rgba(16, 35, 63, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.84);
+    position: relative;
+    display: flex;
+    float: none;
+    height: auto;
+    min-height: 0;
+    min-width: 0;
+    width: 100%;
+    padding: 0;
+    counter-increment: interest-count;
+}
+
+body.portfolio-refresh #interest .section-title + #interest-card .box:nth-child(2n) {
+    --interest-surface: linear-gradient(145deg, #10233f, #1a4969);
+    --interest-border: rgba(255, 255, 255, 0.08);
+    --interest-text: #f8fbff;
+    --interest-number: rgba(255, 255, 255, 0.34);
+    --interest-glow: rgba(79, 124, 255, 0.24);
+    --interest-shadow:
+        0 22px 40px rgba(7, 14, 28, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+body.portfolio-refresh #interest .section-title + #interest-card .box:nth-child(1) {
+    --interest-icon-start: #2b8cbf;
+    --interest-icon-end: #4f7cff;
+}
+
+body.portfolio-refresh #interest .section-title + #interest-card .box:nth-child(2) {
+    --interest-icon-start: #10233f;
+    --interest-icon-end: #0f8b8d;
+}
+
+body.portfolio-refresh #interest .section-title + #interest-card .box:nth-child(3) {
+    --interest-icon-start: #c07a18;
+    --interest-icon-end: #d65a31;
+}
+
+body.portfolio-refresh #interest .section-title + #interest-card .box:nth-child(4) {
+    --interest-icon-start: #24538d;
+    --interest-icon-end: #4f7cff;
+}
+
+body.portfolio-refresh #interest .section-title + #interest-card .box:nth-child(5) {
+    --interest-icon-start: #0f8b8d;
+    --interest-icon-end: #2bb3a7;
+}
+
+body.portfolio-refresh #interest .section-title + #interest-card .box:nth-child(6) {
+    --interest-icon-start: #c07a18;
+    --interest-icon-end: #d65a31;
+}
+
+body.portfolio-refresh #interest .section-title + #interest-card .row.no-gutters > [class^="col-"],
+body.portfolio-refresh #interest .section-title + #interest-card .row.no-gutters > [class*=" col-"] {
+    float: none;
+    width: auto;
+    max-width: none;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+body.portfolio-refresh #interest .section-title + #interest-card .interest-icon,
+body.portfolio-refresh #interest .section-title + #interest-card .interest-icon-even {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2rem;
+    width: 100%;
+    min-height: 166px;
+    padding: 1.22rem;
+    border-radius: 28px;
+    background: var(--interest-surface);
+    border: 1px solid var(--interest-border);
+    box-shadow: var(--interest-shadow);
+    overflow: hidden;
+    transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+}
+
+body.portfolio-refresh #interest .section-title + #interest-card .interest-icon::before,
+body.portfolio-refresh #interest .section-title + #interest-card .interest-icon-even::before {
+    content: "";
+    position: absolute;
+    right: -22px;
+    bottom: -32px;
+    width: 108px;
+    height: 108px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--interest-glow), transparent 68%);
+}
+
+body.portfolio-refresh #interest .section-title + #interest-card .interest-icon::after,
+body.portfolio-refresh #interest .section-title + #interest-card .interest-icon-even::after {
+    content: counter(interest-count, decimal-leading-zero);
+    position: absolute;
+    top: 1.1rem;
+    right: 1.12rem;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    color: var(--interest-number);
+}
+
+body.portfolio-refresh #interest .section-title + #interest-card .interest-icon:hover,
+body.portfolio-refresh #interest .section-title + #interest-card .interest-icon-even:hover {
+    transform: translateY(-6px) scale(1.01);
+    border-color: rgba(79, 124, 255, 0.18);
+    box-shadow:
+        0 24px 44px rgba(16, 35, 63, 0.14),
+        inset 0 1px 0 rgba(255, 255, 255, 0.88);
+}
+
+body.portfolio-refresh #interest .section-title + #interest-card .interest-icon i,
+body.portfolio-refresh #interest .section-title + #interest-card .interest-icon-even i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 22px;
+    font-size: 1.36rem;
+    line-height: 1;
+    background: linear-gradient(135deg, var(--interest-icon-start), var(--interest-icon-end));
+    color: #fff;
+    box-shadow: 0 16px 30px rgba(16, 35, 63, 0.18);
+}
+
+body.portfolio-refresh #interest .section-title + #interest-card .interest-icon span,
+body.portfolio-refresh #interest .section-title + #interest-card .interest-icon-even span {
+    display: block;
+    max-width: 12ch;
+    padding-right: 2.8rem;
+    font-family: "Sora", sans-serif;
+    font-size: 1.08rem;
+    font-weight: 700;
+    line-height: 1.25;
+    text-align: left;
+    color: var(--interest-text);
+}
+
+body.portfolio-refresh #contact .row {
+    margin: 0;
+}
+
+body.portfolio-refresh #contact #contact-card {
+    float: none;
+    width: 100%;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+body.portfolio-refresh #contact #contact-card > .card {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at top right, rgba(79, 124, 255, 0.12), transparent 28%),
+        radial-gradient(circle at bottom left, rgba(15, 139, 141, 0.08), transparent 32%),
+        linear-gradient(160deg, rgba(255, 255, 255, 0.97), rgba(246, 239, 231, 0.93));
+    border: 1px solid rgba(16, 35, 63, 0.08);
+    box-shadow:
+        0 28px 68px rgba(16, 35, 63, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.82);
+}
+
+body.portfolio-refresh #contact #contact-card > .card::before,
+body.portfolio-refresh #contact #contact-card > .card::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+}
+
+body.portfolio-refresh #contact #contact-card > .card::before {
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-strong));
+}
+
+body.portfolio-refresh #contact #contact-card > .card::after {
+    right: -3rem;
+    bottom: -3rem;
+    width: 14rem;
+    height: 14rem;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(79, 124, 255, 0.12), transparent 70%);
+}
+
+body.portfolio-refresh #contact #contact-card > .card > .card-content {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: 1.1rem;
+    padding: clamp(2rem, 3vw, 2.6rem) !important;
+}
+
+body.portfolio-refresh #contact #contact-card > .card > .card-content::before {
+    content: "Contacter Moi";
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    padding: 0.54rem 0.88rem;
+    margin-bottom: 0.2rem;
+    border-radius: 999px;
+    background: rgba(16, 35, 63, 0.05);
+    color: var(--accent);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+body.portfolio-refresh #contact-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    align-items: start;
+}
+
+body.portfolio-refresh #contact-form .input-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 0;
+    min-width: 0;
+}
+
+body.portfolio-refresh #contact-form .input-field:nth-child(3),
+body.portfolio-refresh #contact-form .input-field:nth-child(4),
+body.portfolio-refresh #contact .contact-send {
+    grid-column: 1 / -1;
+}
+
+body.portfolio-refresh #contact-form input[type=text],
+body.portfolio-refresh #contact-form input[type=email],
+body.portfolio-refresh #contact-form textarea.materialize-textarea {
+    display: block;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    border: 1px solid rgba(16, 35, 63, 0.12) !important;
+    border-bottom: 1px solid rgba(16, 35, 63, 0.12) !important;
+    border-radius: 16px !important;
+    background: rgba(255, 255, 255, 0.96) !important;
+    box-shadow: 0 10px 22px rgba(16, 35, 63, 0.04) !important;
+    color: var(--text) !important;
+    padding: 0.82rem 1rem !important;
+    margin: 0 !important;
+    font-size: 0.97rem !important;
+    font-weight: 500;
+    line-height: 1.45 !important;
+    -webkit-appearance: none;
+    appearance: none;
+    transition:
+        border-color 0.24s ease,
+        box-shadow 0.24s ease,
+        background-color 0.24s ease,
+        transform 0.24s ease;
+}
+
+body.portfolio-refresh #contact-form input[type=text],
+body.portfolio-refresh #contact-form input[type=email] {
+    height: 54px !important;
+}
+
+body.portfolio-refresh #contact-form textarea.materialize-textarea {
+    min-height: 176px !important;
+    padding-top: 0.95rem !important;
+    line-height: 1.7 !important;
+    resize: vertical;
+}
+
+body.portfolio-refresh #contact-form label {
+    position: static !important;
+    order: -1;
+    width: fit-content;
+    transform: none !important;
+    color: #5f7189 !important;
+    font-size: 0.78rem !important;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: none;
+    line-height: 1;
+    padding-left: 0.15rem;
+    pointer-events: none;
+}
+
+body.portfolio-refresh #contact-form input[type=text]:focus:not([readonly]),
+body.portfolio-refresh #contact-form input[type=email]:focus:not([readonly]),
+body.portfolio-refresh #contact-form textarea.materialize-textarea:focus:not([readonly]) {
+    border-color: rgba(79, 124, 255, 0.32) !important;
+    border-bottom-color: rgba(79, 124, 255, 0.32) !important;
+    background: rgba(255, 255, 255, 0.96) !important;
+    box-shadow:
+        0 0 0 4px rgba(79, 124, 255, 0.1),
+        0 12px 24px rgba(16, 35, 63, 0.06) !important;
+    transform: translateY(-1px);
+}
+
+body.portfolio-refresh #contact-form input[type=text]:focus + label,
+body.portfolio-refresh #contact-form input[type=email]:focus + label,
+body.portfolio-refresh #contact-form textarea.materialize-textarea:focus + label,
+body.portfolio-refresh #contact-form .input-field:focus-within label,
+body.portfolio-refresh #contact-form .input-field label.active {
+    color: var(--text) !important;
+    transform: none !important;
+}
+
+body.portfolio-refresh #contact .contact-send {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 0.2rem;
+    text-align: left;
+}
+
+body.portfolio-refresh #contact .contact-note {
+    grid-column: 1 / -1;
+    margin: 0.15rem 0 0;
+    color: #5f7189;
+    font-size: 0.9rem;
+    line-height: 1.65;
+}
+
+body.portfolio-refresh #contact .contact-note a {
+    color: var(--accent-strong);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+body.portfolio-refresh #contact .contact-note a:hover,
+body.portfolio-refresh #contact .contact-note a:focus {
+    text-decoration: underline;
+}
+
+body.portfolio-refresh #contact .contact-send .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 220px;
+    box-shadow: 0 18px 34px rgba(16, 35, 63, 0.16);
+}
+
+body.portfolio-refresh #contact #contact-card .progress {
+    height: 10px;
+    margin: 0 2rem 2rem;
+    border-radius: 999px;
+    overflow: hidden;
+    background: rgba(15, 139, 141, 0.08);
+}
+
+body.portfolio-refresh #contact #contact-card .progress .indeterminate {
+    background: linear-gradient(90deg, var(--accent), var(--accent-strong));
+}
+
+body.portfolio-refresh #contact > #interest {
+    padding: 2.2rem 0 0;
+}
+
+body.portfolio-refresh #contact > #interest #interest-card {
+    overflow: hidden;
+    background:
+        radial-gradient(circle at top right, rgba(79, 124, 255, 0.16), transparent 30%),
+        linear-gradient(135deg, #10233f, #12364c);
+    border: 0;
+    box-shadow: 0 30px 70px rgba(16, 35, 63, 0.24);
+}
+
+body.portfolio-refresh #contact > #interest #interest-card .card-content {
+    padding: 2rem 1.75rem 1.15rem !important;
+}
+
+body.portfolio-refresh #contact > #interest #interest-card .card-content p {
+    max-width: 38ch;
+    margin: 0 auto;
+    text-align: center;
+    color: rgba(239, 244, 249, 0.84);
+    font-size: 1.04rem;
+    line-height: 1.65;
+    text-wrap: balance;
+}
+
+body.portfolio-refresh #contact > #interest .row.no-gutters {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    margin: 0;
+    padding: 1.25rem 1.5rem 1.5rem;
+    align-items: stretch;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.portfolio-refresh #contact > #interest .row.no-gutters::before,
+body.portfolio-refresh #contact > #interest .row.no-gutters::after {
+    content: none;
+    display: none;
+}
+
+body.portfolio-refresh #contact > #interest .box,
+body.portfolio-refresh #contact > #interest .row.no-gutters > [class^="col-"],
+body.portfolio-refresh #contact > #interest .row.no-gutters > [class*=" col-"] {
+    float: none;
+    width: auto;
+    max-width: none;
+    min-width: 0;
+    padding: 0;
+}
+
+body.portfolio-refresh #contact > #interest .interest-icon,
+body.portfolio-refresh #contact > #interest .interest-icon-even {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.85rem;
+    min-height: 140px;
+    padding: 1rem 0.95rem;
+    border-radius: 24px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+body.portfolio-refresh #contact > #interest .interest-icon i,
+body.portfolio-refresh #contact > #interest .interest-icon-even i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 58px;
+    height: 58px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.1);
+    font-size: 1.45rem;
+    color: #fff;
+}
+
+body.portfolio-refresh #contact > #interest .interest-icon span,
+body.portfolio-refresh #contact > #interest .interest-icon-even span {
+    display: block;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    font-family: "Sora", sans-serif;
+    font-size: clamp(0.86rem, 0.95vw, 0.98rem);
+    font-weight: 700;
+    line-height: 1.42;
+    text-align: center;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    text-wrap: balance;
+}
+
+body.portfolio-refresh #scrollup {
+    right: 24px;
+    bottom: 24px;
+    width: 56px;
+    height: 56px;
+    line-height: 56px;
+    border-radius: 20px;
+    background: #f6f7f8;
+    box-shadow: 0 20px 44px rgba(16, 35, 63, 0.22);
+}
+
+body.portfolio-refresh #scrollup:hover {
+    background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+    transform: translateY(-4px);
+}
+
+body.portfolio-refresh footer {
+    padding: 1.6rem 0 4rem;
+    background: transparent;
+}
+
+body.portfolio-refresh footer p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+body.portfolio-refresh footer a {
+    font-weight: 700;
+}
+
+@keyframes floatAura {
+    0%,
+    100% {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+    50% {
+        transform: translate3d(0, 18px, 0) scale(1.04);
+    }
+}
+
+@keyframes pulseRing {
+    0%,
+    100% {
+        transform: scale(1);
+        box-shadow: 0 20px 40px rgba(16, 35, 63, 0.28);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 26px 44px rgba(16, 35, 63, 0.34);
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    body.portfolio-refresh #home .header-background #v-card-holder #v-card .infos .profile-list {
+        grid-template-columns: 1fr;
+    }
+
+    body.portfolio-refresh #contact > #interest #interest-card .card-content p {
+        max-width: 34ch;
+    }
+
+    body.portfolio-refresh #contact > #interest .row.no-gutters {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    body.portfolio-refresh #about-card .about-layout {
+        grid-template-columns: 1fr;
+    }
+
+    body.portfolio-refresh #about-card .about-highlights {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    body.portfolio-refresh #education .education-layout {
+        grid-template-columns: 1fr;
+    }
+
+    body.portfolio-refresh #experience .experience-intro-grid,
+    body.portfolio-refresh #experience .experience-layout {
+        grid-template-columns: 1fr;
+    }
+
+    body.portfolio-refresh #experience .experience-heading {
+        max-width: none;
+    }
+
+    body.portfolio-refresh #blog .projects-intro-grid {
+        grid-template-columns: 1fr;
+    }
+
+    body.portfolio-refresh #blog .projects-heading {
+        max-width: none;
+    }
+
+    body.portfolio-refresh #blog .projects-showcase {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    body.portfolio-refresh #blog .projects-metric:first-child {
+        grid-row: auto;
+    }
+
+    body.portfolio-refresh #blog .project-card {
+        grid-column: auto;
+        --project-offset: 0px;
+    }
+
+    body.portfolio-refresh #blog .project-card-featured,
+    body.portfolio-refresh #blog .project-card:nth-child(2),
+    body.portfolio-refresh #blog .project-card:nth-child(6) {
+        grid-column: auto;
+    }
+
+    body.portfolio-refresh #certifications::before {
+        inset: 2.25rem 0.4rem 0;
+        border-radius: 34px;
+    }
+
+    body.portfolio-refresh #certifications .collection {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+        padding: 0.45rem 0 0;
+    }
+
+    body.portfolio-refresh #certifications .collection::before {
+        border-radius: 28px;
+    }
+
+    body.portfolio-refresh #certifications .collection-item {
+        min-height: 246px;
+        border-radius: 26px;
+    }
+
+    body.portfolio-refresh #certifications .collection-item::after {
+        top: 1rem;
+        right: 1rem;
+        min-width: 2.65rem;
+        height: 2.65rem;
+        border-radius: 999px;
+        font-size: 0.68rem;
+    }
+
+    body.portfolio-refresh #certifications .collection-item a {
+        min-height: 246px;
+        padding: 1.2rem 1.1rem 1.1rem;
+        padding-right: 4.35rem;
+        gap: 0.82rem;
+    }
+
+    body.portfolio-refresh #certifications .collection-item a::before {
+        right: 0.95rem;
+        bottom: 0.75rem;
+        font-size: 4rem;
+    }
+
+    body.portfolio-refresh #certifications .cert-platform {
+        font-size: 0.66rem;
+        padding: 0.44rem 0.76rem;
+    }
+
+    body.portfolio-refresh #certifications .cert-title {
+        font-size: 1.04rem;
+        line-height: 1.42;
+    }
+
+    body.portfolio-refresh #certifications .cert-footer {
+        gap: 0.45rem;
+    }
+
+    body.portfolio-refresh #certifications .cert-footer span {
+        padding: 0.42rem 0.64rem;
+        font-size: 0.68rem;
+    }
+
+    body.portfolio-refresh #certifications .collection-item a::after {
+        padding: 0.78rem 0.92rem;
+        font-size: 0.68rem;
+    }
+
+    body.portfolio-refresh #skills-card .skills-intro {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    body.portfolio-refresh #home .header-background #v-card-holder #v-card {
+        display: flex;
+        flex-direction: column;
+    }
+
+    body.portfolio-refresh #home .menu,
+    body.portfolio-refresh #home .menu .menu-wrap {
+        width: 260px;
+    }
+
+    body.portfolio-refresh #home .menu {
+        left: -260px;
+    }
+
+    body.portfolio-refresh #home #menuToggle {
+        right: -74px;
+    }
+
+    body.portfolio-refresh #home .header-background #v-card-holder #v-card {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+
+    body.portfolio-refresh #home .header-background #v-card-holder #v-card #profile {
+        min-height: clamp(320px, 58vw, 430px);
+        max-height: 430px;
+        aspect-ratio: 16 / 11;
+    }
+
+    body.portfolio-refresh #home .header-background #v-card-holder #v-card .card-content {
+        gap: 1.3rem;
+        padding: 2rem !important;
+    }
+
+    body.portfolio-refresh #home .header-background #v-card-holder #v-card .info-headings .hero-name {
+        font-size: clamp(2.8rem, 8vw, 3.8rem);
+        white-space: normal;
+    }
+
+    body.portfolio-refresh #home .header-background #v-card-holder #v-card .infos .profile-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    body.portfolio-refresh::before,
+    body.portfolio-refresh::after {
+        display: none;
+    }
+
+    body.portfolio-refresh .container {
+        width: calc(100% - 24px);
+    }
+
+    body.portfolio-refresh .section {
+        padding: 64px 0;
+    }
+
+    body.portfolio-refresh #contact #contact-card > .card::before {
+        height: 5px;
+    }
+
+    body.portfolio-refresh #contact #contact-card > .card > .card-content {
+        padding: 1.4rem !important;
+    }
+
+    body.portfolio-refresh #contact-form {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    body.portfolio-refresh #contact-form .input-field:nth-child(3),
+    body.portfolio-refresh #contact-form .input-field:nth-child(4),
+    body.portfolio-refresh #contact .contact-send {
+        grid-column: auto;
+    }
+
+    body.portfolio-refresh #contact-form input[type=text],
+    body.portfolio-refresh #contact-form input[type=email] {
+        height: 56px !important;
+    }
+
+    body.portfolio-refresh #contact-form textarea.materialize-textarea {
+        min-height: 170px !important;
+    }
+
+    body.portfolio-refresh #contact-form label {
+        font-size: 0.72rem !important;
+    }
+
+    body.portfolio-refresh #contact .contact-send {
+        margin-top: 0.1rem;
+    }
+
+    body.portfolio-refresh #contact .contact-note {
+        font-size: 0.86rem;
+    }
+
+    body.portfolio-refresh #contact .contact-send .btn {
+        width: 100%;
+        min-width: 0;
+        justify-content: center;
+    }
+
+    body.portfolio-refresh #contact #contact-card .progress {
+        margin: 0 1.4rem 1.4rem;
+    }
+
+    body.portfolio-refresh #contact > #interest #interest-card .card-content {
+        padding: 1.45rem 1.25rem 1rem !important;
+    }
+
+    body.portfolio-refresh #contact > #interest #interest-card .card-content p {
+        max-width: 30ch;
+        font-size: 0.95rem;
+        line-height: 1.58;
+    }
+
+    body.portfolio-refresh #contact > #interest .row.no-gutters {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 1rem 1.25rem 1.25rem;
+    }
+
+    body.portfolio-refresh #contact > #interest .interest-icon,
+    body.portfolio-refresh #contact > #interest .interest-icon-even {
+        min-height: 122px;
+        padding: 0.92rem 0.88rem;
+    }
+
+    body.portfolio-refresh #contact > #interest .interest-icon i,
+    body.portfolio-refresh #contact > #interest .interest-icon-even i {
+        width: 52px;
+        height: 52px;
+        border-radius: 16px;
+        font-size: 1.22rem;
+    }
+
+    body.portfolio-refresh #contact > #interest .interest-icon span,
+    body.portfolio-refresh #contact > #interest .interest-icon-even span {
+        font-size: 0.9rem;
+        line-height: 1.38;
+    }
+
+    body.portfolio-refresh #certifications .collection {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+        padding-top: 0.35rem;
+    }
+
+    body.portfolio-refresh #certifications .collection-item {
+        min-height: 226px;
+    }
+
+    body.portfolio-refresh #certifications .collection-item a {
+        min-height: 226px;
+    }
+
+    body.portfolio-refresh #certifications .collection-item a::before {
+        font-size: 3.65rem;
+    }
+
+    body.portfolio-refresh #home .header-background {
+        padding: 84px 0 44px;
+        border-radius: 0 0 30px 30px;
+    }
+
+    body.portfolio-refresh #home #menuToggle {
+        top: 18px;
+    }
+
+    body.portfolio-refresh #home .header-background #v-card-holder #v-card #profile {
+        min-height: clamp(280px, 74vw, 380px);
+        max-height: none;
+        aspect-ratio: 5 / 6;
+        border-radius: 28px 28px 0 0;
+    }
+
+    body.portfolio-refresh #home .header-background #v-card-holder #v-card #profile img {
+        object-position: center 12%;
+    }
+
+    body.portfolio-refresh #home .header-background #v-card-holder #v-card .card-content {
+        padding: 1.6rem !important;
+    }
+
+    body.portfolio-refresh #home .header-background #v-card-holder #v-card .info-headings::before {
+        margin-bottom: 0.9rem;
+    }
+
+    body.portfolio-refresh #home .header-background #v-card-holder #v-card .info-headings .hero-name {
+        font-size: 2.7rem;
+        white-space: normal;
+    }
+
+    body.portfolio-refresh #home .header-background #v-card-holder #v-card .info-headings .hero-role {
+        font-size: 1.02rem;
+        padding-left: 1rem;
+        max-width: none;
+        white-space: normal;
+    }
+
+    body.portfolio-refresh #home .header-background #v-card-holder #v-card .info-headings .hero-role::before {
+        top: 0.68rem;
+        width: 0.56rem;
+        height: 0.56rem;
+    }
+
+    body.portfolio-refresh #home .header-background #v-card-holder #v-card .infos .profile-list li {
+        padding: 15px 16px;
+        border-radius: 18px;
+    }
+
+    body.portfolio-refresh #home .header-background #v-card-holder #v-card .infos .profile-list .content {
+        font-size: 0.98rem;
+    }
+
+    body.portfolio-refresh #about {
+        padding-top: 64px;
+    }
+
+    body.portfolio-refresh #about-card::before {
+        display: none;
+    }
+
+    body.portfolio-refresh #about-card .about-panel {
+        padding: 24px;
+    }
+
+    body.portfolio-refresh #about-card .about-title {
+        max-width: none;
+        font-size: 1.64rem;
+    }
+
+    body.portfolio-refresh #about-card .about-lead {
+        max-width: none;
+        font-size: 0.95rem;
+    }
+
+    body.portfolio-refresh #about-card .about-story p {
+        font-size: 0.93rem;
+        line-height: 1.78;
+    }
+
+    body.portfolio-refresh #about-card .about-note {
+        padding: 0.92rem 1rem;
+    }
+
+    body.portfolio-refresh #about-card .about-path li {
+        padding: 0.95rem 0.95rem 0.95rem 2.75rem;
+    }
+
+    body.portfolio-refresh #about-card .about-highlights {
+        grid-template-columns: 1fr;
+    }
+
+    body.portfolio-refresh #about .about-btn {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.4rem 1.6rem 0;
+    }
+
+    body.portfolio-refresh #blog .projects-showcase {
+        grid-template-columns: 1fr;
+    }
+
+    body.portfolio-refresh #blog .projects-metric:first-child {
+        min-height: auto;
+    }
+
+    body.portfolio-refresh #blog .project-card {
+        --project-offset: 0px;
+        grid-column: auto;
+        grid-template-columns: none;
+        grid-template-rows: 220px auto;
+    }
+
+    body.portfolio-refresh #blog .project-card-featured {
+        grid-column: auto;
+        grid-template-columns: none;
+        grid-template-rows: 220px auto;
+    }
+
+    body.portfolio-refresh #blog .project-card-featured .project-body {
+        border-left: 0;
+        border-top: 0;
+    }
+
+    body.portfolio-refresh #blog .project-card:nth-child(2) {
+        grid-column: auto;
+    }
+
+    body.portfolio-refresh #blog .project-card:nth-child(6) {
+        grid-column: auto;
+        grid-template-columns: 1fr;
+        grid-template-rows: 220px auto;
+        min-height: auto;
+    }
+
+    body.portfolio-refresh #experience .experience-intro .card-content {
+        gap: 1rem;
+        padding: 1.35rem !important;
+    }
+
+    body.portfolio-refresh #experience .experience-heading {
+        font-size: 1.86rem;
+        line-height: 1.08;
+    }
+
+    body.portfolio-refresh #experience .experience-lead {
+        font-size: 0.95rem;
+        line-height: 1.78;
+    }
+
+    body.portfolio-refresh #experience .experience-card-head {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    body.portfolio-refresh #experience .experience-period {
+        padding: 0.5rem 0.76rem;
+        font-size: 0.72rem;
+    }
+
+    body.portfolio-refresh #experience .experience-side {
+        padding: 0.92rem 0.96rem;
+        border-radius: 20px;
+    }
+
+    body.portfolio-refresh #blog .projects-intro .card-content {
+        gap: 1rem;
+        padding: 1.35rem !important;
+    }
+
+    body.portfolio-refresh #blog .projects-heading {
+        font-size: 1.86rem;
+        line-height: 1.08;
+    }
+
+    body.portfolio-refresh #blog .projects-lead {
+        font-size: 0.95rem;
+        line-height: 1.78;
+    }
+
+    body.portfolio-refresh #blog .projects-metric {
+        min-height: auto;
+        padding: 0.92rem 0.95rem;
+        border-radius: 20px;
+    }
+
+    body.portfolio-refresh #blog .projects-metric:first-child strong {
+        font-size: 1.9rem;
+    }
+
+    body.portfolio-refresh #blog .project-card-featured {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+
+    body.portfolio-refresh #blog .project-card-featured .project-body {
+        margin: 0;
+        border-radius: 0;
+        border-left: 0;
+    }
+
+    body.portfolio-refresh #blog .project-body {
+        padding: 1.22rem;
+    }
+
+    body.portfolio-refresh #blog .project-title {
+        font-size: 1.26rem;
+    }
+
+    body.portfolio-refresh #education .education-aside {
+        padding: 0.92rem 0.95rem;
+        border-radius: 18px;
+    }
+
+    body.portfolio-refresh #skills-card .card-content {
+        gap: 1.2rem;
+        padding: 1.45rem !important;
+    }
+
+    body.portfolio-refresh #skills-card .skills-intro {
+        padding: 1.05rem 1.1rem;
+        padding-bottom: 1.15rem;
+    }
+
+    body.portfolio-refresh #skills-card .skills-heading {
+        max-width: none;
+        font-size: 1.8rem;
+    }
+
+    body.portfolio-refresh #skills-card .skills-lead {
+        font-size: 0.94rem;
+        line-height: 1.74;
+    }
+
+    body.portfolio-refresh #skills-card .skills-metrics {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    body.portfolio-refresh #skills-card .skills-metric {
+        padding: 0.88rem 0.92rem;
+        border-radius: 18px;
+    }
+
+    body.portfolio-refresh #skills-card .skills-panel {
+        padding: 1.1rem 1rem 1rem;
+        border-radius: 24px;
+    }
+
+    body.portfolio-refresh #skills-card .skills-panel::before {
+        top: 0.82rem;
+        left: 1rem;
+        width: 6.4rem;
+    }
+
+    body.portfolio-refresh #skills-card .skills-panel::after {
+        top: 0.72rem;
+        right: 0.9rem;
+        font-size: 3.25rem;
+    }
+
+    body.portfolio-refresh #skills-card .skills-panel-head {
+        gap: 0.62rem;
+        min-height: 2.8rem;
+    }
+
+    body.portfolio-refresh #skills-card .skills-panel-icon {
+        width: 38px;
+        height: 38px;
+        border-radius: 13px;
+    }
+
+    body.portfolio-refresh #skills-card .skills-signals {
+        gap: 0.5rem;
+    }
+
+    body.portfolio-refresh #skills-card .skills-signals span {
+        padding: 0.48rem 0.72rem;
+        font-size: 0.74rem;
+    }
+
+    body.portfolio-refresh #skills-card .skills-group {
+        padding: 0.92rem;
+        border-radius: 20px;
+    }
+
+    body.portfolio-refresh #skills-card .skillbar {
+        padding: 0.95rem 0.95rem 1.9rem;
+    }
+
+    body.portfolio-refresh #timeline-education,
+    body.portfolio-refresh #timeline-experience {
+        padding-left: 0;
+    }
+
+    body.portfolio-refresh #timeline-education {
+        --education-stack-gap: 1rem;
+        --education-dot-size: 48px;
+        --education-dot-top: 18px;
+        --education-connector-gap: 6px;
+    }
+
+    body.portfolio-refresh #timeline-experience {
+        --experience-stack-gap: 1rem;
+        --experience-dot-size: 48px;
+        --experience-dot-top: 18px;
+        --experience-connector-gap: 6px;
+    }
+
+    body.portfolio-refresh #timeline-education::before,
+    body.portfolio-refresh #timeline-experience::before {
+        left: 22px;
+    }
+
+    body.portfolio-refresh .timeline-block {
+        padding-left: 3.7rem;
+    }
+
+    body.portfolio-refresh #education .timeline-block {
+        padding-left: 3.75rem;
+    }
+
+    body.portfolio-refresh #experience .timeline-block {
+        padding-left: 3.9rem;
+    }
+
+    body.portfolio-refresh #education .timeline-block .timeline-dot {
+        width: 48px;
+        height: 48px;
+        top: 18px;
+        box-shadow:
+            0 14px 28px rgba(16, 35, 63, 0.16),
+            0 0 0 6px rgba(255, 255, 255, 0.48);
+    }
+
+    body.portfolio-refresh #education .timeline-block .timeline-dot::before {
+        inset: 5px;
+    }
+
+    body.portfolio-refresh #experience .timeline-block .timeline-dot {
+        width: 48px;
+        height: 48px;
+        top: 18px;
+        box-shadow:
+            0 14px 28px rgba(16, 35, 63, 0.16),
+            0 0 0 6px rgba(255, 255, 255, 0.48);
+    }
+
+    body.portfolio-refresh #experience .timeline-block .timeline-dot::before {
+        inset: 5px;
+    }
+
+    body.portfolio-refresh #skills-card .col-md-4,
+    body.portfolio-refresh #skills-card .col-sm-4,
+    body.portfolio-refresh #skills-card .col-xs-12 {
+        margin-bottom: 14px;
+    }
+
+    body.portfolio-refresh #interest .section-title + #interest-card .card-content {
+        padding: 1.55rem !important;
+        padding-bottom: 1.2rem !important;
+    }
+
+    body.portfolio-refresh #interest .section-title + #interest-card .card-content p {
+        font-size: 0.94rem;
+        line-height: 1.76;
+    }
+
+    body.portfolio-refresh #interest .section-title + #interest-card .row.no-gutters {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 13px;
+        padding: 0 1.55rem 1.55rem;
+    }
+
+    body.portfolio-refresh #interest .section-title + #interest-card .box {
+        min-width: 0;
+    }
+
+    body.portfolio-refresh #interest .section-title + #interest-card .interest-icon,
+    body.portfolio-refresh #interest .section-title + #interest-card .interest-icon-even {
+        min-height: 148px;
+        gap: 1.55rem;
+        padding: 1rem;
+        border-radius: 24px;
+    }
+
+    body.portfolio-refresh #interest .section-title + #interest-card .interest-icon i,
+    body.portfolio-refresh #interest .section-title + #interest-card .interest-icon-even i {
+        width: 56px;
+        height: 56px;
+        border-radius: 18px;
+        font-size: 1.16rem;
+    }
+
+    body.portfolio-refresh #interest .section-title + #interest-card .interest-icon span,
+    body.portfolio-refresh #interest .section-title + #interest-card .interest-icon-even span {
+        max-width: 13ch;
+        padding-right: 2.3rem;
+        font-size: 0.98rem;
+        line-height: 1.24;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    body.portfolio-refresh #loading {
+        padding: 1.1rem;
+    }
+
+    body.portfolio-refresh #loading #loading-center-absolute {
+        padding: 1.7rem 1rem 1.35rem;
+        border-radius: 24px;
+    }
+
+    body.portfolio-refresh #loading .text-holder {
+        margin-top: 1rem;
+    }
+
+    body.portfolio-refresh #loading .text-holder h6 {
+        max-width: none;
+        font-size: 0.88rem;
+        line-height: 1.58;
+    }
+
+    body.portfolio-refresh #loading .box-holder .load-box {
+        width: 38px;
+        height: 38px;
+    }
+
+    body.portfolio-refresh .section-title h4 {
+        font-size: 1.55rem;
+        gap: 10px;
+    }
+
+    body.portfolio-refresh #blog .section-title span {
+        margin-left: 0.35rem;
+        padding: 0.28rem 0.6rem;
+        font-size: 0.68rem;
+    }
+
+    body.portfolio-refresh .section-title .title-icon {
+        width: 46px;
+        height: 46px;
+        border-radius: 15px;
+    }
+
+    body.portfolio-refresh #contact #contact-card > .card > .card-content {
+        padding: 1.15rem !important;
+    }
+
+    body.portfolio-refresh #contact-form {
+        gap: 12px;
+    }
+
+    body.portfolio-refresh #contact-form input[type=text],
+    body.portfolio-refresh #contact-form input[type=email],
+    body.portfolio-refresh #contact-form textarea.materialize-textarea {
+        border-radius: 18px !important;
+        padding-left: 0.95rem !important;
+        padding-right: 0.95rem !important;
+    }
+
+    body.portfolio-refresh #contact-form input[type=text],
+    body.portfolio-refresh #contact-form input[type=email] {
+        height: 54px !important;
+    }
+
+    body.portfolio-refresh #contact-form textarea.materialize-textarea {
+        min-height: 160px !important;
+    }
+
+    body.portfolio-refresh #contact-form label {
+        font-size: 0.68rem !important;
+    }
+
+    body.portfolio-refresh #contact .contact-note {
+        font-size: 0.82rem;
+    }
+
+    body.portfolio-refresh #contact #contact-card .progress {
+        margin: 0 1.15rem 1.15rem;
+    }
+
+    body.portfolio-refresh #contact > #interest #interest-card .card-content {
+        padding: 1.2rem 0.95rem 0.9rem !important;
+    }
+
+    body.portfolio-refresh #contact > #interest #interest-card .card-content p {
+        max-width: none;
+        font-size: 0.9rem;
+    }
+
+    body.portfolio-refresh #contact > #interest .row.no-gutters {
+        padding: 0.9rem 0.95rem 0.95rem;
+    }
+
+    body.portfolio-refresh #contact > #interest .interest-icon,
+    body.portfolio-refresh #contact > #interest .interest-icon-even {
+        min-height: 116px;
+        gap: 0.75rem;
+        border-radius: 20px;
+    }
+
+    body.portfolio-refresh #contact > #interest .interest-icon i,
+    body.portfolio-refresh #contact > #interest .interest-icon-even i {
+        width: 48px;
+        height: 48px;
+        font-size: 1.08rem;
+    }
+
+    body.portfolio-refresh #contact > #interest .interest-icon span,
+    body.portfolio-refresh #contact > #interest .interest-icon-even span {
+        font-size: 0.88rem;
+    }
+
+    body.portfolio-refresh #home .header-background #v-card-holder #v-card .info-headings .hero-name {
+        font-size: 2.35rem;
+        line-height: 0.95;
+    }
+
+    body.portfolio-refresh #home .header-background #v-card-holder #v-card .info-headings .hero-role {
+        font-size: 0.98rem;
+        padding-left: 0.9rem;
+    }
+
+    body.portfolio-refresh #home .header-background #v-card-holder #v-card .info-headings .hero-name::after {
+        width: 86px;
+        height: 0.56rem;
+        margin-top: 0.75rem;
+    }
+
+    body.portfolio-refresh #home .header-background #v-card-holder #v-card #profile {
+        min-height: clamp(240px, 88vw, 340px);
+        aspect-ratio: 4 / 5;
+        border-radius: 24px 24px 0 0;
+    }
+
+    body.portfolio-refresh #home .header-background #v-card-holder #v-card #profile img {
+        object-position: center 10%;
+    }
+
+    body.portfolio-refresh #home .header-background #v-card-holder #v-card .card-content {
+        padding: 1.3rem !important;
+    }
+
+    body.portfolio-refresh #about-card .card-content {
+        gap: 20px;
+    }
+
+    body.portfolio-refresh #about-card .about-panel {
+        padding: 20px;
+        border-radius: 22px;
+    }
+
+    body.portfolio-refresh #about-card .about-title {
+        font-size: 1.46rem;
+        line-height: 1.18;
+    }
+
+    body.portfolio-refresh #about-card .about-lead {
+        font-size: 0.91rem;
+        line-height: 1.72;
+    }
+
+    body.portfolio-refresh #about-card .about-story p {
+        font-size: 0.89rem;
+        line-height: 1.72;
+    }
+
+    body.portfolio-refresh #about-card .about-note {
+        padding: 0.88rem 0.92rem;
+        border-radius: 20px;
+    }
+
+    body.portfolio-refresh #about-card .about-note strong {
+        font-size: 0.74rem;
+    }
+
+    body.portfolio-refresh #about-card .about-tags {
+        gap: 8px;
+    }
+
+    body.portfolio-refresh #about-card .about-tags span {
+        font-size: 0.76rem;
+        padding: 0.55rem 0.8rem;
+    }
+
+    body.portfolio-refresh #education .timeline-title {
+        gap: 0.5rem;
+    }
+
+    body.portfolio-refresh #education .education-tags {
+        gap: 0.5rem;
+    }
+
+    body.portfolio-refresh #education .education-tags span {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.74rem;
+    }
+
+    body.portfolio-refresh #blog .projects-intro .card-content {
+        padding: 1.18rem !important;
+    }
+
+    body.portfolio-refresh #blog .projects-kicker,
+    body.portfolio-refresh #blog .project-type,
+    body.portfolio-refresh #blog .project-status,
+    body.portfolio-refresh #blog .project-badge {
+        font-size: 0.68rem;
+        letter-spacing: 0.12em;
+    }
+
+    body.portfolio-refresh #blog .projects-heading {
+        max-width: none;
+        font-size: 1.56rem;
+        line-height: 1.12;
+    }
+
+    body.portfolio-refresh #blog .projects-lead {
+        font-size: 0.9rem;
+        line-height: 1.7;
+    }
+
+    body.portfolio-refresh #blog .projects-signals {
+        gap: 0.45rem;
+    }
+
+    body.portfolio-refresh #blog .projects-signals span {
+        padding: 0.44rem 0.66rem;
+        font-size: 0.7rem;
+    }
+
+    body.portfolio-refresh #blog .projects-metrics {
+        grid-template-columns: 1fr;
+    }
+
+    body.portfolio-refresh #blog .projects-metric {
+        min-height: auto;
+        padding: 0.92rem;
+        border-radius: 18px;
+    }
+
+    body.portfolio-refresh #blog .projects-metric:first-child {
+        grid-row: auto;
+    }
+
+    body.portfolio-refresh #blog .projects-metric strong {
+        font-size: 1.08rem;
+    }
+
+    body.portfolio-refresh #blog .projects-metric:first-child strong {
+        font-size: 1.55rem;
+    }
+
+    body.portfolio-refresh #blog .projects-showcase {
+        gap: 16px;
+    }
+
+    body.portfolio-refresh #blog .project-card {
+        grid-template-rows: 210px auto;
+        border-radius: 24px;
+    }
+
+    body.portfolio-refresh #blog .project-card::after {
+        top: 0.88rem;
+        right: 0.88rem;
+        padding: 0.38rem 0.56rem;
+        font-size: 0.68rem;
+    }
+
+    body.portfolio-refresh #blog .project-card-featured {
+        grid-template-columns: 1fr;
+    }
+
+    body.portfolio-refresh #blog .project-badge {
+        top: 0.88rem;
+        left: 0.88rem;
+    }
+
+    body.portfolio-refresh #blog .project-body {
+        gap: 0.88rem;
+        padding: 1rem 0.96rem;
+    }
+
+    body.portfolio-refresh #blog .project-title {
+        font-size: 1.16rem;
+        line-height: 1.2;
+    }
+
+    body.portfolio-refresh #blog .project-summary {
+        font-size: 0.9rem;
+        line-height: 1.68;
+    }
+
+    body.portfolio-refresh #blog .project-stack span {
+        padding: 0.46rem 0.7rem;
+        font-size: 0.72rem;
+    }
+
+    body.portfolio-refresh #interest .section-title + #interest-card .card-content {
+        padding: 1.15rem !important;
+        gap: 0.76rem;
+    }
+
+    body.portfolio-refresh #interest .section-title + #interest-card .card-content::before {
+        font-size: 0.64rem;
+        padding: 0.48rem 0.72rem;
+        letter-spacing: 0.14em;
+    }
+
+    body.portfolio-refresh #interest .section-title + #interest-card .card-content p {
+        font-size: 0.9rem;
+        line-height: 1.7;
+    }
+
+    body.portfolio-refresh #interest .section-title + #interest-card .row.no-gutters {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 0 0.95rem 0.95rem;
+    }
+
+    body.portfolio-refresh #interest .section-title + #interest-card .interest-icon,
+    body.portfolio-refresh #interest .section-title + #interest-card .interest-icon-even {
+        min-height: 128px;
+        gap: 1.25rem;
+        padding: 0.92rem 0.96rem;
+        border-radius: 20px;
+    }
+
+    body.portfolio-refresh #interest .section-title + #interest-card .interest-icon i,
+    body.portfolio-refresh #interest .section-title + #interest-card .interest-icon-even i {
+        width: 50px;
+        height: 50px;
+        border-radius: 14px;
+        font-size: 1rem;
+    }
+
+    body.portfolio-refresh #interest .section-title + #interest-card .interest-icon span,
+    body.portfolio-refresh #interest .section-title + #interest-card .interest-icon-even span {
+        max-width: none;
+        padding-right: 2rem;
+        font-size: 0.95rem;
+        line-height: 1.22;
+    }
+
+    body.portfolio-refresh #interest .section-title + #interest-card .interest-icon::after,
+    body.portfolio-refresh #interest .section-title + #interest-card .interest-icon-even::after {
+        top: 0.9rem;
+        right: 0.95rem;
+        font-size: 0.64rem;
+    }
+
+    body.portfolio-refresh #certifications::before {
+        inset: 2rem 0 0;
+        border-radius: 30px;
+    }
+
+    body.portfolio-refresh #certifications .collection {
+        gap: 14px;
+        padding: 0.25rem 0 0;
+    }
+
+    body.portfolio-refresh #certifications .collection::before {
+        border-radius: 24px;
+    }
+
+    body.portfolio-refresh #certifications .collection-item {
+        min-height: 210px;
+        border-radius: 22px;
+    }
+
+    body.portfolio-refresh #certifications .collection-item::after {
+        top: 0.85rem;
+        right: 0.85rem;
+        min-width: 2.35rem;
+        height: 2.35rem;
+        padding: 0 0.55rem;
+        border-radius: 999px;
+        font-size: 0.64rem;
+    }
+
+    body.portfolio-refresh #certifications .collection-item a {
+        min-height: 210px;
+        padding: 1rem 0.96rem 0.96rem;
+        padding-right: 3.9rem;
+        gap: 0.7rem;
+    }
+
+    body.portfolio-refresh #certifications .collection-item a::before {
+        right: 0.8rem;
+        bottom: 0.7rem;
+        font-size: 3rem;
+    }
+
+    body.portfolio-refresh #certifications .cert-platform {
+        font-size: 0.63rem;
+    }
+
+    body.portfolio-refresh #certifications .cert-title {
+        font-size: 0.96rem;
+        line-height: 1.4;
+    }
+
+    body.portfolio-refresh #certifications .cert-footer {
+        gap: 0.4rem;
+    }
+
+    body.portfolio-refresh #certifications .cert-footer span {
+        padding: 0.38rem 0.58rem;
+        font-size: 0.66rem;
+    }
+
+    body.portfolio-refresh #certifications .collection-item a::after {
+        padding: 0.64rem 0.8rem;
+        font-size: 0.64rem;
+    }
+
+    body.portfolio-refresh #blog .project-link {
+        padding: 0.7rem 0.92rem;
+        font-size: 0.76rem;
+    }
+
+    body.portfolio-refresh #experience .experience-intro .card-content {
+        padding: 1.18rem !important;
+    }
+
+    body.portfolio-refresh #experience .experience-kicker,
+    body.portfolio-refresh #experience .experience-role,
+    body.portfolio-refresh #experience .experience-side-label {
+        font-size: 0.68rem;
+        letter-spacing: 0.12em;
+    }
+
+    body.portfolio-refresh #experience .experience-heading {
+        font-size: 1.56rem;
+        line-height: 1.12;
+    }
+
+    body.portfolio-refresh #experience .experience-lead {
+        font-size: 0.9rem;
+        line-height: 1.7;
+    }
+
+    body.portfolio-refresh #experience .experience-signals {
+        gap: 0.45rem;
+    }
+
+    body.portfolio-refresh #experience .experience-signals span {
+        padding: 0.44rem 0.66rem;
+        font-size: 0.7rem;
+    }
+
+    body.portfolio-refresh #experience .experience-metrics {
+        grid-template-columns: 1fr;
+    }
+
+    body.portfolio-refresh #experience .experience-metric {
+        min-height: auto;
+        padding: 0.92rem;
+        border-radius: 18px;
+    }
+
+    body.portfolio-refresh #experience .experience-metric strong {
+        font-size: 1.08rem;
+    }
+
+    body.portfolio-refresh #experience .timeline-title {
+        max-width: none;
+        font-size: 1.18rem;
+    }
+
+    body.portfolio-refresh #experience .experience-summary {
+        font-size: 0.92rem;
+        line-height: 1.72;
+    }
+
+    body.portfolio-refresh #experience .experience-points {
+        gap: 0.62rem;
+    }
+
+    body.portfolio-refresh #experience .experience-points li {
+        padding-left: 1rem;
+        font-size: 0.88rem;
+        line-height: 1.64;
+    }
+
+    body.portfolio-refresh #experience .experience-tags span {
+        padding: 0.48rem 0.72rem;
+        font-size: 0.72rem;
+    }
+
+    body.portfolio-refresh #skills-card .card-content {
+        padding: 1.2rem !important;
+    }
+
+    body.portfolio-refresh #skills-card .skills-kicker,
+    body.portfolio-refresh #skills-card .skills-panel-kicker {
+        font-size: 0.68rem;
+        letter-spacing: 0.12em;
+    }
+
+    body.portfolio-refresh #skills-card .skills-heading {
+        max-width: none;
+        font-size: 1.52rem;
+        line-height: 1.12;
+    }
+
+    body.portfolio-refresh #skills-card .skills-lead {
+        font-size: 0.9rem;
+        line-height: 1.7;
+    }
+
+    body.portfolio-refresh #skills-card .skills-metrics {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    body.portfolio-refresh #skills-card .skills-metric:last-child {
+        grid-column: 1 / -1;
+    }
+
+    body.portfolio-refresh #skills-card .skills-metric strong {
+        font-size: 1.08rem;
+    }
+
+    body.portfolio-refresh #skills-card .skills-panel {
+        padding: 1rem 0.92rem 0.92rem;
+        border-radius: 22px;
+    }
+
+    body.portfolio-refresh #skills-card .skills-panel::before {
+        top: 0.78rem;
+        left: 0.92rem;
+        width: 5.6rem;
+    }
+
+    body.portfolio-refresh #skills-card .skills-panel::after {
+        top: 0.7rem;
+        right: 0.82rem;
+        font-size: 2.7rem;
+    }
+
+    body.portfolio-refresh #skills-card .skills-panel-head {
+        gap: 0.56rem;
+        min-height: 2.55rem;
+    }
+
+    body.portfolio-refresh #skills-card .skills-panel-icon {
+        width: 34px;
+        height: 34px;
+        border-radius: 12px;
+    }
+
+    body.portfolio-refresh #skills-card .skills-panel-icon i {
+        font-size: 0.88rem;
+    }
+
+    body.portfolio-refresh #skills-card .skills-signals {
+        gap: 0.42rem;
+    }
+
+    body.portfolio-refresh #skills-card .skills-signals span {
+        padding: 0.42rem 0.64rem;
+        font-size: 0.7rem;
+    }
+
+    body.portfolio-refresh #skills-card .skills-group {
+        padding: 0.88rem;
+        border-radius: 18px;
+    }
+
+    body.portfolio-refresh #skills-card .skills-title h6 {
+        font-size: 0.76rem;
+        letter-spacing: 0.12em;
+    }
+
+    body.portfolio-refresh #skills-card .skillbar {
+        padding: 0.88rem 0.88rem 1.8rem;
+        border-radius: 18px;
+    }
+
+    body.portfolio-refresh #skills-card .skillbar::before,
+    body.portfolio-refresh #skills-card .skillbar .skillbar-bar {
+        left: 0.88rem;
+        right: 0.88rem;
+        bottom: 0.82rem;
+        max-width: calc(100% - 1.76rem);
+    }
+
+    body.portfolio-refresh #skills-card .skillbar::after {
+        top: 0.88rem;
+        right: 0.88rem;
+        font-size: 0.68rem;
+        padding: 0.2rem 0.38rem;
+    }
+
+    body.portfolio-refresh #skills-card .skillbar .skillbar-title {
+        padding-right: 4rem;
+    }
+
+    body.portfolio-refresh #skills-card .skillbar .skillbar-title span {
+        font-size: 0.88rem;
+        line-height: 1.42;
+    }
+
+    body.portfolio-refresh #about-card .about-path li {
+        padding: 0.92rem 0.88rem 0.92rem 2.5rem;
+        border-radius: 18px;
+        font-size: 0.87rem;
+        line-height: 1.66;
+    }
+
+    body.portfolio-refresh #about-card .about-path li::before {
+        top: 1.06rem;
+        left: 0.88rem;
+        width: 12px;
+        height: 12px;
+    }
+
+    body.portfolio-refresh #about-card .about-path li strong {
+        font-size: 0.72rem;
+        letter-spacing: 0.12em;
+    }
+
+    body.portfolio-refresh #about-card .about-highlight {
+        padding: 20px 18px 18px;
+    }
+
+    body.portfolio-refresh #about .about-btn {
+        padding: 1.2rem 1.3rem 0;
+    }
+
+    body.portfolio-refresh #about .about-cta {
+        font-size: 0.94rem;
+        line-height: 1.75;
+    }
+
+    body.portfolio-refresh .timeline-block {
+        padding-left: 3.3rem;
+    }
+
+    body.portfolio-refresh .timeline-block .timeline-dot {
+        width: 42px;
+        height: 42px;
+        top: 18px;
+    }
+
+    body.portfolio-refresh #education .timeline-block {
+        padding-left: 3.3rem;
+    }
+
+    body.portfolio-refresh #experience .timeline-block {
+        padding-left: 3.35rem;
+    }
+
+    body.portfolio-refresh #timeline-education {
+        --education-dot-size: 42px;
+        --education-dot-top: 16px;
+        --education-connector-gap: 6px;
+    }
+
+    body.portfolio-refresh #timeline-experience {
+        --experience-dot-size: 42px;
+        --experience-dot-top: 16px;
+        --experience-connector-gap: 6px;
+    }
+
+    body.portfolio-refresh #education .timeline-block .timeline-dot {
+        width: 42px;
+        height: 42px;
+        top: 16px;
+        box-shadow:
+            0 12px 24px rgba(16, 35, 63, 0.14),
+            0 0 0 5px rgba(255, 255, 255, 0.44);
+    }
+
+    body.portfolio-refresh #education .timeline-block .timeline-dot::before {
+        inset: 4px;
+    }
+
+    body.portfolio-refresh #experience .timeline-block .timeline-dot {
+        width: 42px;
+        height: 42px;
+        top: 16px;
+        box-shadow:
+            0 12px 24px rgba(16, 35, 63, 0.14),
+            0 0 0 5px rgba(255, 255, 255, 0.44);
+    }
+
+    body.portfolio-refresh #experience .timeline-block .timeline-dot::before {
+        inset: 4px;
+    }
+
+    body.portfolio-refresh .timeline-block .timeline-dot i {
+        margin-top: 9px;
+    }
+
+    body.portfolio-refresh #education .timeline-block .timeline-dot i {
+        margin-top: 0;
+        font-size: 0.9rem;
+        transform: translateY(-1px);
+    }
+
+    body.portfolio-refresh #experience .timeline-block .timeline-dot i {
+        margin-top: 0;
+        font-size: 0.9rem;
+        transform: translateY(-1px);
+    }
+
+    body.portfolio-refresh .timeline-block .card-content {
+        padding: 1.2rem !important;
+    }
+
+    body.portfolio-refresh #blog-card .card,
+    body.portfolio-refresh #certifications .collection,
+    body.portfolio-refresh #contact > #interest .row.no-gutters {
+        grid-template-columns: 1fr;
+    }
+
+    body.portfolio-refresh #interest-card .row.no-gutters {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Cross-device compatibility pass */
+body.portfolio-refresh .section-title h4 {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-wrap: balance;
+}
+
+body.portfolio-refresh .section-title .title-icon {
+    flex: 0 0 auto;
+}
+
+body.portfolio-refresh .card,
+body.portfolio-refresh .card .card-content,
+body.portfolio-refresh .row,
+body.portfolio-refresh [class*="col-"],
+body.portfolio-refresh .timeline-block,
+body.portfolio-refresh .timeline-content,
+body.portfolio-refresh .project-card,
+body.portfolio-refresh .collection-item,
+body.portfolio-refresh .skills-panel,
+body.portfolio-refresh .experience-metric,
+body.portfolio-refresh .projects-metric,
+body.portfolio-refresh .skills-metric,
+body.portfolio-refresh .interest-icon,
+body.portfolio-refresh .interest-icon-even {
+    min-width: 0;
+}
+
+body.portfolio-refresh .btn,
+body.portfolio-refresh .btn-large,
+body.portfolio-refresh #blog .project-link,
+body.portfolio-refresh #home .header-background #v-card-holder #v-card .links .social {
+    max-width: 100%;
+}
+
+body.portfolio-refresh #home .header-background #v-card-holder #v-card .infos .profile-list .content,
+body.portfolio-refresh #home .header-background #v-card-holder #v-card .infos .profile-list .content a,
+body.portfolio-refresh #about-card .about-title,
+body.portfolio-refresh #about-card .about-lead,
+body.portfolio-refresh #about-card .about-story p,
+body.portfolio-refresh #education .timeline-title,
+body.portfolio-refresh #education .timeline-info h6,
+body.portfolio-refresh #experience .experience-heading,
+body.portfolio-refresh #experience .experience-role,
+body.portfolio-refresh #experience .timeline-title,
+body.portfolio-refresh #experience .experience-summary,
+body.portfolio-refresh #experience .experience-points li,
+body.portfolio-refresh #blog .projects-heading,
+body.portfolio-refresh #blog .project-title,
+body.portfolio-refresh #blog .project-summary,
+body.portfolio-refresh #blog .project-link,
+body.portfolio-refresh #certifications .cert-title,
+body.portfolio-refresh #certifications .cert-footer span,
+body.portfolio-refresh #interest .section-title + #interest-card .interest-icon span,
+body.portfolio-refresh #interest .section-title + #interest-card .interest-icon-even span,
+body.portfolio-refresh #contact > #interest .interest-icon span,
+body.portfolio-refresh #contact > #interest .interest-icon-even span {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+@media screen and (max-width: 991px) {
+    body.portfolio-refresh #skills-card .skills-metrics {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    body.portfolio-refresh #interest .section-title + #interest-card .row.no-gutters {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+
+    body.portfolio-refresh #interest .section-title + #interest-card .interest-icon,
+    body.portfolio-refresh #interest .section-title + #interest-card .interest-icon-even {
+        min-height: 144px;
+    }
+
+    body.portfolio-refresh #certifications .collection {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    body.portfolio-refresh #certifications .collection-item,
+    body.portfolio-refresh #certifications .collection-item a {
+        min-height: 232px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    body.portfolio-refresh #about .about-btn .btn,
+    body.portfolio-refresh #blog .project-link {
+        width: 100%;
+        justify-content: center;
+    }
+
+    body.portfolio-refresh #experience .experience-metrics,
+    body.portfolio-refresh #blog .projects-metrics {
+        grid-template-columns: 1fr;
+    }
+
+    body.portfolio-refresh #skills-card .skills-metrics {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    body.portfolio-refresh #blog .project-topline {
+        align-items: flex-start;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    body.portfolio-refresh #home .header-background #v-card-holder #v-card .infos .profile-list li {
+        gap: 12px;
+    }
+
+    body.portfolio-refresh #home .header-background #v-card-holder #v-card .infos .profile-list .content {
+        font-size: 0.92rem;
+    }
+
+    body.portfolio-refresh #experience .experience-metrics,
+    body.portfolio-refresh #skills-card .skills-metrics,
+    body.portfolio-refresh #blog .projects-metrics {
+        grid-template-columns: 1fr;
+    }
+}

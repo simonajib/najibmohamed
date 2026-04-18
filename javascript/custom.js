@@ -1,7 +1,40 @@
 (function ($) {
     "use strict";
 
+    var preloaderDelay = 2000;
+    var preloaderFadeDuration = window.matchMedia &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 260;
+    var preloaderHidden = false;
+    var preloaderTimer = null;
+
+    function hidePreloader(delay) {
+        window.clearTimeout(preloaderTimer);
+        preloaderTimer = window.setTimeout(function () {
+            if (preloaderHidden) {
+                return;
+            }
+
+            preloaderHidden = true;
+            $('div#loading').stop(true, true).animate({
+                opacity: 0
+            }, preloaderFadeDuration, function () {
+                $(this).addClass('preloader-hidden');
+            });
+        }, Math.max(delay || 0, 0));
+    }
+
+    function forceHidePreloader() {
+        if (preloaderHidden) {
+            return;
+        }
+
+        preloaderHidden = true;
+        window.clearTimeout(preloaderTimer);
+        $('div#loading').stop(true, true).addClass('preloader-hidden');
+    }
+
     jQuery(document).ready(function () {
+        hidePreloader(preloaderDelay);
 
         /***MENU TOGGLE ANIMATION***/
         $('.toggle-normal').on('click', function() {
@@ -150,10 +183,18 @@
         }
 
         /***CLIENT SLIDER INITIALIZATION***/
-        clint();
+        if ($('ul#clients-list').length) {
+            clint();
+        }
 
         /***GOOGLE MAP***/
         function init() {
+            var mapNode = document.getElementById('myMap');
+
+            if (!mapNode || typeof google === 'undefined' || !google.maps || typeof MarkerWithLabel === 'undefined') {
+                return;
+            }
+
             var mapOptions = {
                 zoom: 17,
                 center: new google.maps.LatLng(51.5287352, -0.3817831),
@@ -162,7 +203,7 @@
                 disableDefaultUI: false
             };
 
-            var myMap = new google.maps.Map(document.getElementById('myMap'), mapOptions);
+            var myMap = new google.maps.Map(mapNode, mapOptions);
 
             new MarkerWithLabel({
                 position: myMap.getCenter(),
@@ -194,41 +235,68 @@
             threshold:0
         });
 
-
-       /***MAIL SCRIPT***/ // Upadted in V. 1.1
+        /***CONTACT EMAIL LINK***/
         $('form#contact-form').on('submit', function (e) {
-            e.preventDefault(); //Prevents default submit
-            var form = $(this);
-            $("#submit").attr('disabled', 'disabled'); //Disable the submit button on click
-            var post_data = form.serialize(); //Serialized the form data 
-            $('div#form-loader').removeClass('is-hidden').fadeIn(500);
-            $.ajax({
-                type: 'POST',
-                url: 'php/mail_handler.php', // Form script
-                data: post_data
-            })
-                .done(function () {
-                    $('div#form-loader').fadeOut(500);
-                    Materialize.toast('Message Sent! I will contact you shortly, Thanks', 4000);
-                    $("form#contact-form")[0].reset();
-                    Materialize.updateTextFields(); // Rest floating labels
-                    $("#submit").removeAttr('disabled', 'disabled'); // Enable submit button
+            e.preventDefault();
 
-                })
-                .fail(function () {
-                    $('div#form-loader').fadeOut(500);
-                    Materialize.toast('Sorry! Something Wrong, Try Again', 4000);
-                    $("#submit").removeAttr('disabled', 'disabled'); // Enable submit button
-                });
+            var form = $(this);
+            var submitButton = $("#submit");
+            var recipient = $.trim(String(form.data('recipientEmail') || 'najibsimons01@gmail.com')).replace(/\s+/g, '');
+            var name = $.trim($('#first_name').val());
+            var subject = $.trim($('#sub').val());
+            var email = $.trim($('#email').val());
+            var message = $.trim($('#textarea1').val());
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!name || !email || !message) {
+                Materialize.toast('Please fill in your name, email, and message.', 4000);
+                return;
+            }
+
+            if (!emailPattern.test(email)) {
+                Materialize.toast('Please enter a valid email address.', 4000);
+                return;
+            }
+
+            if (!subject) {
+                subject = 'Portfolio contact from ' + name;
+            }
+
+            var body = [
+                'Hello Mohamed Najib,',
+                '',
+                'Name: ' + name,
+                'Email: ' + email,
+                '',
+                'Message:',
+                message
+            ].join('\n');
+
+            var mailtoUrl = 'mailto:' + recipient +
+                '?subject=' + encodeURIComponent(subject) +
+                '&body=' + encodeURIComponent(body);
+
+            submitButton.attr('disabled', 'disabled');
+            Materialize.toast('Your email app is opening. If it does not open, send directly to ' + recipient + '.', 5000);
+            window.location.href = mailtoUrl;
+
+            window.setTimeout(function () {
+                submitButton.removeAttr('disabled');
+            }, 800);
         });
 
 
     });
 
-    jQuery(window).load(function () {
+    jQuery(window).on('pageshow', function (event) {
+        var nativeEvent = event.originalEvent;
 
-        /***FADES OUT PRE-LOADER***/
-        $('div#loading').fadeOut(500);
+        if (nativeEvent && nativeEvent.persisted) {
+            forceHidePreloader();
+        }
+    });
+
+    jQuery(window).on('load', function () {
 
         /***SCROLL ANIMATION***/
         window.sr = ScrollReveal({reset: false}); // reset false stops repetition of animation
@@ -239,7 +307,8 @@
         sr.reveal(commonCards, {duration: 1100});
         sr.reveal('#about-card,.map-label', {duration: 1400, delay: 500});
         sr.reveal('#v-card-holder', {duration: 1400, distance: '150px'});
-        sr.reveal('.skillbar-bar', {duration: 1800, delay: 300, distance: '0'});});
+        sr.reveal('.skillbar-bar', {duration: 1800, delay: 300, distance: '0'});
+    });
 
 
 })(jQuery);

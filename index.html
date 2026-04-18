@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="author" content="Trimatrix Lab">
 <meta name="description" content="Portfolio professionnel de Mohamed Najib, ingénieur en informatique passionné par le développement web, le cloud et l'intelligence artificielle.">
     <meta name="keywords" content="">
@@ -17,8 +17,9 @@
 
 
     <!-- GOOGLE FONT -->
-    <link href='https://fonts.googleapis.com/css?family=Raleway:500' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 
     <!-- MATERIAL ICON FONT -->
@@ -39,10 +40,10 @@
 
     <!-- CUSTOM STYLE -->
 <link href="stylesheets/style_dark_dark.css" id="switch_style" rel="stylesheet">
-
+<link href="stylesheets/style_best.css" rel="stylesheet">
 
 </head>
-<body>
+<body class="portfolio-refresh">
 
 
 <!--==========================================
@@ -81,7 +82,7 @@
             <!--OPTIONS-->
             <a href="#home"><i class="title-icon fa fa-user"></i>Principale</a>
             <a href="#about"><i class="title-icon fa fa-dashboard"></i>Bilan personnel</a>
-            <a href="#education"><i class="title-icon fa fa-graduation-cap"></i>Education</a>
+            <a href="#education"><i class="title-icon fa fa-graduation-cap"></i>Formation</a>
             <a href="#skills"><i class="title-icon fa fa-sliders"></i>Compétences</a>
             <a href="#experience"><i class="title-icon fa fa-suitcase"></i>Expérience</a>
             <a href="#blog"><i class="title-icon fa fa-pencil-square"></i>Projets</a>
@@ -111,7 +112,14 @@
 
                             <!-- PROFILE PICTURE -->
                             <div id="profile" class="right">
-                                <img alt="profile-image" class="img-responsive" src="images/profile.png">
+                                <img
+                                    alt="Portrait de Mohamed Najib"
+                                    class="img-responsive"
+                                    src="images/Home page.jpeg"
+                                    width="850"
+                                    height="1280"
+                                    decoding="async"
+                                    fetchpriority="high">
                                 <div class="slant"></div>
                                 <div class="btn-floating btn-large add-btn">
                                     <i class="material-icons">contact_mail</i></div>
@@ -121,8 +129,8 @@
 
                                 <!-- NAME & STATUS -->
                                 <div class="info-headings">
-                                    <h4 class="text-uppercase left">Najib Mohamed</h4>
-                                    <h6 class="text-capitalize left">Ingénieur diplômé en Informatique et Réseaux – Option MIAGE</h6>
+                                    <h4 class="hero-name">Najib Mohamed</h4>
+                                    <h6 class="hero-role">Ingénieur diplômé en Informatique et Réseaux – Option MIAGE</h6>
                                 </div>
 
                                 <!-- CONTACT INFO -->
@@ -130,15 +138,15 @@
                                     <ul class="profile-list">
                                         <li class="clearfix">
                                             <span class="title"><i class="material-icons">email</i></span>
-                                            <span class="content">najibsimons01@gmail.com</span>
+                                            <span class="content"><a href="mailto:najibsimons01@gmail.com">najibsimons01@gmail.com</a></span>
                                         </li>
                                         <li class="clearfix">
                                             <span class="title"><i class="material-icons">language</i></span>
-                                            <span class="content">https://github.com/simonajib</span>
+                                            <span class="content"><a href="https://github.com/simonajib" target="_blank" rel="noreferrer">github.com/simonajib</a></span>
                                         </li>
                                         <li class="clearfix">
                                             <span class="title"><i class="material-icons">phone</i></span>
-                                            <span class="content">+212 6 59 55 62 70</span>
+                                            <span class="content"><a href="tel:+212659556270">+212 6 59 55 62 70</a></span>
                                         </li>
                                         <li class="clearfix">
                                             <span class="title"><i class="material-icons">place</i></span>
@@ -152,10 +160,10 @@
                                 <div class="links">
                                 
                                     <!-- LINKEDIN-->
-                                    <a href="https://www.linkedin.com/in/mohamed-najib-8a628a282/" target="_blank" class="social  btn-floating blue darken-3"><i
+                                    <a href="https://www.linkedin.com/in/mohamed-najib-8a628a282/" target="_blank" rel="noreferrer" class="social  btn-floating blue darken-3"><i
                                             class="fa fa-linkedin"></i></a>
                                     <!-- RSS-->
-                                    <a href="https://github.com/simonajib" target="_blank" class="social  btn-floating black darken-3"><i
+                                    <a href="https://github.com/simonajib" target="_blank" rel="noreferrer" class="social  btn-floating black darken-3"><i
                                             class="fa fa-github"></i></a>
                                     
                                 </div>
@@ -178,21 +186,78 @@
                 <!-- DETAILS -->
                 <div id="about-card" class="card">
                     <div class="card-content">
-                        <!-- ABOUT PARAGRAPH -->
-<p>
-    Diplômé en Ingénierie Informatique & Réseaux de l’École Marocaine des Sciences de l’Ingénieur (EMSI), je suis passionné par les technologies web, le cloud et l’intelligence artificielle. Mon parcours m’a permis de développer des compétences solides en développement fullstack, conception logicielle et intégration de systèmes. Rigoureux, curieux et animé par l’innovation, je suis prêt à mettre mes compétences au service de projets ambitieux, dans un environnement dynamique et stimulant.
-</p>
+                        <div class="about-layout">
+                            <div class="about-panel about-signature">
+                                <span class="about-kicker">Bilan personnel</span>
+                                <h2 class="about-title">Je transforme les idées ambitieuses en solutions digitales claires, robustes et utiles.</h2>
+                                <p class="about-lead">
+                                    Ingénieur diplômé en Informatique & Réseaux de l’EMSI, j’évolue à la croisée du développement web, du cloud et de l’intelligence artificielle, avec une vraie envie de construire des produits qui ont du sens.
+                                </p>
+                                <div class="about-note">
+                                    <strong>Ma boussole</strong>
+                                    <p>Comprendre le besoin réel, simplifier l’architecture et soigner l’expérience jusque dans les détails.</p>
+                                </div>
+                                <div class="about-tags">
+                                    <span>Fullstack mindset</span>
+                                    <span>Cloud thinking</span>
+                                    <span>IA appliquée</span>
+                                    <span>Impact produit</span>
+                                </div>
+                            </div>
+
+                            <div class="about-panel about-story">
+                                <p>
+                                    Mon parcours m’a appris à relier la technique, la logique métier et l’expérience utilisateur. J’aime partir d’un besoin parfois encore flou, structurer une solution solide, puis la rendre simple à utiliser et agréable à vivre.
+                               
+                                    Ce qui m’anime le plus, c’est cette zone où la rigueur d’ingénierie rencontre la créativité: concevoir une architecture cohérente, intégrer les bons outils, puis livrer une expérience fluide qui inspire confiance.
+                                </p>
+                                <ul class="about-path">
+                                    <li>
+                                        <strong>Créer</strong>
+                                        Concevoir des interfaces et des fonctionnalités qui servent un objectif concret.
+                                    </li>
+                                    <li>
+                                        <strong>Structurer</strong>
+                                        Penser système, intégration et maintenabilité avant même la première ligne de code.
+                                    </li>
+                                    <li>
+                                        <strong>Faire évoluer</strong>
+                                        Construire des solutions prêtes à grandir avec les besoins, les usages et l’ambition du projet.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="about-highlights">
+                            <article class="about-highlight">
+                                <i class="fa fa-code"></i>
+                                <h6>Développement fullstack</h6>
+                                <p>Du front soigné aux APIs robustes, avec une attention constante portée à la qualité et à la lisibilité.</p>
+                            </article>
+                            <article class="about-highlight">
+                                <i class="fa fa-cubes"></i>
+                                <h6>Conception logicielle</h6>
+                                <p>Des bases solides pour organiser, relier et faire évoluer les différents blocs d’un projet.</p>
+                            </article>
+                            <article class="about-highlight">
+                                <i class="fa fa-cloud"></i>
+                                <h6>Cloud & intégration</h6>
+                                <p>Une approche orientée déploiement, fiabilité et circulation fluide entre services et environnements.</p>
+                            </article>
+                            <article class="about-highlight">
+                                <i class="fa fa-lightbulb-o"></i>
+                                <h6>Innovation pragmatique</h6>
+                                <p>Explorer l’IA et les nouvelles idées avec un objectif simple: créer de la valeur réelle, pas du bruit.</p>
+                            </article>
+                        </div>
                     </div>
                     <!-- BUTTONS -->
                     <div id="about-btn" class="card-action">
                         <div class="about-btn">
-                            <!-- DOWNLOAD CV BUTTON -->
-                            <h2 class="text-uppercase text-center"><i class="title-icon fa fa-book"></i></h2>
-
-                            <a href="./fichiers/NajibMohamed_25.pdf" target="_blanc" class="btn waves-effect">CV</a>
-                            <!-- CONTACT BUTTON -->
-                           
-                         
+                            <p class="about-cta">
+                                J’aime les projets où l’on construit avec exigence, curiosité et vision. Si vous cherchez un profil capable de mêler technique, clarté et sens du produit, mon parcours mérite un coup d’œil.
+                            </p>
+                            <a href="./fichiers/NajibMohamed_25.pdf" target="_blank" class="btn waves-effect">Voir mon CV</a>
                         </div>
                     </div>
                 </div>
@@ -221,7 +286,7 @@
                 <div class="card timeline-content">
                     <div class="card-content">
                         <!-- TIMELINE TITLE -->
-                        <h6 class="timeline-title">École Marocaine Des Sciences De L'Ingénieur </h6>
+                        <h6 class="timeline-title">École Marocaine des Sciences de l'Ingénieur <span class="timeline-school-short">EMSI</span></h6>
                         <!-- TIMELINE TITLE INFO -->
                         <div class="timeline-info">
                             <h6>
@@ -231,9 +296,23 @@
                                 <small>2019 - 2025</small>
                             </h6>
                         </div>
-                        <!-- TIMELINE PARAGRAPH -->
-                        <p>
-                            5ème Année INGENIEURE D’ETAT INFORMATIQUE & Réseaux Option MIAGE</p>
+                        <div class="education-layout">
+                            <div class="education-copy">
+                                <div class="timeline-badge">Diplôme d’ingénieur d’État</div>
+                                <p>
+                                    Ingénierie Informatique & Réseaux, option MIAGE. Un parcours orienté systèmes d’information, développement logiciel, conception applicative et intégration de solutions tournées métier.
+                                </p>
+                            </div>
+                            <div class="education-aside">
+                                <span class="education-label">Axes clés</span>
+                                <div class="education-tags">
+                                  <span>Architecture logicielle</span>
+                                  <span>Systèmes d’information</span>
+                                  <span>Réseaux</span>
+                                  <span>Conception applicative</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -246,7 +325,7 @@
                 <div class="card timeline-content">
                     <div class="card-content">
                         <!-- TIMELINE TITLE -->
-                        <h6 class="timeline-title">Groupe Scolaire Jules Ferry</h6>
+                        <h6 class="timeline-title">Groupe scolaire Jules Ferry</h6>
                         <!-- TIMELINE TITLE INFO -->
                         <div class="timeline-info">
                             <h6>
@@ -256,8 +335,23 @@
                                 <small>2018 - 2019</small>
                             </h6>
                         </div>
-                        <!-- TIMELINE PARAGRAPH -->
-                        <p>Baccalauréat série physique chimie BIOF </p>
+                        <div class="education-layout">
+                            <div class="education-copy">
+                                <div class="timeline-badge">Baccalauréat</div>
+                                <p>
+Baccalauréat en Sciences Physiques et Chimiques (BIOF). Une formation scientifique qui a renforcé
+                        ma rigueur, mon esprit d’analyse et mon raisonnement logique.                                </p>
+                            </div>
+                            <div class="education-aside">
+                                <span class="education-label">Fondations</span>
+                                <div class="education-tags">
+                                    <span>Analyse</span>
+                                    <span>Physique</span>
+                                    <span>Logique</span>
+                                    <span>Méthode</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -280,120 +374,148 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div id="skills-card" class="card">
                     <div class="card-content">
-                        <div class="row">
-                            <div class="col-md-4 col-sm-4 col-xs-12">
-                                <!-- FIRST SKILL SECTION -->
-                                <div class="skills-title">
-                                    <h6 class="text-center">Langage de programmation</h6>
-                                </div>
-                                <!-- FIRST SKILL BAR -->
-                                <div class="skillbar" data-percent="89%">
-                                    <div class="skillbar-title"><span>C, C++, C#</span></div>
-                                    <div class="skillbar-bar"></div>
-                                   
-                                </div>
-                                <!-- SECOND SKILL BAR  -->
-                                <div class="skillbar" data-percent="85%">
-                                    <div class="skillbar-title"><span>Java, PHP, Python</span></div>
-                                    <div class="skillbar-bar"></div>
-                                    
-                                </div>
-                               
-                                <br>
-                                 <!-- THIRD SKILL SECTION -->
-                                 <div class="skills-title">
-                                    <h6 class="text-center">SGBD</h6>
-                                </div>
-                                <!-- FIRST SKILL BAR -->
-                                <div class="skillbar" data-percent="90%">
-                                    <div class="skillbar-title"><span>MySQL</span></div>
-                                    <div class="skillbar-bar"></div>
-                                   
-                                </div>
-                                <!-- SECOND SKILL BAR  -->
-                                <div class="skillbar" data-percent="80%">
-                                    <div class="skillbar-title"><span>PLSQL</span></div>
-                                    <div class="skillbar-bar"></div>
-                                    
-                                </div>
-                                
-                            </div>
-
-
-                            <div class="col-md-4 col-sm-4 col-xs-12">
-                                <div class="skills-title">
-                                    <h6 class="text-center">Programmation web</h6>
-                                </div>
-                                <!-- FIRST SKILL BAR -->
-                                <div class="skillbar" data-percent="60%">
-                                    <div class="skillbar-title"><span>JavaScript (Framework Angular)</span></div>
-                                    <div class="skillbar-bar"></div>
-                                  
-                                </div>
-                                <!-- SECOND SKILL BAR  -->
-                                <div class="skillbar" data-percent="90%">
-                                    <div class="skillbar-title"><span>Html5, Css</span></div>
-                                    <div class="skillbar-bar"></div>
-                                   
-                                </div>
-                                <br>
-                                 <!-- THIRD SKILL SECTION -->
-                                 <div class="skills-title">
-                                    <h6 class="text-center">Analyse et conception</h6>
-                                </div>
-                                <!-- FIRST SKILL BAR -->
-                                <div class="skillbar" data-percent="80%">
-                                    <div class="skillbar-title"><span>UML</span></div>
-                                    <div class="skillbar-bar"></div>
-                                   
-                                </div>
-                                <!-- SECOND SKILL BAR  -->
-                                <div class="skillbar" data-percent="90%">
-                                    <div class="skillbar-title"><span> methdoe de Merise</span></div>
-                                    <div class="skillbar-bar"></div>
-                                   
+                        <div class="skills-intro">
+                            <div class="skills-intro-copy">
+                                <span class="skills-kicker">Panorama technique</span>
+                                <h5 class="skills-heading">Un profil polyvalent pour concevoir, développer et faire évoluer des solutions digitales.</h5>
+                                <p class="skills-lead">
+                                    Mes compétences couvrent le développement fullstack, la conception logicielle, les bases de données et l’administration système, avec une approche orientée clarté, maintenabilité et résultat.
+                                </p>
+                                <div class="skills-signals">
+                                    <span>Développement fullstack</span>
+                                    <span>Architecture logicielle</span>
+                                    <span>Données & SQL</span>
+                                    <span>Systèmes & scripting</span>
                                 </div>
                             </div>
-
-
-                            <div class="col-md-4 col-sm-4 col-xs-12">
-                                <!-- SECOND SKILL SECTION -->
-                                <div class="skills-title">
-                                    <h6 class="text-center">Framework</h6>
+                            <div class="skills-metrics">
+                                <div class="skills-metric">
+                                    <strong>6</strong>
+                                    <span>domaines</span>
                                 </div>
-                                <!-- FIRST SKILL BAR -->
-                                <div class="skillbar" data-percent="80%">
-                                    <div class="skillbar-title"><span>Django, Spring Boot, Laravel</span></div>
-                                    <div class="skillbar-bar"></div>
-                                    
+                                <div class="skills-metric">
+                                    <strong>14+</strong>
+                                    <span>technologies</span>
                                 </div>
-                                <!-- SECOND SKILL BAR  -->
-                                <div class="skillbar" data-percent="75%">
-                                    <div class="skillbar-title"><span>Symphony, Angular, ASP.net</span></div>
-                                    <div class="skillbar-bar"></div>
-                                    
-                                </div>
-                                <br>
-                                <!-- SECOND SKILL SECTION -->
-                                <div class="skills-title">
-                                    <h6 class="text-center">Administration système</h6>
-                                </div>
-                                <!-- FIRST SKILL BAR -->
-                                <div class="skillbar" data-percent="80%">
-                                    <div class="skillbar-title"><span>Linux</span></div>
-                                    <div class="skillbar-bar"></div>
-                                   
-                                </div>
-                                <!-- SECOND SKILL BAR  -->
-                                <div class="skillbar" data-percent="70%">
-                                    <div class="skillbar-title"><span>Scripting shell</span></div>
-                                    <div class="skillbar-bar"></div>
-                                    
+                                <div class="skills-metric">
+                                    <strong>Fullstack</strong>
+                                    <span>approche</span>
                                 </div>
                             </div>
                         </div>
 
-                        
+                        <div class="row skills-grid">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="skills-panel">
+                                    <div class="skills-panel-head">
+                                        <span class="skills-panel-icon"><i class="fa fa-code"></i></span>
+                                        <span class="skills-panel-kicker">Développement</span>
+                                    </div>
+
+                                    <div class="skills-group">
+                                        <div class="skills-title">
+                                            <h6 class="text-center">Langages de programmation</h6>
+                                        </div>
+                                        <div class="skillbar" data-percent="89%">
+                                            <div class="skillbar-title"><span>C, C++, C#</span></div>
+                                            <div class="skillbar-bar"></div>
+                                        </div>
+                                        <div class="skillbar" data-percent="85%">
+                                            <div class="skillbar-title"><span>Java, PHP, Python</span></div>
+                                            <div class="skillbar-bar"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="skills-group">
+                                        <div class="skills-title">
+                                            <h6 class="text-center">Bases de données</h6>
+                                        </div>
+                                        <div class="skillbar" data-percent="90%">
+                                            <div class="skillbar-title"><span>MySQL</span></div>
+                                            <div class="skillbar-bar"></div>
+                                        </div>
+                                        <div class="skillbar" data-percent="80%">
+                                            <div class="skillbar-title"><span>PL/SQL</span></div>
+                                            <div class="skillbar-bar"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="skills-panel">
+                                    <div class="skills-panel-head">
+                                        <span class="skills-panel-icon"><i class="fa fa-globe"></i></span>
+                                        <span class="skills-panel-kicker">Web & conception</span>
+                                    </div>
+
+                                    <div class="skills-group">
+                                        <div class="skills-title">
+                                            <h6 class="text-center">Développement web</h6>
+                                        </div>
+                                        <div class="skillbar" data-percent="60%">
+                                            <div class="skillbar-title"><span>JavaScript / Angular</span></div>
+                                            <div class="skillbar-bar"></div>
+                                        </div>
+                                        <div class="skillbar" data-percent="90%">
+                                            <div class="skillbar-title"><span>HTML5 / CSS3</span></div>
+                                            <div class="skillbar-bar"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="skills-group">
+                                        <div class="skills-title">
+                                            <h6 class="text-center">Analyse & conception</h6>
+                                        </div>
+                                        <div class="skillbar" data-percent="80%">
+                                            <div class="skillbar-title"><span>UML</span></div>
+                                            <div class="skillbar-bar"></div>
+                                        </div>
+                                        <div class="skillbar" data-percent="90%">
+                                            <div class="skillbar-title"><span>Méthode Merise</span></div>
+                                            <div class="skillbar-bar"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="skills-panel">
+                                    <div class="skills-panel-head">
+                                        <span class="skills-panel-icon"><i class="fa fa-cubes"></i></span>
+                                        <span class="skills-panel-kicker">Frameworks & système</span>
+                                    </div>
+
+                                    <div class="skills-group">
+                                        <div class="skills-title">
+                                            <h6 class="text-center">Frameworks</h6>
+                                        </div>
+                                        <div class="skillbar" data-percent="80%">
+                                            <div class="skillbar-title"><span>Django, Spring Boot, Laravel</span></div>
+                                            <div class="skillbar-bar"></div>
+                                        </div>
+                                        <div class="skillbar" data-percent="75%">
+                                            <div class="skillbar-title"><span>Symfony, Angular, ASP.NET</span></div>
+                                            <div class="skillbar-bar"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="skills-group">
+                                        <div class="skills-title">
+                                            <h6 class="text-center">Administration système</h6>
+                                        </div>
+                                        <div class="skillbar" data-percent="80%">
+                                            <div class="skillbar-title"><span>Linux</span></div>
+                                            <div class="skillbar-bar"></div>
+                                        </div>
+                                        <div class="skillbar" data-percent="70%">
+                                            <div class="skillbar-title"><span>Scripting shell</span></div>
+                                            <div class="skillbar-bar"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -412,97 +534,193 @@
             <h4 class="text-uppercase text-center"><i class="title-icon fa fa-suitcase"></i>Expérience</h4>
         </div>
 
+        <div class="experience-intro card">
+            <div class="card-content">
+                <div class="experience-intro-grid">
+                    <div class="experience-intro-copy">
+                        <span class="experience-kicker">Trajectoire terrain</span>
+                        <h5 class="experience-heading">Des expériences qui relient infrastructure, produit et développement fullstack.</h5>
+                        <p class="experience-lead">
+                            De la conception réseau à la plateforme métier augmentée par l’IA, chaque mission a renforcé ma capacité à cadrer un besoin, construire une solution claire et la faire évoluer avec méthode.
+                        </p>
+                    </div>
+                    <div class="experience-metrics">
+                        <div class="experience-metric">
+                            <strong>4</strong>
+                            <span>Missions clés</span>
+                            <small>du réseau au produit digital</small>
+                        </div>
+                        <div class="experience-metric">
+                            <strong>2022 → 2025</strong>
+                            <span>Montée en responsabilité</span>
+                            <small>progression continue sur le terrain</small>
+                        </div>
+                        <div class="experience-metric">
+                            <strong>Fullstack</strong>
+                            <span>Approche produit</span>
+                            <small>backend, frontend et logique métier</small>
+                        </div>
+                        <div class="experience-metric">
+                            <strong>Réseaux + IA</strong>
+                            <span>Double lecture</span>
+                            <small>socle technique et usages concrets</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="experience-signals">
+                    <span>Plateformes métier</span>
+                    <span>Angular &amp; Spring Boot</span>
+                    <span>Laravel &amp; e-commerce</span>
+                    <span>Infrastructure réseau</span>
+                    <span>IA &amp; visualisation 3D</span>
+                </div>
+            </div>
+        </div>
+
         <div id="timeline-experience">
-            <div class="timeline-block" style="margin-top: 50px;">
+            <div class="timeline-block">
                 <div class="timeline-dot"><i class="title-icon fa fa-suitcase"></i></div>
                 <div class="card timeline-content">
                     <div class="card-content">
-                        <h6 class="timeline-title">Capgemini Engineering</h6>
-                        <div class="timeline-info">
-                            <h6><small>MARS 2025 – SEPTEMBRE 2025</small><br></h6>
-                            <h6><small>
-                                Stage PFE 5ème année : Conception et développement d’une plateforme web intelligente de gestion de modèles 3D industriels. Intégration d’un chatbot intelligent et visualisation immersive avec Unity. Digitalisation des processus de gestion, traçabilité et import automatique de fichiers PowerPoint.
-                            </small></h6>
+                        <div class="experience-card-head">
+                            <div class="experience-card-heading">
+                                <span class="experience-role">Stage PFE</span>
+                                <h6 class="timeline-title">Capgemini Engineering</h6>
+                            </div>
+                            <span class="experience-period">Mars 2025 - Septembre 2025</span>
                         </div>
-                    </div>
-                </div>
-            </div>
-                        <!-- FIRST TIMELINE -->
-            <div class="timeline-block" style="margin-top: 50px;">
-                <!-- DOT -->
-                <div class="timeline-dot"><i class="title-icon fa fa-suitcase"></i></div>
-                <!-- TIMELINE CONTENT -->
-                <div class="card timeline-content">
-                    <div class="card-content">
-                        <!-- TIMELINE TITLE -->
-                        <h6 class="timeline-title">6SOLUTIONS</h6>
-                        <!-- TIMELINE TITLE INFO -->
-                        <div class="timeline-info">
-                            <h6>
-                             <small> JUILLET 2024 – SEPTEMBRE 2024</small> <br>
-                            </h6>
-                            <h6>
-                               
-                                <small>Stage PFA 4ème année : Conception et Réalisation d'une Plateforme de Gestion d'une
-                                    École en Ligne en utilisant Spring Boot pour le Backend et Angular pour le Frontend.</small>
-                            </h6>
+                        <div class="experience-layout">
+                            <div class="experience-copy">
+                                <p class="experience-summary">
+                                    Conception et développement d’une plateforme web intelligente dédiée à la gestion de modèles 3D industriels, pensée pour fluidifier les usages métier et renforcer la traçabilité.
+                                </p>
+                                <ul class="experience-points">
+                                    <li>Création d’un environnement de gestion centralisé pour organiser, suivre et exploiter les ressources 3D.</li>
+                                    <li>Intégration d’un chatbot intelligent pour simplifier l’assistance utilisateur et l’accès à l’information.</li>
+                                    <li>Ajout d’une visualisation immersive avec Unity et automatisation de l’import de contenus PowerPoint.</li>
+                                </ul>
+                            </div>
+                            <div class="experience-side">
+                                <span class="experience-side-label">Axes clés</span>
+                                <div class="experience-tags">
+                                    <span>Plateforme métier</span>
+                                    <span>Unity</span>
+                                    <span>Chatbot IA</span>
+                                    <span>Traçabilité</span>
+                                </div>
+                            </div>
                         </div>
-                        
-                        
                     </div>
                 </div>
             </div>
 
-            <!-- FIRST TIMELINE -->
-            <div class="timeline-block" style="margin-top: 50px;">
-                <!-- DOT -->
+            <div class="timeline-block">
                 <div class="timeline-dot"><i class="title-icon fa fa-suitcase"></i></div>
-                <!-- TIMELINE CONTENT -->
                 <div class="card timeline-content">
                     <div class="card-content">
-                        <!-- TIMELINE TITLE -->
-                        <h6 class="timeline-title">BRIGHT VIEW MEDIA</h6>
-                        <!-- TIMELINE TITLE INFO -->
-                        <div class="timeline-info">
-                            <h6>
-                                <small>JUILLET 2023 – AOUT 2023</small> <br>
-                            </h6>
-                            <h6>
-                                <small>Stage PFA 3ème année : Conception et Réalisation d’un Site Web E-Commerce en PHP
-                                    Laravel.</small>
-                            </h6>
+                        <div class="experience-card-head">
+                            <div class="experience-card-heading">
+                                <span class="experience-role">Stage PFA</span>
+                                <h6 class="timeline-title">6SOLUTIONS</h6>
+                            </div>
+                            <span class="experience-period">Juillet 2024 - Septembre 2024</span>
                         </div>
-                        
-                        
+                        <div class="experience-layout">
+                            <div class="experience-copy">
+                                <p class="experience-summary">
+                                    Conception et réalisation d’une plateforme de gestion d’école en ligne, avec une architecture fullstack destinée à centraliser les flux académiques et administratifs.
+                                </p>
+                                <ul class="experience-points">
+                                    <li>Développement du backend avec Spring Boot pour structurer les services et la logique métier.</li>
+                                    <li>Conception du frontend avec Angular pour proposer une interface claire et exploitable au quotidien.</li>
+                                    <li>Mise en place d’une base solide pour gérer utilisateurs, parcours et opérations d’une école digitale.</li>
+                                </ul>
+                            </div>
+                            <div class="experience-side">
+                                <span class="experience-side-label">Technos &amp; usage</span>
+                                <div class="experience-tags">
+                                    <span>Spring Boot</span>
+                                    <span>Angular</span>
+                                    <span>EdTech</span>
+                                    <span>Fullstack</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- FIRST TIMELINE -->
-            <div class="timeline-block" style="margin-top: 50px;">
-                <!-- DOT -->
+            <div class="timeline-block">
                 <div class="timeline-dot"><i class="title-icon fa fa-suitcase"></i></div>
-                <!-- TIMELINE CONTENT -->
                 <div class="card timeline-content">
                     <div class="card-content">
-                        <!-- TIMELINE TITLE -->
-                        <h6 class="timeline-title">TSPP Group Samir</h6>
-                        <!-- TIMELINE TITLE INFO -->
-                        <div class="timeline-info">
-                            <h6><small>AOUT 2022 – SEPTEMBRE 2022</small> <br>
-                            </h6>
-                            <h6>
-                                <small>Stage : Conception de l'infrastructure réseau d'entreprise, planification et configuration
-                                    des réseaux d'entreprise.</small>
-                            </h6>
+                        <div class="experience-card-head">
+                            <div class="experience-card-heading">
+                                <span class="experience-role">Stage PFA</span>
+                                <h6 class="timeline-title">Bright View Media</h6>
+                            </div>
+                            <span class="experience-period">Juillet 2023 - Août 2023</span>
                         </div>
-                        
-                        
+                        <div class="experience-layout">
+                            <div class="experience-copy">
+                                <p class="experience-summary">
+                                    Réalisation d’un site web e-commerce avec une logique orientée catalogue, navigation et parcours utilisateur, dans un contexte de mise en pratique du développement web métier.
+                                </p>
+                                <ul class="experience-points">
+                                    <li>Développement de la solution avec PHP Laravel dans une approche structurée et maintenable.</li>
+                                    <li>Organisation des principales briques d’un site marchand : catalogue, navigation et logique applicative.</li>
+                                    <li>Renforcement des bases du développement web orienté produit et de la mise en ligne de services utiles.</li>
+                                </ul>
+                            </div>
+                            <div class="experience-side">
+                                <span class="experience-side-label">Composants clés</span>
+                                <div class="experience-tags">
+                                    <span>Laravel</span>
+                                    <span>PHP</span>
+                                    <span>E-commerce</span>
+                                    <span>UX web</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-           
+            <div class="timeline-block">
+                <div class="timeline-dot"><i class="title-icon fa fa-suitcase"></i></div>
+                <div class="card timeline-content">
+                    <div class="card-content">
+                        <div class="experience-card-head">
+                            <div class="experience-card-heading">
+                                <span class="experience-role">Stage terrain</span>
+                                <h6 class="timeline-title">TSPP Group Samir</h6>
+                            </div>
+                            <span class="experience-period">Août 2022 - Septembre 2022</span>
+                        </div>
+                        <div class="experience-layout">
+                            <div class="experience-copy">
+                                <p class="experience-summary">
+                                    Première immersion dans la conception d’une infrastructure réseau d’entreprise, avec une lecture concrète des besoins de connectivité, d’organisation et de configuration.
+                                </p>
+                                <ul class="experience-points">
+                                    <li>Étude de l’architecture réseau cible en fonction des contraintes d’un environnement d’entreprise.</li>
+                                    <li>Planification des composants et des interconnexions nécessaires au bon fonctionnement du réseau.</li>
+                                    <li>Participation à la configuration des équipements et à la structuration d’une base technique fiable.</li>
+                                </ul>
+                            </div>
+                            <div class="experience-side">
+                                <span class="experience-side-label">Fondations techniques</span>
+                                <div class="experience-tags">
+                                    <span>Réseaux</span>
+                                    <span>Architecture</span>
+                                    <span>Configuration</span>
+                                    <span>Infrastructure</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -516,117 +734,212 @@
     <div class="container">
         <!-- SECTION TITLE -->
         <div class="section-title">
-            <h4 class="text-uppercase text-center"><i class="title-icon fa fa-pencil-square"></i>Projets <spam > (publique)</spam> </h4>
+            <h4 class="text-uppercase text-center"><i class="title-icon fa fa-pencil-square"></i>Projets <span>(publics)</span></h4>
         </div>
         <div id="blog-card" class="row">
             <div class="col-md-12 col-sm-12">
-                <div class="card">
-                     <!--BLOG even-->
-                     <div class="blog odd">
-                        <!--IMAGE-->
-                        <div class="image">
-                          <img alt="blog-image" src="images/android.jpg"/>  
-                            <div class="image-overlay"></div>
-                        </div>
-                        <!--DETAILS-->
-                        <div class="content">
-                            <ol class="breadcrumb">
-                                <li class="active">Application Android</li>
-                                <li class="active">Java</li>
-                                <li class="active">Firebase</li>
-                                <li class="active">Google Map</li>
-                            </ol>
-                            <a href="https://github.com/simonajib/Projectandroid"> <h6>Application De Gestion De Syndic De Copropriété.</h6></a>
-                            
-                            
-                        </div>
-                    </div>
-                    <!--BLOG even-->
-                    <div class="blog even">
-                        <!--IMAGE-->
-                        <div class="image">
-                            <img alt="blog-image" src="images/java.jpg"/>
-                            <div class="image-overlay"></div>
-                        </div>
-                        <!--DETAILS-->
-                        <div class="content">
-                            <ol class="breadcrumb">
-                                <li class="active">Java Spring Boot</li>
-                            
-                                
-                            </ol>
-                            <a href="https://github.com/simonajib/Gestionbibliotheque"> <h6>Gestion D'une Bibliothèque</h6></a>
-                             </div>
-                    </div>
-                    <div class="blog odd">
-                        <!--IMAGE-->
-                        <div class="image">
-                            <img alt="blog-image" src="images/php.jpg"/>
-                            <div class="image-overlay"></div>
-                        </div>
-                        <!--DETAILS-->
-                        <div class="content">
-                            <ol class="breadcrumb">
-                                <li class="active">PHP Framework laravel</li>
-                                
-                            </ol>
-                            <a href="./fichiers/php.docx"><h6>Ecommerce</h6></a>
+                <div class="projects-intro card">
+                    <div class="card-content">
+                        <div class="projects-intro-grid">
+                            <div class="projects-intro-copy">
+                                <span class="projects-kicker">Sélection de projets</span>
+                                <h5 class="projects-heading">Des projets web et mobile pensés pour être utiles, lisibles et concrets.</h5>
+                                <p class="projects-lead">
+                                    Cette sélection montre ma façon de construire: partir d’un besoin clair, organiser la logique métier, puis transformer l’idée en interface, en service ou en expérience utilisable.
+                                </p>
                             </div>
-                    </div>
-                    <!--BLOG EVEN-->
-                    <div class="blog even">
-                        <!--IMAGE-->
-                        <div class="image">
-                            <img alt="blog-image" src="images/python.jpg"/>
-                            <div class="image-overlay"></div>
-                        </div>
-                        <!--DETAILS-->
-                        <div class="content">
-                            <ol class="breadcrumb">
-                                <li class="active">Python Framework Django</li>
-                                
-                            </ol>
-                            <a href="./fichiers/python.docx"><h6>Ecommerce</h6></a>
-                              </div>
-                    </div>
-                    <!--BLOG ODD-->
-                    <div class="blog odd">
-                        <!--IMAGE-->
-                        <div class="image">
-                            <img alt="blog-image" src="images/c.jpg"/>
-                            <div class="image-overlay"></div>
-                        </div>
-                        <!--DETAILS-->
-                        <div class="content">
-                            <ol class="breadcrumb">
-                                <li class="active">Langage C</li>
-                                
-                            </ol>
-                            <a href="./fichiers/gestion des etudiants.zip"><h6>Gestion Des Étudiants</h6></a>
+                            <div class="projects-metrics">
+                                <div class="projects-metric">
+                                    <strong>6</strong>
+                                    <span>projets visibles</span>
+                                </div>
+                                <div class="projects-metric">
+                                    <strong>Mobile + web</strong>
+                                    <span>formats variés</span>
+                                </div>
+                                <div class="projects-metric">
+                                    <strong>Fullstack</strong>
+                                    <span>du front au métier</span>
+                                </div>
+                                <div class="projects-metric">
+                                    <strong>Public</strong>
+                                    <span>GitHub, dossiers et archives</span>
+                                </div>
                             </div>
-                    </div>
-
-                    <!--BLOG EVEN-->
-                    <div class="blog even">
-                        <!--IMAGE-->
-                        <div class="image">
-                            <img alt="blog-image" src="images/html.jpg"/>
-                            <div class="image-overlay"></div>
                         </div>
-                        <!--DETAILS-->
-                        <div class="content">
-                            <ol class="breadcrumb">
-                                <li class="active">HTML</li>
-                                <li class="active">CSS</li>
-                                <li class="active">JS</li>
-                            </ol>
-                            <a href="./fichiers/Site web MM.zip"><h6>Blog</h6></a>
-                            </div>
+                        <div class="projects-signals">
+                            <span>Android</span>
+                            <span>Spring Boot</span>
+                            <span>Laravel</span>
+                            <span>Django</span>
+                            <span>Langage C</span>
+                            <span>HTML / CSS / JS</span>
+                        </div>
                     </div>
+                </div>
 
+                <div class="projects-showcase">
+                    <article class="project-card project-card-featured">
+                        <div class="project-media">
+                            <img alt="Aperçu du projet Android de gestion de syndic" src="images/android.jpg">
+                            <span class="project-badge">Projet mobile</span>
+                        </div>
+                        <div class="project-body">
+                            <div class="project-topline">
+                                <span class="project-type">Application Android</span>
+                                <span class="project-status">GitHub</span>
+                            </div>
+                            <h5 class="project-title">Gestion de syndic de copropriété</h5>
+                            <p class="project-summary">
+                                Une application mobile pensée pour suivre les résidences, centraliser les informations clés et simplifier les opérations de gestion grâce à un socle Java, Firebase et Google Maps.
+                            </p>
+                            <div class="project-stack">
+                                <span>Java</span>
+                                <span>Firebase</span>
+                                <span>Google Maps</span>
+                                <span>Mobile</span>
+                            </div>
+                            <a class="project-link" href="https://github.com/simonajib/Projectandroid" target="_blank" rel="noreferrer">
+                                Voir sur GitHub
+                                <i class="fa fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
 
-                
+                    <article class="project-card">
+                        <div class="project-media">
+                            <img alt="Aperçu du projet de gestion de bibliothèque en Spring Boot" src="images/java.jpg">
+                            <span class="project-badge">Projet métier</span>
+                        </div>
+                        <div class="project-body">
+                            <div class="project-topline">
+                                <span class="project-type">Java Spring Boot</span>
+                                <span class="project-status">GitHub</span>
+                            </div>
+                            <h5 class="project-title">Gestion d'une bibliothèque</h5>
+                            <p class="project-summary">
+                                Un projet centré sur la logique métier de prêt, de catalogue et d’organisation des ressources, construit avec une base backend claire et évolutive.
+                            </p>
+                            <div class="project-stack">
+                                <span>Java</span>
+                                <span>Spring Boot</span>
+                                <span>Gestion</span>
+                                <span>Backend</span>
+                            </div>
+                            <a class="project-link" href="https://github.com/simonajib/Gestionbibliotheque" target="_blank" rel="noreferrer">
+                                Voir sur GitHub
+                                <i class="fa fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
 
+                    <article class="project-card">
+                        <div class="project-media">
+                            <img alt="Aperçu du projet e-commerce Laravel" src="images/php.jpg">
+                            <span class="project-badge">Prototype web</span>
+                        </div>
+                        <div class="project-body">
+                            <div class="project-topline">
+                                <span class="project-type">Laravel</span>
+                                <span class="project-status">Dossier</span>
+                            </div>
+                            <h5 class="project-title">E-commerce en Laravel</h5>
+                            <p class="project-summary">
+                                Une proposition e-commerce orientée catalogue, navigation et parcours client, avec une structure PHP Laravel pensée pour rester lisible et maintenable.
+                            </p>
+                            <div class="project-stack">
+                                <span>PHP</span>
+                                <span>Laravel</span>
+                                <span>Catalogue</span>
+                                <span>Parcours client</span>
+                            </div>
+                            <a class="project-link" href="./fichiers/php.docx" target="_blank" rel="noreferrer">
+                                Voir le dossier
+                                <i class="fa fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-media">
+                            <img alt="Aperçu du projet e-commerce Django" src="images/python.jpg">
+                            <span class="project-badge">Prototype web</span>
+                        </div>
+                        <div class="project-body">
+                            <div class="project-topline">
+                                <span class="project-type">Django</span>
+                                <span class="project-status">Dossier</span>
+                            </div>
+                            <h5 class="project-title">E-commerce en Django</h5>
+                            <p class="project-summary">
+                                Une version Python orientée administration, modèles métier et organisation backend, pour explorer une autre lecture du même besoin e-commerce.
+                            </p>
+                            <div class="project-stack">
+                                <span>Python</span>
+                                <span>Django</span>
+                                <span>Admin</span>
+                                <span>E-commerce</span>
+                            </div>
+                            <a class="project-link" href="./fichiers/python.docx" target="_blank" rel="noreferrer">
+                                Voir le dossier
+                                <i class="fa fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-media">
+                            <img alt="Aperçu du projet de gestion des étudiants en langage C" src="images/c.jpg">
+                            <span class="project-badge">Fondations</span>
+                        </div>
+                        <div class="project-body">
+                            <div class="project-topline">
+                                <span class="project-type">Langage C</span>
+                                <span class="project-status">Archive</span>
+                            </div>
+                            <h5 class="project-title">Gestion des étudiants</h5>
+                            <p class="project-summary">
+                                Un projet plus académique qui travaille les bases de structuration des données, de logique procédurale et de manipulation d’informations étudiantes.
+                            </p>
+                            <div class="project-stack">
+                                <span>C</span>
+                                <span>Structures</span>
+                                <span>Algorithmes</span>
+                                <span>Console</span>
+                            </div>
+                            <a class="project-link" href="./fichiers/gestion%20des%20etudiants.zip" target="_blank" rel="noreferrer">
+                                Ouvrir l'archive
+                                <i class="fa fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-media">
+                            <img alt="Aperçu du site web frontend en HTML CSS JS" src="images/html.jpg">
+                            <span class="project-badge">Frontend</span>
+                        </div>
+                        <div class="project-body">
+                            <div class="project-topline">
+                                <span class="project-type">HTML / CSS / JS</span>
+                                <span class="project-status">Archive</span>
+                            </div>
+                            <h5 class="project-title">Blog vitrine</h5>
+                            <p class="project-summary">
+                                Un projet centré sur l’intégration front-end, la structure visuelle et l’habillage d’un site éditorial simple en HTML, CSS et JavaScript.
+                            </p>
+                            <div class="project-stack">
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>JavaScript</span>
+                                <span>UI</span>
+                            </div>
+                            <a class="project-link" href="./fichiers/Site%20web%20MM.zip" target="_blank" rel="noreferrer">
+                                Ouvrir l'archive
+                                <i class="fa fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
                 </div>
             </div>
         </div>
@@ -645,58 +958,113 @@
     </div>
     <ul class="collection">
       <li class="collection-item">
-        <a href="https://www.coursera.org/account/accomplishments/specialization/4BJQFCBAWKJY" target="_blank">
-          Python for Everybody – Coursera
+        <a href="https://www.coursera.org/account/accomplishments/specialization/4BJQFCBAWKJY" target="_blank" rel="noreferrer">
+          <span class="cert-platform">Coursera</span>
+          <strong class="cert-title">Python for Everybody</strong>
+          <div class="cert-footer">
+            <span class="cert-domain">Python</span>
+            <span class="cert-level">Spécialisation</span>
+          </div>
         </a>
       </li>
       <li class="collection-item">
-        <a href="https://www.coursera.org/account/accomplishments/verify/SNZQKM9ZPGST" target="_blank">
-          Introduction to Java and Object-Oriented Programming – Coursera
+        <a href="https://www.coursera.org/account/accomplishments/verify/SNZQKM9ZPGST" target="_blank" rel="noreferrer">
+          <span class="cert-platform">Coursera</span>
+          <strong class="cert-title">Introduction to Java and Object-Oriented Programming</strong>
+          <div class="cert-footer">
+            <span class="cert-domain">Java</span>
+            <span class="cert-level">POO</span>
+          </div>
         </a>
       </li>
       <li class="collection-item">
-        <a href="https://www.coursera.org/account/accomplishments/verify/60JUPMSO30AE" target="_blank">
-          Introduction to Big Data with Spark and Hadoop – Coursera
+        <a href="https://www.coursera.org/account/accomplishments/verify/60JUPMSO30AE" target="_blank" rel="noreferrer">
+          <span class="cert-platform">Coursera</span>
+          <strong class="cert-title">Introduction to Big Data with Spark and Hadoop</strong>
+          <div class="cert-footer">
+            <span class="cert-domain">Big Data</span>
+            <span class="cert-level">Spark & Hadoop</span>
+          </div>
         </a>
       </li>
       <li class="collection-item">
-        <a href="https://www.coursera.org/account/accomplishments/verify/YHVD26253WAV" target="_blank">
-          React Native – Coursera
+        <a href="https://www.coursera.org/account/accomplishments/verify/YHVD26253WAV" target="_blank" rel="noreferrer">
+          <span class="cert-platform">Coursera</span>
+          <strong class="cert-title">React Native</strong>
+          <div class="cert-footer">
+            <span class="cert-domain">Mobile</span>
+            <span class="cert-level">React</span>
+          </div>
         </a>
       </li>
       <li class="collection-item">
-        <a href="https://www.coursera.org/account/accomplishments/verify/QYN49CWB83R7" target="_blank">
-          Introduction to Git and GitHub – Coursera
+        <a href="https://www.coursera.org/account/accomplishments/verify/QYN49CWB83R7" target="_blank" rel="noreferrer">
+          <span class="cert-platform">Coursera</span>
+          <strong class="cert-title">Introduction to Git and GitHub</strong>
+          <div class="cert-footer">
+            <span class="cert-domain">Git</span>
+            <span class="cert-level">Versioning</span>
+          </div>
         </a>
       </li>
       <li class="collection-item">
-        <a href="https://www.coursera.org/account/accomplishments/verify/8VJ67D4FVUFN" target="_blank">
-          Building Scalable Java Microservices with Spring Boot and Spring Cloud – Coursera
+        <a href="https://www.coursera.org/account/accomplishments/verify/8VJ67D4FVUFN" target="_blank" rel="noreferrer">
+          <span class="cert-platform">Coursera</span>
+          <strong class="cert-title">Building Scalable Java Microservices with Spring Boot and Spring Cloud</strong>
+          <div class="cert-footer">
+            <span class="cert-domain">Microservices</span>
+            <span class="cert-level">Spring</span>
+          </div>
         </a>
       </li>
       <li class="collection-item">
-        <a href="https://www.coursera.org/account/accomplishments/verify/PZ778GGBF3S6" target="_blank">
-          React Basics – Coursera
+        <a href="https://www.coursera.org/account/accomplishments/verify/PZ778GGBF3S6" target="_blank" rel="noreferrer">
+          <span class="cert-platform">Coursera</span>
+          <strong class="cert-title">React Basics</strong>
+          <div class="cert-footer">
+            <span class="cert-domain">Frontend</span>
+            <span class="cert-level">React</span>
+          </div>
         </a>
       </li>
       <li class="collection-item">
-        <a href="https://www.coursera.org/account/accomplishments/verify/PYHBPJW9GNFZ" target="_blank">
-          Virtual Networks in Azure – Coursera
+        <a href="https://www.coursera.org/account/accomplishments/verify/PYHBPJW9GNFZ" target="_blank" rel="noreferrer">
+          <span class="cert-platform">Coursera</span>
+          <strong class="cert-title">Virtual Networks in Azure</strong>
+          <div class="cert-footer">
+            <span class="cert-domain">Cloud</span>
+            <span class="cert-level">Azure</span>
+          </div>
         </a>
       </li>
       <li class="collection-item">
-        <a href="https://www.coursera.org/account/accomplishments/verify/QMN4YJARZD4E" target="_blank">
-          Introduction to Containers w/ Docker, Kubernetes & OpenShift – Coursera
+        <a href="https://www.coursera.org/account/accomplishments/verify/QMN4YJARZD4E" target="_blank" rel="noreferrer">
+          <span class="cert-platform">Coursera</span>
+          <strong class="cert-title">Introduction to Containers w/ Docker, Kubernetes & OpenShift</strong>
+          <div class="cert-footer">
+            <span class="cert-domain">Containers</span>
+            <span class="cert-level">Docker & Kubernetes</span>
+          </div>
         </a>
       </li>
       <li class="collection-item">
-        <a href="https://www.coursera.org/account/accomplishments/verify/AFN9RK39A2VM" target="_blank">
-          Python Functions, Files, and Dictionaries – Coursera
+        <a href="https://www.coursera.org/account/accomplishments/verify/AFN9RK39A2VM" target="_blank" rel="noreferrer">
+          <span class="cert-platform">Coursera</span>
+          <strong class="cert-title">Python Functions, Files, and Dictionaries</strong>
+          <div class="cert-footer">
+            <span class="cert-domain">Python</span>
+            <span class="cert-level">Fonctions & fichiers</span>
+          </div>
         </a>
       </li>
       <li class="collection-item">
-        <a href="https://www.coursera.org/account/accomplishments/verify/K3BB3VR6LX2R" target="_blank">
-          Software Engineering: Modeling Software Systems using UML – Coursera
+        <a href="https://www.coursera.org/account/accomplishments/verify/K3BB3VR6LX2R" target="_blank" rel="noreferrer">
+          <span class="cert-platform">Coursera</span>
+          <strong class="cert-title">Software Engineering: Modeling Software Systems using UML</strong>
+          <div class="cert-footer">
+            <span class="cert-domain">UML</span>
+            <span class="cert-level">Modélisation</span>
+          </div>
         </a>
       </li>
     </ul>
@@ -787,7 +1155,7 @@
                 <!-- CONTACT FORM -->
                 <div class="card">
                     <div class="card-content">
-                        <form id="contact-form" name="c-form">
+                        <form id="contact-form" name="c-form" method="get" action="#contact" accept-charset="UTF-8" autocomplete="on" data-recipient-email="najibsimons01@gmail.com">
                             <!-- NAME -->
                             <div class="input-field">
                                 <input id="first_name" type="text" class="validate" name="first_name" required>
@@ -812,9 +1180,14 @@
                             <!-- SEND BUTTON -->
                             <div class="contact-send">
                                 <button id="submit" name="contactSubmit" type="submit" value="Submit"
-                                        class="btn waves-effect">Send
+                                        class="btn waves-effect">Open Email
                                 </button>
                             </div>
+                            <p class="contact-note">
+                                This opens your email app with the message ready to send.
+                                If nothing opens, email me directly at
+                                <a href="mailto:najibsimons01@gmail.com">najibsimons01@gmail.com</a>.
+                            </p>
                         </form>
                     </div>
                     <!--FORM LOADER-->
@@ -906,9 +1279,6 @@
 <script src="javascript/jquery-2.1.3.min.js"></script>
 <script src="javascript/bootstrap.min.js"></script>
 <script src="javascript/materialize.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4GcEtALtu8SRMCUBu-aMitaMNmeb9KtA"></script>
-
-<script src="javascript/markerwithlabel.min.js"></script>
 <script src="javascript/retina.min.js"></script>
 <script src="javascript/scrollreveal.min.js"></script>
 <script src="javascript/jquery.touchSwipe.min.js"></script>
