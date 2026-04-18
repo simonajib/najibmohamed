@@ -82,6 +82,14 @@ body.portfolio-refresh a {
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
+body.portfolio-refresh a:focus-visible,
+body.portfolio-refresh button:focus-visible,
+body.portfolio-refresh input:focus-visible,
+body.portfolio-refresh textarea:focus-visible {
+    outline: 3px solid rgba(79, 124, 255, 0.42);
+    outline-offset: 3px;
+}
+
 body.portfolio-refresh a:hover,
 body.portfolio-refresh a:focus {
     color: var(--accent-strong);
@@ -95,6 +103,25 @@ body.portfolio-refresh p {
 body.portfolio-refresh img {
     max-width: 100%;
     display: block;
+}
+
+body.portfolio-refresh .skip-link {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 6000;
+    padding: 0.9rem 1.1rem;
+    border-radius: 999px;
+    background: #10233f;
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    transform: translateY(-180%);
+    box-shadow: 0 16px 34px rgba(16, 35, 63, 0.26);
+}
+
+body.portfolio-refresh .skip-link:focus {
+    transform: translateY(0);
 }
 
 body.portfolio-refresh .container {
@@ -339,16 +366,42 @@ body.portfolio-refresh #home #menuToggle {
     top: 24px;
     right: -84px;
     width: 58px;
+    height: 58px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
     border: 0;
     border-radius: 20px;
     background: rgba(255, 255, 255, 0.76);
     box-shadow: 0 18px 40px rgba(16, 35, 63, 0.18);
     backdrop-filter: blur(20px);
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 body.portfolio-refresh #home #menuToggle:hover {
     background: rgba(255, 255, 255, 0.92);
     transform: translateY(-2px);
+}
+
+body.portfolio-refresh #home #menuToggle:focus-visible {
+    outline: none;
+    box-shadow:
+        0 0 0 4px rgba(79, 124, 255, 0.16),
+        0 18px 40px rgba(16, 35, 63, 0.22);
+}
+
+body.portfolio-refresh #home #menuToggle .toggle-normal {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
 }
 
 body.portfolio-refresh #home #menuToggle .toggle-normal i {
@@ -482,7 +535,7 @@ body.portfolio-refresh #home .header-background #v-card-holder #v-card .info-hea
 }
 
 body.portfolio-refresh #home .header-background #v-card-holder #v-card .info-headings::before {
-    content: "FullStack Software Engineer";
+    content: "Ingénieur Full Stack";
     display: inline-flex;
     align-items: center;
     padding: 0.62rem 1rem;
@@ -905,13 +958,15 @@ body.portfolio-refresh #about-btn {
 
 body.portfolio-refresh #about .about-btn {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
-    gap: 18px;
+    flex-wrap: wrap;
+    gap: 22px;
     padding: 1.6rem 2rem 0;
 }
 
 body.portfolio-refresh #about .about-cta {
+    flex: 1 1 420px;
     max-width: 80ch;
     color: var(--muted);
     font-size: 0.98rem;
@@ -920,8 +975,124 @@ body.portfolio-refresh #about .about-cta {
 
 body.portfolio-refresh #about .about-btn .btn {
     width: auto;
-    min-width: 220px;
+    min-width: 0;
     margin: 0;
+}
+
+body.portfolio-refresh #about .about-actions {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: min(100%, 640px);
+    gap: 12px;
+    align-items: stretch;
+    margin-left: auto;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+}
+
+body.portfolio-refresh #about .about-actions .btn {
+    --cv-accent-start: var(--accent);
+    --cv-accent-end: var(--accent-strong);
+    min-width: 0;
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.82rem;
+    min-height: 72px;
+    padding: 0.95rem 1rem;
+    border-radius: 22px;
+    font-size: 0.9rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    text-transform: none;
+    text-align: left;
+    color: var(--text) !important;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(246, 249, 253, 0.95)) !important;
+    border: 1px solid rgba(16, 35, 63, 0.07);
+    box-shadow:
+        0 14px 26px rgba(16, 35, 63, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    transition:
+        transform 0.24s ease,
+        box-shadow 0.24s ease,
+        background-color 0.24s ease,
+        border-color 0.24s ease,
+        color 0.24s ease;
+}
+
+body.portfolio-refresh #about .about-actions .btn i {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 15px;
+    font-size: 1rem;
+    line-height: 1;
+    color: #fff;
+    background: linear-gradient(135deg, var(--cv-accent-start), var(--cv-accent-end));
+    box-shadow: 0 12px 22px rgba(16, 35, 63, 0.14);
+}
+
+body.portfolio-refresh #about .about-actions .btn span {
+    display: inline-block;
+    flex: 1 1 auto;
+    line-height: 1.25;
+    white-space: nowrap;
+}
+
+body.portfolio-refresh #about .about-actions .btn-cv-main {
+    --cv-accent-start: var(--accent);
+    --cv-accent-end: var(--accent-strong);
+    border-color: rgba(79, 124, 255, 0.18);
+    background: linear-gradient(135deg, rgba(31, 144, 183, 0.96), rgba(79, 124, 255, 0.94)) !important;
+    color: #fff !important;
+    box-shadow: 0 18px 34px rgba(48, 114, 213, 0.22);
+}
+
+body.portfolio-refresh #about .about-actions .btn-cv-main i {
+    background: rgba(255, 255, 255, 0.16);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22);
+}
+
+body.portfolio-refresh #about .about-actions .btn-cv-alt {
+    --cv-accent-start: #0f8b8d;
+    --cv-accent-end: #2bb3a7;
+    border-color: rgba(15, 139, 141, 0.12);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(239, 249, 247, 0.96)) !important;
+}
+
+body.portfolio-refresh #about .about-actions .btn:hover,
+body.portfolio-refresh #about .about-actions .btn:focus {
+    transform: translateY(-3px);
+    box-shadow:
+        0 18px 32px rgba(16, 35, 63, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.92);
+}
+
+body.portfolio-refresh .btn-secondary {
+    color: var(--text) !important;
+    --cv-accent-start: #10233f;
+    --cv-accent-end: #4f7cff;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(242, 246, 253, 0.96)) !important;
+    border: 1px solid rgba(16, 35, 63, 0.09);
+    box-shadow:
+        0 14px 26px rgba(16, 35, 63, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+body.portfolio-refresh .btn-secondary:hover,
+body.portfolio-refresh .btn-secondary:focus {
+    color: var(--text) !important;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 1), rgba(236, 243, 252, 1)) !important;
+    box-shadow:
+        0 18px 30px rgba(16, 35, 63, 0.11),
+        inset 0 1px 0 rgba(255, 255, 255, 0.92);
 }
 
 body.portfolio-refresh #timeline-education,
@@ -3287,7 +3458,8 @@ body.portfolio-refresh #interest .section-title + #interest-card .interest-icon-
 body.portfolio-refresh #interest .section-title + #interest-card .interest-icon span,
 body.portfolio-refresh #interest .section-title + #interest-card .interest-icon-even span {
     display: block;
-    max-width: 12ch;
+    width: 100%;
+    max-width: none;
     padding-right: 2.8rem;
     font-family: "Sora", sans-serif;
     font-size: 1.08rem;
@@ -3295,6 +3467,9 @@ body.portfolio-refresh #interest .section-title + #interest-card .interest-icon-
     line-height: 1.25;
     text-align: left;
     color: var(--interest-text);
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: none;
 }
 
 body.portfolio-refresh #contact .row {
@@ -3491,6 +3666,25 @@ body.portfolio-refresh #contact .contact-note a:focus {
     text-decoration: underline;
 }
 
+body.portfolio-refresh #contact .contact-status {
+    grid-column: 1 / -1;
+    min-height: 1.5rem;
+    margin: 0.1rem 0 0;
+    color: var(--text);
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+body.portfolio-refresh #contact-form .contact-honey {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+}
+
 body.portfolio-refresh #contact .contact-send .btn {
     display: inline-flex;
     align-items: center;
@@ -3511,24 +3705,22 @@ body.portfolio-refresh #contact #contact-card .progress .indeterminate {
     background: linear-gradient(90deg, var(--accent), var(--accent-strong));
 }
 
-body.portfolio-refresh #contact > #interest {
-    padding: 2.2rem 0 0;
-}
-
-body.portfolio-refresh #contact > #interest #interest-card {
+body.portfolio-refresh #contact #contact-highlights {
+    margin-top: 2.2rem;
     overflow: hidden;
     background:
         radial-gradient(circle at top right, rgba(79, 124, 255, 0.16), transparent 30%),
         linear-gradient(135deg, #10233f, #12364c);
     border: 0;
+    border-radius: 40px;
     box-shadow: 0 30px 70px rgba(16, 35, 63, 0.24);
 }
 
-body.portfolio-refresh #contact > #interest #interest-card .card-content {
-    padding: 2rem 1.75rem 1.15rem !important;
+body.portfolio-refresh #contact #contact-highlights .card-content {
+    padding: 2rem 1.9rem 1.25rem !important;
 }
 
-body.portfolio-refresh #contact > #interest #interest-card .card-content p {
+body.portfolio-refresh #contact #contact-highlights .card-content p {
     max-width: 38ch;
     margin: 0 auto;
     text-align: center;
@@ -3538,25 +3730,25 @@ body.portfolio-refresh #contact > #interest #interest-card .card-content p {
     text-wrap: balance;
 }
 
-body.portfolio-refresh #contact > #interest .row.no-gutters {
+body.portfolio-refresh #contact #contact-highlights .row.no-gutters {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 18px;
     margin: 0;
-    padding: 1.25rem 1.5rem 1.5rem;
+    padding: 1.4rem 1.6rem 1.7rem;
     align-items: stretch;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-body.portfolio-refresh #contact > #interest .row.no-gutters::before,
-body.portfolio-refresh #contact > #interest .row.no-gutters::after {
+body.portfolio-refresh #contact #contact-highlights .row.no-gutters::before,
+body.portfolio-refresh #contact #contact-highlights .row.no-gutters::after {
     content: none;
     display: none;
 }
 
-body.portfolio-refresh #contact > #interest .box,
-body.portfolio-refresh #contact > #interest .row.no-gutters > [class^="col-"],
-body.portfolio-refresh #contact > #interest .row.no-gutters > [class*=" col-"] {
+body.portfolio-refresh #contact #contact-highlights .box,
+body.portfolio-refresh #contact #contact-highlights .row.no-gutters > [class^="col-"],
+body.portfolio-refresh #contact #contact-highlights .row.no-gutters > [class*=" col-"] {
     float: none;
     width: auto;
     max-width: none;
@@ -3564,23 +3756,28 @@ body.portfolio-refresh #contact > #interest .row.no-gutters > [class*=" col-"] {
     padding: 0;
 }
 
-body.portfolio-refresh #contact > #interest .interest-icon,
-body.portfolio-refresh #contact > #interest .interest-icon-even {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.1);
+body.portfolio-refresh #contact #contact-highlights .interest-icon,
+body.portfolio-refresh #contact #contact-highlights .interest-icon-even {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.09));
+    border: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 0.85rem;
-    min-height: 140px;
-    padding: 1rem 0.95rem;
+    gap: 0.9rem;
+    min-height: 152px;
+    padding: 1.2rem 1rem;
     border-radius: 24px;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    box-shadow:
+        0 18px 28px rgba(7, 18, 34, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
 }
 
-body.portfolio-refresh #contact > #interest .interest-icon i,
-body.portfolio-refresh #contact > #interest .interest-icon-even i {
+body.portfolio-refresh #contact #contact-highlights .interest-icon i,
+body.portfolio-refresh #contact #contact-highlights .interest-icon-even i {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -3592,8 +3789,8 @@ body.portfolio-refresh #contact > #interest .interest-icon-even i {
     color: #fff;
 }
 
-body.portfolio-refresh #contact > #interest .interest-icon span,
-body.portfolio-refresh #contact > #interest .interest-icon-even span {
+body.portfolio-refresh #contact #contact-highlights .interest-icon span,
+body.portfolio-refresh #contact #contact-highlights .interest-icon-even span {
     display: block;
     width: 100%;
     max-width: none;
@@ -3615,15 +3812,37 @@ body.portfolio-refresh #scrollup {
     bottom: 24px;
     width: 56px;
     height: 56px;
-    line-height: 56px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 0;
     border-radius: 20px;
     background: #f6f7f8;
     box-shadow: 0 20px 44px rgba(16, 35, 63, 0.22);
+    color: var(--text);
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+}
+
+body.portfolio-refresh #scrollup i {
+    font-size: 2rem;
+    line-height: 1;
 }
 
 body.portfolio-refresh #scrollup:hover {
     background: linear-gradient(135deg, var(--accent), var(--accent-strong));
     transform: translateY(-4px);
+    color: #fff;
+}
+
+body.portfolio-refresh #scrollup:focus-visible {
+    outline: none;
+    background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+    color: #fff;
+    box-shadow:
+        0 0 0 4px rgba(79, 124, 255, 0.16),
+        0 20px 44px rgba(16, 35, 63, 0.24);
 }
 
 body.portfolio-refresh footer {
@@ -3668,11 +3887,11 @@ body.portfolio-refresh footer a {
         grid-template-columns: 1fr;
     }
 
-    body.portfolio-refresh #contact > #interest #interest-card .card-content p {
+    body.portfolio-refresh #contact #contact-highlights .card-content p {
         max-width: 34ch;
     }
 
-    body.portfolio-refresh #contact > #interest .row.no-gutters {
+    body.portfolio-refresh #contact #contact-highlights .row.no-gutters {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
@@ -3895,6 +4114,10 @@ body.portfolio-refresh footer a {
         font-size: 0.86rem;
     }
 
+    body.portfolio-refresh #contact .contact-status {
+        font-size: 0.86rem;
+    }
+
     body.portfolio-refresh #contact .contact-send .btn {
         width: 100%;
         min-width: 0;
@@ -3905,38 +4128,38 @@ body.portfolio-refresh footer a {
         margin: 0 1.4rem 1.4rem;
     }
 
-    body.portfolio-refresh #contact > #interest #interest-card .card-content {
+    body.portfolio-refresh #contact #contact-highlights .card-content {
         padding: 1.45rem 1.25rem 1rem !important;
     }
 
-    body.portfolio-refresh #contact > #interest #interest-card .card-content p {
+    body.portfolio-refresh #contact #contact-highlights .card-content p {
         max-width: 30ch;
         font-size: 0.95rem;
         line-height: 1.58;
     }
 
-    body.portfolio-refresh #contact > #interest .row.no-gutters {
+    body.portfolio-refresh #contact #contact-highlights .row.no-gutters {
         grid-template-columns: 1fr;
         gap: 12px;
         padding: 1rem 1.25rem 1.25rem;
     }
 
-    body.portfolio-refresh #contact > #interest .interest-icon,
-    body.portfolio-refresh #contact > #interest .interest-icon-even {
+    body.portfolio-refresh #contact #contact-highlights .interest-icon,
+    body.portfolio-refresh #contact #contact-highlights .interest-icon-even {
         min-height: 122px;
         padding: 0.92rem 0.88rem;
     }
 
-    body.portfolio-refresh #contact > #interest .interest-icon i,
-    body.portfolio-refresh #contact > #interest .interest-icon-even i {
+    body.portfolio-refresh #contact #contact-highlights .interest-icon i,
+    body.portfolio-refresh #contact #contact-highlights .interest-icon-even i {
         width: 52px;
         height: 52px;
         border-radius: 16px;
         font-size: 1.22rem;
     }
 
-    body.portfolio-refresh #contact > #interest .interest-icon span,
-    body.portfolio-refresh #contact > #interest .interest-icon-even span {
+    body.portfolio-refresh #contact #contact-highlights .interest-icon span,
+    body.portfolio-refresh #contact #contact-highlights .interest-icon-even span {
         font-size: 0.9rem;
         line-height: 1.38;
     }
@@ -4434,7 +4657,23 @@ body.portfolio-refresh footer a {
         font-size: 0.68rem !important;
     }
 
+    body.portfolio-refresh #about .about-actions {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: 100%;
+        max-width: none;
+        margin-left: 0;
+    }
+
+    body.portfolio-refresh #about .about-actions .btn {
+        font-size: 0.82rem;
+        padding: 0.92rem 0.94rem;
+    }
+
     body.portfolio-refresh #contact .contact-note {
+        font-size: 0.82rem;
+    }
+
+    body.portfolio-refresh #contact .contact-status {
         font-size: 0.82rem;
     }
 
@@ -4442,35 +4681,35 @@ body.portfolio-refresh footer a {
         margin: 0 1.15rem 1.15rem;
     }
 
-    body.portfolio-refresh #contact > #interest #interest-card .card-content {
+    body.portfolio-refresh #contact #contact-highlights .card-content {
         padding: 1.2rem 0.95rem 0.9rem !important;
     }
 
-    body.portfolio-refresh #contact > #interest #interest-card .card-content p {
+    body.portfolio-refresh #contact #contact-highlights .card-content p {
         max-width: none;
         font-size: 0.9rem;
     }
 
-    body.portfolio-refresh #contact > #interest .row.no-gutters {
+    body.portfolio-refresh #contact #contact-highlights .row.no-gutters {
         padding: 0.9rem 0.95rem 0.95rem;
     }
 
-    body.portfolio-refresh #contact > #interest .interest-icon,
-    body.portfolio-refresh #contact > #interest .interest-icon-even {
+    body.portfolio-refresh #contact #contact-highlights .interest-icon,
+    body.portfolio-refresh #contact #contact-highlights .interest-icon-even {
         min-height: 116px;
         gap: 0.75rem;
         border-radius: 20px;
     }
 
-    body.portfolio-refresh #contact > #interest .interest-icon i,
-    body.portfolio-refresh #contact > #interest .interest-icon-even i {
+    body.portfolio-refresh #contact #contact-highlights .interest-icon i,
+    body.portfolio-refresh #contact #contact-highlights .interest-icon-even i {
         width: 48px;
         height: 48px;
         font-size: 1.08rem;
     }
 
-    body.portfolio-refresh #contact > #interest .interest-icon span,
-    body.portfolio-refresh #contact > #interest .interest-icon-even span {
+    body.portfolio-refresh #contact #contact-highlights .interest-icon span,
+    body.portfolio-refresh #contact #contact-highlights .interest-icon-even span {
         font-size: 0.88rem;
     }
 
@@ -4990,6 +5229,13 @@ body.portfolio-refresh footer a {
         padding: 1.2rem 1.3rem 0;
     }
 
+    body.portfolio-refresh #about .about-actions {
+        grid-template-columns: 1fr;
+        width: 100%;
+        margin-left: 0;
+        padding: 0;
+    }
+
     body.portfolio-refresh #about .about-cta {
         font-size: 0.94rem;
         line-height: 1.75;
@@ -5073,7 +5319,7 @@ body.portfolio-refresh footer a {
 
     body.portfolio-refresh #blog-card .card,
     body.portfolio-refresh #certifications .collection,
-    body.portfolio-refresh #contact > #interest .row.no-gutters {
+    body.portfolio-refresh #contact #contact-highlights .row.no-gutters {
         grid-template-columns: 1fr;
     }
 
@@ -5134,11 +5380,7 @@ body.portfolio-refresh #blog .project-title,
 body.portfolio-refresh #blog .project-summary,
 body.portfolio-refresh #blog .project-link,
 body.portfolio-refresh #certifications .cert-title,
-body.portfolio-refresh #certifications .cert-footer span,
-body.portfolio-refresh #interest .section-title + #interest-card .interest-icon span,
-body.portfolio-refresh #interest .section-title + #interest-card .interest-icon-even span,
-body.portfolio-refresh #contact > #interest .interest-icon span,
-body.portfolio-refresh #contact > #interest .interest-icon-even span {
+body.portfolio-refresh #certifications .cert-footer span {
     overflow-wrap: anywhere;
     word-break: break-word;
 }
@@ -5175,6 +5417,10 @@ body.portfolio-refresh #contact > #interest .interest-icon-even span {
         justify-content: center;
     }
 
+    body.portfolio-refresh #about .about-actions .btn {
+        justify-content: flex-start;
+    }
+
     body.portfolio-refresh #experience .experience-metrics,
     body.portfolio-refresh #blog .projects-metrics {
         grid-template-columns: 1fr;
@@ -5202,5 +5448,33 @@ body.portfolio-refresh #contact > #interest .interest-icon-even span {
     body.portfolio-refresh #skills-card .skills-metrics,
     body.portfolio-refresh #blog .projects-metrics {
         grid-template-columns: 1fr;
+    }
+
+    body.portfolio-refresh #about .about-btn {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+        padding: 1rem 1rem 0;
+    }
+
+    body.portfolio-refresh #about .about-cta {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    body.portfolio-refresh #about .about-actions {
+        width: 100%;
+        margin-left: 0;
+        padding: 0;
+        gap: 12px;
+    }
+
+    body.portfolio-refresh #about .about-actions .btn {
+        min-height: 70px;
+        padding: 0.95rem 1rem;
+    }
+
+    body.portfolio-refresh #about .about-actions .btn span {
+        white-space: normal;
     }
 }

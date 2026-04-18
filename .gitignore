@@ -1,0 +1,24 @@
+# Local browser/testing profiles
+/edge-profile/
+
+# Local mail configuration
+/php/mail_config.php
+
+# Temporary local assets
+/hero_fixed.png
+
+# LaTeX generated files
+*.aux
+*.log
+*.maf
+*.mtc
+*.mtc0
+*.mtc1
+*.mtc2
+*.mtc3
+*.synctex.gz
+*.toc
+
+# OS metadata
+.DS_Store
+Thumbs.db
