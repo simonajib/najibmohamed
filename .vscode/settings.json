@@ -1,3 +1,6 @@
 {
-    "liveServer.settings.port": 5501
+    "liveServer.settings.port": 5501,
+    "powerquery.client.additionalSymbolsDirectories": [
+        "c:/Users/the-b/OneDrive/Bureau/najibmohamed/.vscode/excel-pq-symbols"
+    ]
 }
