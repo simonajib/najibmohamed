@@ -193,6 +193,7 @@ body.portfolio-refresh .btn-large {
     color: #fff !important;
     background: linear-gradient(135deg, var(--accent), var(--accent-strong)) !important;
     box-shadow: 0 18px 36px rgba(16, 35, 63, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
 }
 
 body.portfolio-refresh .btn:hover,
@@ -305,10 +306,12 @@ body.portfolio-refresh #loading .box-holder .load-box .box-inner {
 }
 
 body.portfolio-refresh #home .menu {
-    left: -290px;
-    width: 290px;
+    --menu-width: min(290px, calc(100vw - 76px));
+    left: calc(-1 * var(--menu-width));
+    width: var(--menu-width);
     background: transparent;
     z-index: 1200;
+    transition: left 0.3s ease;
 }
 
 body.portfolio-refresh #home .menu.menu-open {
@@ -316,36 +319,49 @@ body.portfolio-refresh #home .menu.menu-open {
 }
 
 body.portfolio-refresh #home .menu .menu-wrap {
-    width: 290px;
+    visibility: hidden;
+    width: 100%;
     height: 100%;
-    padding: 5px 40px 0px;
+    padding: 24px 20px;
     background: rgba(16, 35, 63, 0.93);
     border-right: 1px solid rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(20px);
     box-shadow: 18px 0 48px rgba(16, 35, 63, 0.28);
+    overscroll-behavior: contain;
+    transition: visibility 0s linear 0.3s;
+}
+
+body.portfolio-refresh #home .menu.menu-open .menu-wrap {
+    visibility: visible;
+    transition-delay: 0s;
 }
 
 body.portfolio-refresh #home .menu .logo-flat {
     height: auto;
-    margin: 0 4px 22px;
-    padding: 14px;
-    border-radius: 26px;
+    width: 104px;
+    margin: 0 auto 12px;
+    padding: 10px;
+    border-radius: 20px;
     background: linear-gradient(145deg, rgba(15, 139, 141, 0.9), rgba(79, 124, 255, 0.9));
 }
 
 body.portfolio-refresh #home .menu .logo-flat img {
-    padding: 18px !important;
+    padding: 0 !important;
+    border-radius: 12px;
     filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.16));
 }
 
 body.portfolio-refresh #home .menu a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
     margin: 0 4px 8px;
-    padding: 14px 18px;
-    border-radius: 18px;
+    padding: 13px 12px;
+    border-radius: 12px;
     color: rgba(243, 246, 251, 0.82);
     font-size: 0.78rem;
     line-height: 1.2;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.04em;
     background: transparent;
 }
 
@@ -357,22 +373,23 @@ body.portfolio-refresh #home .menu a:focus {
 }
 
 body.portfolio-refresh #home .menu i {
+    flex: 0 0 18px;
     padding: 0;
-    margin-right: 10px;
+    margin-right: 0;
     color: rgba(243, 246, 251, 0.74);
 }
 
 body.portfolio-refresh #home #menuToggle {
     top: 24px;
-    right: -84px;
-    width: 58px;
-    height: 58px;
+    right: -64px;
+    width: 48px;
+    height: 48px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     padding: 0;
     border: 0;
-    border-radius: 20px;
+    border-radius: 15px;
     background: rgba(255, 255, 255, 0.76);
     box-shadow: 0 18px 40px rgba(16, 35, 63, 0.18);
     backdrop-filter: blur(20px);
@@ -395,17 +412,43 @@ body.portfolio-refresh #home #menuToggle:focus-visible {
 }
 
 body.portfolio-refresh #home #menuToggle .toggle-normal {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
+    position: relative;
+    display: block;
+    width: 22px;
+    height: 18px;
     pointer-events: none;
 }
 
-body.portfolio-refresh #home #menuToggle .toggle-normal i {
-    color: var(--accent) !important;
+body.portfolio-refresh #home #menuToggle .toggle-normal span {
+    position: absolute;
+    left: 0;
+    width: 22px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--accent);
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+body.portfolio-refresh #home #menuToggle .top-bar {
+    top: 0;
+}
+
+body.portfolio-refresh #home #menuToggle .middle-bar {
+    top: 8px;
+}
+
+body.portfolio-refresh #home #menuToggle .bottom-bar {
+    top: 16px;
+}
+
+body.portfolio-refresh #home #menuToggle .top-transform {
+    transform: translateY(8px) rotate(45deg) !important;
+    transform-origin: center;
+}
+
+body.portfolio-refresh #home #menuToggle .bottom-transform {
+    transform: translateY(-8px) rotate(-45deg) !important;
+    transform-origin: center;
 }
 
 body.portfolio-refresh #home .header-background {
@@ -455,11 +498,12 @@ body.portfolio-refresh #home .header-background #v-card-holder {
 }
 
 body.portfolio-refresh #home .header-background #v-card-holder #v-card {
+    top: auto;
     display: grid;
     grid-template-columns: minmax(320px, 38%) 1fr;
     align-items: stretch;
     height: auto !important;
-    min-height: 0;
+    min-height: 540px;
     margin: 0;
     background: rgba(255, 252, 247, 0.94);
     backdrop-filter: blur(18px);
@@ -469,6 +513,7 @@ body.portfolio-refresh #home .header-background #v-card-holder #v-card {
 
 body.portfolio-refresh #home .header-background #v-card-holder #v-card #profile {
     position: relative;
+    inset: auto;
     right: auto;
     float: none !important;
     display: flex;
@@ -477,7 +522,7 @@ body.portfolio-refresh #home .header-background #v-card-holder #v-card #profile 
     width: 100%;
     max-width: none;
     min-width: 0;
-    min-height: clamp(420px, 42vw, 620px);
+    min-height: 0;
     height: 100%;
     overflow: hidden;
     align-self: stretch;
@@ -492,6 +537,8 @@ body.portfolio-refresh #home .header-background #v-card-holder #v-card #profile:
 }
 
 body.portfolio-refresh #home .header-background #v-card-holder #v-card #profile img {
+    position: absolute;
+    inset: 0;
     display: block;
     flex: 1 1 auto;
     width: 100% !important;
@@ -499,7 +546,9 @@ body.portfolio-refresh #home .header-background #v-card-holder #v-card #profile 
     min-height: 100%;
     height: 100% !important;
     object-fit: cover;
-    object-position: center 14%;
+    object-position: center 24%;
+    border-radius: 0;
+    box-shadow: none;
 }
 
 body.portfolio-refresh #home .header-background #v-card-holder #v-card #profile .slant {
@@ -520,12 +569,13 @@ body.portfolio-refresh #home .header-background #v-card-holder #v-card .card-con
     flex: 1 1 auto;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     gap: 1.6rem;
     padding: clamp(2rem, 3.2vw, 3.4rem) !important;
 }
 
 body.portfolio-refresh #home .header-background #v-card-holder #v-card .info-headings {
+    margin: 0;
     max-width: none;
     display: flex;
     flex-direction: column;
@@ -535,7 +585,7 @@ body.portfolio-refresh #home .header-background #v-card-holder #v-card .info-hea
 }
 
 body.portfolio-refresh #home .header-background #v-card-holder #v-card .info-headings::before {
-    content: "Ingénieur Full Stack";
+    content: "INGÉNIEUR FULL STACK | IA & SI";
     display: inline-flex;
     align-items: center;
     padding: 0.62rem 1rem;
@@ -556,12 +606,13 @@ body.portfolio-refresh #home .header-background #v-card-holder #v-card .info-hea
     margin: 0 0 1.2rem;
     color: var(--text);
     max-width: none;
-    font-size: clamp(2.7rem, 4.8vw, 4.4rem);
-    line-height: 0.94;
+    font-size: clamp(2.5rem, 4.1vw, 3.8rem);
+    font-weight: 800;
+    line-height: 1.08;
     letter-spacing: -0.055em;
     text-shadow: none;
     text-transform: none !important;
-    white-space: nowrap;
+    white-space: normal;
     background: none;
     -webkit-text-fill-color: currentColor;
     filter: none;
@@ -584,7 +635,7 @@ body.portfolio-refresh #home .header-background #v-card-holder #v-card .info-hea
     position: relative;
     margin: 0;
     padding-left: 1.05rem;
-    max-width: 50ch;
+    max-width: none;
     color: var(--muted);
     font-size: clamp(0.98rem, 1.35vw, 1.14rem);
     line-height: 1.6;
@@ -596,21 +647,31 @@ body.portfolio-refresh #home .header-background #v-card-holder #v-card .info-hea
     text-wrap: balance;
 }
 
+@media screen and (min-width: 1200px) {
+    body.portfolio-refresh #home .header-background #v-card-holder #v-card .info-headings .hero-role {
+        font-size: 0.9rem;
+        white-space: nowrap;
+    }
+}
+
 body.portfolio-refresh #home .header-background #v-card-holder #v-card .info-headings .hero-role::before {
     content: "";
     position: absolute;
     left: 0;
-    top: 0.72rem;
+    top: 0.5lh;
     width: 0.5rem;
     height: 0.5rem;
+    transform: translateY(-50%);
     border-radius: 999px;
     background: linear-gradient(135deg, var(--accent), var(--accent-strong));
     box-shadow: 0 0 0 6px rgba(15, 139, 141, 0.08);
 }
 
 body.portfolio-refresh #home .header-background #v-card-holder #v-card .infos {
+    display: block;
+    width: 100%;
     max-width: none;
-    margin-top: 0;
+    margin: 0;
 }
 
 body.portfolio-refresh #home .header-background #v-card-holder #v-card .infos .profile-list {
@@ -624,17 +685,18 @@ body.portfolio-refresh #home .header-background #v-card-holder #v-card .infos .p
 
 body.portfolio-refresh #home .header-background #v-card-holder #v-card .infos .profile-list li {
     display: flex;
-    align-items: flex-start;
-    gap: 14px;
+    align-items: center;
+    gap: 10px;
     min-height: 0;
-    padding: 18px 20px;
-    border-radius: 20px;
+    padding: 14px 16px;
+    border-radius: 14px;
     background: rgba(255, 255, 255, 0.9);
     border: 1px solid rgba(16, 35, 63, 0.08);
-    box-shadow: 0 14px 30px rgba(16, 35, 63, 0.08);
+    box-shadow: 0 5px 16px rgba(16, 35, 63, 0.04);
 }
 
 body.portfolio-refresh #home .header-background #v-card-holder #v-card .infos .profile-list .title {
+    flex: 0 0 22px;
     float: none;
     color: var(--accent);
     line-height: 1;
@@ -647,7 +709,8 @@ body.portfolio-refresh #home .header-background #v-card-holder #v-card .infos .p
 body.portfolio-refresh #home .header-background #v-card-holder #v-card .infos .profile-list .content {
     margin-left: 0;
     color: var(--text);
-    font-size: 1.08rem;
+    font-family: "Manrope", sans-serif;
+    font-size: 0.94rem;
     font-weight: 700;
     line-height: 1.45;
     word-break: break-word;
@@ -1168,6 +1231,7 @@ body.portfolio-refresh .timeline-block .timeline-content::after {
 }
 
 body.portfolio-refresh .timeline-block .timeline-dot {
+    margin-left: 0;
     top: 24px;
     left: 0;
     right: auto;
@@ -1249,6 +1313,9 @@ body.portfolio-refresh #education .timeline-block .timeline-content::before {
     display: block;
     position: absolute;
     inset: 0 0 auto 0;
+    width: auto;
+    z-index: 0;
+    pointer-events: none;
     height: 5px;
     background: linear-gradient(90deg, var(--accent), var(--accent-strong), rgba(79, 124, 255, 0));
     opacity: 0.9;
@@ -1660,26 +1727,29 @@ body.portfolio-refresh #experience .timeline-block .timeline-content::before {
     display: block;
     position: absolute;
     inset: 0 0 auto 0;
+    width: auto;
+    z-index: 0;
+    pointer-events: none;
     height: 4px;
     background: linear-gradient(90deg, #10233f, var(--accent-strong), var(--accent), rgba(15, 139, 141, 0));
     opacity: 0.95;
 }
 
-body.portfolio-refresh #experience .timeline-block:nth-child(2) .timeline-content {
+body.portfolio-refresh #experience .timeline-block:nth-child(3) .timeline-content {
     background:
         radial-gradient(circle at bottom left, rgba(15, 139, 141, 0.12), transparent 28%),
         linear-gradient(180deg, rgba(255, 255, 255, 0.97), rgba(249, 251, 255, 0.92));
 }
 
-body.portfolio-refresh #experience .timeline-block:nth-child(2) .timeline-content::before {
+body.portfolio-refresh #experience .timeline-block:nth-child(3) .timeline-content::before {
     background: linear-gradient(90deg, var(--accent), var(--accent-strong), rgba(79, 124, 255, 0));
 }
 
-body.portfolio-refresh #experience .timeline-block:nth-child(3) .timeline-content::before {
+body.portfolio-refresh #experience .timeline-block:nth-child(4) .timeline-content::before {
     background: linear-gradient(90deg, var(--accent-strong), #87b8ff, rgba(79, 124, 255, 0));
 }
 
-body.portfolio-refresh #experience .timeline-block:nth-child(4) .timeline-content::before {
+body.portfolio-refresh #experience .timeline-block:nth-child(5) .timeline-content::before {
     background: linear-gradient(90deg, #10233f, #1b9ca0, rgba(15, 139, 141, 0));
 }
 
@@ -1725,6 +1795,22 @@ body.portfolio-refresh #experience .timeline-title {
     line-height: 1.16;
     letter-spacing: -0.04em;
     text-wrap: balance;
+}
+
+body.portfolio-refresh #experience .experience-location {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.42rem;
+    width: fit-content;
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+body.portfolio-refresh #experience .experience-location i {
+    color: var(--accent);
+    font-size: 0.9rem;
 }
 
 body.portfolio-refresh #experience .experience-period {
@@ -2202,6 +2288,7 @@ body.portfolio-refresh #skills-card .skills-title {
 }
 
 body.portfolio-refresh #skills-card .skills-title h6 {
+    text-shadow: none;
     margin: 0;
     text-align: left !important;
     font-size: 0.8rem;
@@ -2222,6 +2309,7 @@ body.portfolio-refresh #skills-card .skills-title h6::after {
 }
 
 body.portfolio-refresh #skills-card .skillbar {
+    --skillbar-inset: 1rem;
     position: relative;
     display: block;
     overflow: hidden;
@@ -2296,7 +2384,7 @@ body.portfolio-refresh #skills-card .skillbar .skillbar-bar {
     position: absolute;
     left: 1rem;
     bottom: 0.9rem;
-    width: 0;
+    width: calc((100% - 2 * var(--skillbar-inset)) * var(--skill-level, 0));
     max-width: calc(100% - 2rem);
     height: 10px;
     border-radius: 999px;
@@ -2319,6 +2407,7 @@ body.portfolio-refresh #blog .section-title span {
 
 body.portfolio-refresh #blog {
     position: relative;
+    overflow-x: clip;
 }
 
 body.portfolio-refresh #blog .container {
@@ -2587,7 +2676,8 @@ body.portfolio-refresh #blog .project-card {
     transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
 }
 
-body.portfolio-refresh #blog .project-card:hover {
+body.portfolio-refresh #blog .project-card:hover,
+body.portfolio-refresh #blog .project-card:focus-within {
     transform: translateY(calc(var(--project-offset) - 6px));
     box-shadow: 0 30px 58px rgba(16, 35, 63, 0.16);
     border-color: rgba(79, 124, 255, 0.16);
@@ -2728,7 +2818,8 @@ body.portfolio-refresh #blog .project-media img {
     transition: transform 0.8s ease, filter 0.8s ease;
 }
 
-body.portfolio-refresh #blog .project-card:hover .project-media img {
+body.portfolio-refresh #blog .project-card:hover .project-media img,
+body.portfolio-refresh #blog .project-card:focus-within .project-media img {
     transform: scale(1.07);
     filter: saturate(1.06);
 }
@@ -2954,6 +3045,9 @@ body.portfolio-refresh #certifications .collection-item {
     counter-increment: cert-counter;
     position: relative;
     isolation: isolate;
+    opacity: 1;
+    transform: none;
+    animation: none;
     overflow: hidden;
     list-style: none;
     margin: 0;
@@ -3025,8 +3119,10 @@ body.portfolio-refresh #certifications .collection-item::after {
     box-shadow: 0 16px 30px rgba(16, 35, 63, 0.18);
 }
 
-body.portfolio-refresh #certifications .collection-item:hover {
+body.portfolio-refresh #certifications .collection-item:hover,
+body.portfolio-refresh #certifications .collection-item:focus-within {
     transform: translateY(-10px);
+    border-width: 1px;
     border-color: rgba(79, 124, 255, 0.18);
     box-shadow:
         0 30px 68px rgba(16, 35, 63, 0.14),
@@ -3151,17 +3247,20 @@ body.portfolio-refresh #certifications .collection-item a::after {
     transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-body.portfolio-refresh #certifications .collection-item:hover .cert-platform {
+body.portfolio-refresh #certifications .collection-item:hover .cert-platform,
+body.portfolio-refresh #certifications .collection-item:focus-within .cert-platform {
     background: rgba(255, 255, 255, 0.96);
     color: var(--cert-accent-end);
 }
 
-body.portfolio-refresh #certifications .collection-item:hover .cert-footer span {
+body.portfolio-refresh #certifications .collection-item:hover .cert-footer span,
+body.portfolio-refresh #certifications .collection-item:focus-within .cert-footer span {
     background: rgba(255, 255, 255, 0.96);
     border-color: rgba(16, 35, 63, 0.12);
 }
 
-body.portfolio-refresh #certifications .collection-item:hover a::after {
+body.portfolio-refresh #certifications .collection-item:hover a::after,
+body.portfolio-refresh #certifications .collection-item:focus-within a::after {
     transform: translateY(-2px);
     background: linear-gradient(135deg, var(--cert-accent-start), var(--cert-accent-end));
     border-color: transparent;
@@ -3204,7 +3303,9 @@ body.portfolio-refresh .interest-icon-even {
 }
 
 body.portfolio-refresh .interest-icon:hover,
-body.portfolio-refresh .interest-icon-even:hover {
+body.portfolio-refresh .interest-icon-even:hover,
+body.portfolio-refresh a.interest-icon:focus-visible,
+body.portfolio-refresh a.interest-icon-even:focus-visible {
     transform: translateY(-6px);
     border-color: rgba(15, 139, 141, 0.2);
     box-shadow: 0 20px 48px rgba(16, 35, 63, 0.12);
@@ -3397,6 +3498,8 @@ body.portfolio-refresh #interest .section-title + #interest-card .interest-icon-
     justify-content: space-between;
     gap: 2rem;
     width: 100%;
+    height: auto;
+    margin: 0;
     min-height: 166px;
     padding: 1.22rem;
     border-radius: 28px;
@@ -3443,6 +3546,8 @@ body.portfolio-refresh #interest .section-title + #interest-card .interest-icon-
 body.portfolio-refresh #interest .section-title + #interest-card .interest-icon i,
 body.portfolio-refresh #interest .section-title + #interest-card .interest-icon-even i {
     display: inline-flex;
+    flex-shrink: 0;
+    margin: 0;
     align-items: center;
     justify-content: center;
     width: 64px;
@@ -3530,7 +3635,7 @@ body.portfolio-refresh #contact #contact-card > .card > .card-content {
 }
 
 body.portfolio-refresh #contact #contact-card > .card > .card-content::before {
-    content: "Contacter Moi";
+    content: "Me contacter";
     display: inline-flex;
     align-items: center;
     width: fit-content;
@@ -3552,7 +3657,7 @@ body.portfolio-refresh #contact-form {
     align-items: start;
 }
 
-body.portfolio-refresh #contact-form .input-field {
+body.portfolio-refresh #contact #contact-form .input-field {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
@@ -3580,7 +3685,7 @@ body.portfolio-refresh #contact-form textarea.materialize-textarea {
     color: var(--text) !important;
     padding: 0.82rem 1rem !important;
     margin: 0 !important;
-    font-size: 0.97rem !important;
+    font-size: 16px !important;
     font-weight: 500;
     line-height: 1.45 !important;
     -webkit-appearance: none;
@@ -3604,13 +3709,13 @@ body.portfolio-refresh #contact-form textarea.materialize-textarea {
     resize: vertical;
 }
 
-body.portfolio-refresh #contact-form label {
+body.portfolio-refresh #contact #contact-form label {
     position: static !important;
     order: -1;
     width: fit-content;
     transform: none !important;
     color: #5f7189 !important;
-    font-size: 0.78rem !important;
+    font-size: 0.9rem !important;
     font-weight: 700;
     letter-spacing: 0.04em;
     text-transform: none;
@@ -3642,6 +3747,9 @@ body.portfolio-refresh #contact-form .input-field label.active {
 
 body.portfolio-refresh #contact .contact-send {
     display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 12px;
     justify-content: flex-start;
     margin-top: 0.2rem;
     text-align: left;
@@ -3676,13 +3784,8 @@ body.portfolio-refresh #contact .contact-status {
     line-height: 1.5;
 }
 
-body.portfolio-refresh #contact-form .contact-honey {
-    position: absolute;
-    left: -9999px;
-    width: 1px;
-    height: 1px;
-    opacity: 0;
-    pointer-events: none;
+body.portfolio-refresh #contact-form input.contact-honey {
+    display: none;
 }
 
 body.portfolio-refresh #contact .contact-send .btn {
@@ -3690,7 +3793,28 @@ body.portfolio-refresh #contact .contact-send .btn {
     align-items: center;
     justify-content: center;
     min-width: 220px;
+    width: auto;
+    min-height: 48px;
+    line-height: 1.4;
+    white-space: normal;
+    border-radius: 14px;
     box-shadow: 0 18px 34px rgba(16, 35, 63, 0.16);
+}
+
+body.portfolio-refresh #contact .contact-send .btn-email-fallback {
+    color: var(--text) !important;
+    background: transparent !important;
+    border: 1px solid rgba(16, 35, 63, 0.2);
+    box-shadow: none;
+    white-space: normal;
+    line-height: 1.4;
+    text-align: center;
+}
+
+body.portfolio-refresh #contact .contact-send .btn-email-fallback:hover,
+body.portfolio-refresh #contact .contact-send .btn-email-fallback:focus {
+    background: rgba(15, 139, 141, 0.08) !important;
+    border-color: var(--accent);
 }
 
 body.portfolio-refresh #contact #contact-card .progress {
@@ -3732,7 +3856,7 @@ body.portfolio-refresh #contact #contact-highlights .card-content p {
 
 body.portfolio-refresh #contact #contact-highlights .row.no-gutters {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr)) minmax(300px, 1.4fr) minmax(0, 1fr);
     gap: 18px;
     margin: 0;
     padding: 1.4rem 1.6rem 1.7rem;
@@ -4017,32 +4141,26 @@ body.portfolio-refresh footer a {
 
 @media screen and (max-width: 991px) {
     body.portfolio-refresh #home .header-background #v-card-holder #v-card {
-        display: flex;
-        flex-direction: column;
-    }
-
-    body.portfolio-refresh #home .menu,
-    body.portfolio-refresh #home .menu .menu-wrap {
-        width: 260px;
+        display: grid;
     }
 
     body.portfolio-refresh #home .menu {
-        left: -260px;
+        --menu-width: min(260px, calc(100vw - 76px));
     }
 
     body.portfolio-refresh #home #menuToggle {
-        right: -74px;
+        right: -64px;
     }
 
     body.portfolio-refresh #home .header-background #v-card-holder #v-card {
-        grid-template-columns: 1fr;
-        min-height: auto;
+        grid-template-columns: minmax(230px, 34%) minmax(0, 1fr);
+        min-height: 520px;
     }
 
     body.portfolio-refresh #home .header-background #v-card-holder #v-card #profile {
-        min-height: clamp(320px, 58vw, 430px);
-        max-height: 430px;
-        aspect-ratio: 16 / 11;
+        min-height: 0;
+        max-height: none;
+        aspect-ratio: auto;
     }
 
     body.portfolio-refresh #home .header-background #v-card-holder #v-card .card-content {
@@ -4051,7 +4169,7 @@ body.portfolio-refresh footer a {
     }
 
     body.portfolio-refresh #home .header-background #v-card-holder #v-card .info-headings .hero-name {
-        font-size: clamp(2.8rem, 8vw, 3.8rem);
+        font-size: clamp(2rem, 4vw, 2.8rem);
         white-space: normal;
     }
 
@@ -4067,7 +4185,7 @@ body.portfolio-refresh footer a {
     }
 
     body.portfolio-refresh .container {
-        width: calc(100% - 24px);
+        width: calc(100% - 30px);
     }
 
     body.portfolio-refresh .section {
@@ -4183,8 +4301,14 @@ body.portfolio-refresh footer a {
     }
 
     body.portfolio-refresh #home .header-background {
-        padding: 84px 0 44px;
+        padding: 84px 0 36px;
         border-radius: 0 0 30px 30px;
+    }
+
+    body.portfolio-refresh #home .header-background #v-card-holder #v-card {
+        grid-template-columns: minmax(0, 1fr);
+        min-height: 0;
+        border-radius: 26px;
     }
 
     body.portfolio-refresh #home #menuToggle {
@@ -4192,10 +4316,11 @@ body.portfolio-refresh footer a {
     }
 
     body.portfolio-refresh #home .header-background #v-card-holder #v-card #profile {
-        min-height: clamp(280px, 74vw, 380px);
+        min-height: 0;
+        height: clamp(210px, 55vw, 300px);
         max-height: none;
-        aspect-ratio: 5 / 6;
-        border-radius: 28px 28px 0 0;
+        aspect-ratio: auto;
+        border-radius: 0;
     }
 
     body.portfolio-refresh #home .header-background #v-card-holder #v-card #profile img {
@@ -4203,7 +4328,8 @@ body.portfolio-refresh footer a {
     }
 
     body.portfolio-refresh #home .header-background #v-card-holder #v-card .card-content {
-        padding: 1.6rem !important;
+        padding: 1.4rem !important;
+        gap: 1.1rem;
     }
 
     body.portfolio-refresh #home .header-background #v-card-holder #v-card .info-headings::before {
@@ -4211,7 +4337,7 @@ body.portfolio-refresh footer a {
     }
 
     body.portfolio-refresh #home .header-background #v-card-holder #v-card .info-headings .hero-name {
-        font-size: 2.7rem;
+        font-size: clamp(1.85rem, 7.6vw, 2.7rem);
         white-space: normal;
     }
 
@@ -4223,18 +4349,17 @@ body.portfolio-refresh footer a {
     }
 
     body.portfolio-refresh #home .header-background #v-card-holder #v-card .info-headings .hero-role::before {
-        top: 0.68rem;
         width: 0.56rem;
         height: 0.56rem;
     }
 
     body.portfolio-refresh #home .header-background #v-card-holder #v-card .infos .profile-list li {
-        padding: 15px 16px;
-        border-radius: 18px;
+        padding: 12px 14px;
+        border-radius: 12px;
     }
 
     body.portfolio-refresh #home .header-background #v-card-holder #v-card .infos .profile-list .content {
-        font-size: 0.98rem;
+        font-size: 0.94rem;
     }
 
     body.portfolio-refresh #about {
@@ -4654,7 +4779,7 @@ body.portfolio-refresh footer a {
     }
 
     body.portfolio-refresh #contact-form label {
-        font-size: 0.68rem !important;
+        font-size: 0.9rem !important;
     }
 
     body.portfolio-refresh #about .about-actions {
@@ -4714,8 +4839,8 @@ body.portfolio-refresh footer a {
     }
 
     body.portfolio-refresh #home .header-background #v-card-holder #v-card .info-headings .hero-name {
-        font-size: 2.35rem;
-        line-height: 0.95;
+        font-size: clamp(1.85rem, 7.6vw, 2.35rem);
+        line-height: 1.12;
     }
 
     body.portfolio-refresh #home .header-background #v-card-holder #v-card .info-headings .hero-role {
@@ -4725,18 +4850,18 @@ body.portfolio-refresh footer a {
 
     body.portfolio-refresh #home .header-background #v-card-holder #v-card .info-headings .hero-name::after {
         width: 86px;
-        height: 0.56rem;
+        height: 0.3rem;
         margin-top: 0.75rem;
     }
 
     body.portfolio-refresh #home .header-background #v-card-holder #v-card #profile {
-        min-height: clamp(240px, 88vw, 340px);
-        aspect-ratio: 4 / 5;
-        border-radius: 24px 24px 0 0;
+        min-height: 0;
+        aspect-ratio: auto;
+        border-radius: 0;
     }
 
     body.portfolio-refresh #home .header-background #v-card-holder #v-card #profile img {
-        object-position: center 10%;
+        object-position: center 12%;
     }
 
     body.portfolio-refresh #home .header-background #v-card-holder #v-card .card-content {
@@ -5174,6 +5299,7 @@ body.portfolio-refresh footer a {
     }
 
     body.portfolio-refresh #skills-card .skillbar {
+        --skillbar-inset: 0.88rem;
         padding: 0.88rem 0.88rem 1.8rem;
         border-radius: 18px;
     }
@@ -5390,6 +5516,17 @@ body.portfolio-refresh #certifications .cert-footer span {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
+    body.portfolio-refresh #certifications .collection {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    body.portfolio-refresh #certifications .collection-item,
+    body.portfolio-refresh #certifications .collection-item a {
+        min-height: 232px;
+    }
+}
+
+@media screen and (min-width: 576px) and (max-width: 991px) {
     body.portfolio-refresh #interest .section-title + #interest-card .row.no-gutters {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 14px;
@@ -5398,15 +5535,6 @@ body.portfolio-refresh #certifications .cert-footer span {
     body.portfolio-refresh #interest .section-title + #interest-card .interest-icon,
     body.portfolio-refresh #interest .section-title + #interest-card .interest-icon-even {
         min-height: 144px;
-    }
-
-    body.portfolio-refresh #certifications .collection {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    body.portfolio-refresh #certifications .collection-item,
-    body.portfolio-refresh #certifications .collection-item a {
-        min-height: 232px;
     }
 }
 
@@ -5436,6 +5564,30 @@ body.portfolio-refresh #certifications .cert-footer span {
 }
 
 @media screen and (max-width: 575px) {
+    body.portfolio-refresh #certifications .collection {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    body.portfolio-refresh #certifications .collection-item,
+    body.portfolio-refresh #certifications .collection-item a {
+        min-height: 0;
+    }
+
+    body.portfolio-refresh #certifications .collection-item a {
+        gap: 1rem;
+        padding: 1.35rem;
+    }
+
+    body.portfolio-refresh #certifications .cert-title {
+        font-size: 1.08rem;
+        text-wrap: wrap;
+    }
+
+    body.portfolio-refresh #certifications .collection-item a::after {
+        justify-self: start;
+        white-space: nowrap;
+    }
+
     body.portfolio-refresh #home .header-background #v-card-holder #v-card .infos .profile-list li {
         gap: 12px;
     }
@@ -5476,5 +5628,25 @@ body.portfolio-refresh #certifications .cert-footer span {
 
     body.portfolio-refresh #about .about-actions .btn span {
         white-space: normal;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body.portfolio-refresh *,
+    body.portfolio-refresh *::before,
+    body.portfolio-refresh *::after,
+    body.portfolio-refresh::before,
+    body.portfolio-refresh::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        transition-delay: 0s !important;
+        scroll-behavior: auto !important;
+    }
+
+    body.portfolio-refresh [data-sr-id] {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
     }
 }

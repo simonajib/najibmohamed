@@ -23,7 +23,7 @@ Le site présente :
 
 ## Lancer le projet en local
 
-Le site est statique. Vous pouvez l'ouvrir directement dans le navigateur, mais pour tester plus proprement les ancres, les assets et le formulaire AJAX, il est préférable d'utiliser un petit serveur local.
+Le site est statique. Pour tester l’envoi du formulaire FormSubmit, ouvrez-le depuis un serveur local ou son URL publiée : l’envoi direct ne fonctionne pas depuis une adresse `file://`. Le bouton « Ouvrir ma messagerie » reste disponible pour préparer un email.
 
 ### Option 1 : Python
 
@@ -86,17 +86,28 @@ stylesheets/style_best.css
 
 ## Formulaire de contact
 
-Le site utilise maintenant **FormSubmit** comme système de contact unique.
+Le site utilise **FormSubmit** pour l’envoi direct. Le bouton **Ouvrir ma messagerie** prépare aussi un email avec l’objet, le message, le nom et l’adresse saisis. Il utilise l’application de messagerie configurée sur l’appareil ; le visiteur doit y confirmer l’envoi.
 
 Le formulaire envoie les messages vers :
 
 ```text
-https://formsubmit.co/ajax/najibsimons01@gmail.com
+https://formsubmit.co/ajax/najibmohamednm01@gmail.com
 ```
 
 ### Important
 
 Lors de la première soumission, FormSubmit enverra un email de confirmation au propriétaire de l'adresse cible. Il faut confirmer cette activation une seule fois pour que le formulaire fonctionne ensuite normalement.
+
+### Activer la nouvelle adresse et vérifier l’envoi
+
+1. Dans VS Code, utilisez **Open with Live Server**, ou lancez `python -m http.server 8000` puis ouvrez `http://localhost:8000`.
+2. Remplissez le formulaire et envoyez un message de test.
+3. Ouvrez la boîte **najibmohamednm01@gmail.com**, recherchez l’email de **FormSubmit** dans la réception et les spams, puis cliquez sur son lien d’activation.
+4. Faites un nouvel envoi depuis la même adresse du site et vérifiez sa réception.
+
+Un changement d’adresse destinataire exige une nouvelle activation. La confirmation du service dans le navigateur ne prouve pas la livraison dans la boîte de réception. En cas d’échec, le texte saisi reste disponible et le statut affiche le détail renvoyé par le service quand il est fourni.
+
+Si le formulaire reste en erreur, utilisez **Ouvrir ma messagerie** ou le lien email, puis indiquez l’URL du site et le texte affiché dans le statut pour poursuivre le diagnostic.
 
 ### Changer l'adresse de réception
 
@@ -111,11 +122,14 @@ Pensez aussi à mettre à jour :
 - les liens `mailto:`
 - le texte d'aide du bloc contact
 - les cartes de contact cliquables
+- le lien du bouton `contact-email-fallback`
+- l’activation FormSubmit pour la nouvelle adresse
 
 ### Référence officielle
 
 - FormSubmit documentation : https://formsubmit.co/documentation
 - FormSubmit AJAX documentation : https://formsubmit.co/ajax-documentation
+- FormSubmit FAQ (activation et tests locaux) : https://formsubmit.co/help
 
 ## Accessibilité
 
