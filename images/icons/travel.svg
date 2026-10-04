@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <defs>
+    <linearGradient id="travel-body" x1="17" y1="24" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#12b5ad"/>
+      <stop offset=".55" stop-color="#278bd9"/>
+      <stop offset="1" stop-color="#4f6bea"/>
+    </linearGradient>
+    <linearGradient id="travel-gold" x1="5" y1="47" x2="41" y2="73" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffe49a"/>
+      <stop offset="1" stop-color="#f2ad35"/>
+    </linearGradient>
+  </defs>
+  <path d="M13 31C17 19 28 11 42 11" stroke="#12b5ad" stroke-width="2" stroke-linecap="round" opacity=".35"/>
+  <path d="M10 51c-6 9-1 21 11 21 7 0 15-5 21-11" stroke="url(#travel-gold)" stroke-width="3" stroke-linecap="round" stroke-dasharray="5 5"/>
+  <path d="m66 13-21 20-28-6-7 7 24 12-11 11-12-1-5 5 17 6 6 11 5-5-1-12 13-12 12 24 7-7-6-28 19-21c3-4-1-9-5-8Z" fill="url(#travel-body)"/>
+  <path d="m66 13-21 20-28-6-7 7 24 12 39-35c-2-1-5-1-7 2Z" fill="#fff" opacity=".17"/>
+  <path d="m46 49 12 24 7-7-6-28Z" fill="#10233f" opacity=".17"/>
+  <path d="m23 67 6 11 5-5-1-12 13-12 22-24" stroke="#10233f" stroke-width="2" stroke-linecap="round" opacity=".3"/>
+  <path d="m56 24 4 4" stroke="#f5fffc" stroke-width="3" stroke-linecap="round"/>
+  <path d="m17 5 2.2 5.8L25 13l-5.8 2.2L17 21l-2.2-5.8L9 13l5.8-2.2Z" fill="url(#travel-gold)" stroke="#fff" stroke-width="1" stroke-linejoin="round"/>
+  <circle cx="72" cy="51" r="2.5" fill="#4f7cff" opacity=".65"/>
+</svg>

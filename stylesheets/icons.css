@@ -1,0 +1,152 @@
+/* Shared vector icons: bold silhouettes, teal/blue facets, and gold accents. */
+.icon-architecture { --icon-image: url("../images/icons/architecture.svg?v=88c7fb76d629"); }
+.icon-arrow-right { --icon-image: url("../images/icons/arrow-right.svg?v=4b78ad359e71"); }
+.icon-arrow-up { --icon-image: url("../images/icons/arrow-up.svg?v=a732389e01c5"); }
+.icon-camera { --icon-image: url("../images/icons/camera.svg?v=866bff4acc30"); }
+.icon-cloud { --icon-image: url("../images/icons/cloud.svg?v=7763077ffdce"); }
+.icon-code { --icon-image: url("../images/icons/code.svg?v=76dcdcf8ac35"); }
+.icon-document { --icon-image: url("../images/icons/document.svg?v=55821c2a887c"); }
+.icon-education { --icon-image: url("../images/icons/education.svg?v=0072a8d61c70"); }
+.icon-email { --icon-image: url("../images/icons/email.svg?v=211b7a756ad1"); }
+.icon-experience { --icon-image: url("../images/icons/experience.svg?v=3e760097fa0e"); }
+.icon-film { --icon-image: url("../images/icons/film.svg?v=d57ba5c420ac"); }
+.icon-football { --icon-image: url("../images/icons/football.svg?v=107cb37aeb71"); }
+.icon-gaming { --icon-image: url("../images/icons/gaming.svg?v=265b88902a24"); }
+.icon-github { --icon-image: url("../images/icons/github.svg?v=8eb8bb40bf0f"); }
+.icon-globe { --icon-image: url("../images/icons/globe.svg?v=cac45a5002d9"); }
+.icon-home { --icon-image: url("../images/icons/home.svg?v=92b8343a7173"); }
+.icon-idea { --icon-image: url("../images/icons/idea.svg?v=b3907945ee85"); }
+.icon-interests { --icon-image: url("../images/icons/interests.svg?v=af21e2c8db25"); }
+.icon-linkedin { --icon-image: url("../images/icons/linkedin.svg?v=539e9393bde7"); }
+.icon-location { --icon-image: url("../images/icons/location.svg?v=b7ec2a806401"); }
+.icon-music { --icon-image: url("../images/icons/music.svg?v=a6395d19ceab"); }
+.icon-overview { --icon-image: url("../images/icons/overview.svg?v=37312d713765"); }
+.icon-phone { --icon-image: url("../images/icons/phone.svg?v=ac843876c8af"); }
+.icon-projects { --icon-image: url("../images/icons/projects.svg?v=b01701aa39a8"); }
+.icon-skills { --icon-image: url("../images/icons/skills.svg?v=4bb78380b2da"); }
+.icon-travel { --icon-image: url("../images/icons/travel.svg?v=b9772051d874"); }
+.icon-verified-document { --icon-image: url("../images/icons/verified-document.svg?v=63420aca620f"); }
+.icon-certifications { --icon-image: url("../images/certification-emblem.svg?v=e535a307fca2"); }
+
+body.portfolio-refresh .creative-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    font-style: normal;
+    line-height: 1;
+    vertical-align: middle;
+}
+
+body.portfolio-refresh .creative-icon::before {
+    content: "";
+    display: block;
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--icon-image) center / contain no-repeat;
+    pointer-events: none;
+}
+
+body.portfolio-refresh .section-title .title-icon.creative-icon {
+    width: 64px;
+    height: 64px;
+    border: 1px solid rgba(15, 139, 141, 0.15);
+    border-radius: 22px;
+    background: linear-gradient(145deg, #f5fffc, #e7eefc);
+    box-shadow: 0 12px 28px rgba(15, 139, 141, 0.15);
+}
+
+body.portfolio-refresh .section-title .creative-icon::before {
+    width: 94%;
+    height: 94%;
+    filter: drop-shadow(0 3px 2px rgba(16, 35, 63, 0.12));
+}
+
+body.portfolio-refresh #home .menu .creative-icon {
+    flex: 0 0 22px;
+    width: 22px;
+    height: 26px;
+    margin: 0 -2px;
+    padding: 0;
+}
+
+body.portfolio-refresh #home .header-background #v-card-holder #v-card .infos .profile-list .title .creative-icon {
+    width: 22px;
+    height: 24px;
+}
+
+body.portfolio-refresh #home .header-background #v-card-holder #v-card .links .social {
+    background: linear-gradient(145deg, #f5fffc, #e7eefc) !important;
+}
+
+body.portfolio-refresh #home .header-background #v-card-holder #v-card .links .social .creative-icon {
+    width: 46px;
+    height: 46px;
+}
+
+body.portfolio-refresh #about-card .about-highlight .creative-icon,
+body.portfolio-refresh #about .about-actions .btn .creative-icon,
+body.portfolio-refresh #skills-card .skills-panel-icon,
+body.portfolio-refresh #interest .section-title + #interest-card .interest-icon .creative-icon,
+body.portfolio-refresh #interest .section-title + #interest-card .interest-icon-even .creative-icon,
+body.portfolio-refresh #contact #contact-highlights .interest-icon .creative-icon,
+body.portfolio-refresh #contact #contact-highlights .interest-icon-even .creative-icon {
+    background: linear-gradient(145deg, #f5fffc, #e7eefc);
+    box-shadow: 0 8px 20px rgba(16, 35, 63, 0.1);
+}
+
+body.portfolio-refresh #skills-card .skills-panel-icon .creative-icon {
+    width: 90%;
+    height: 90%;
+}
+
+body.portfolio-refresh #education .timeline-block .timeline-dot,
+body.portfolio-refresh #experience .timeline-block .timeline-dot {
+    background: linear-gradient(145deg, #f5fffc, #e7eefc);
+}
+
+body.portfolio-refresh #education .timeline-block .timeline-dot .creative-icon,
+body.portfolio-refresh #experience .timeline-block .timeline-dot .creative-icon {
+    width: 82%;
+    height: 82%;
+    margin: 0;
+    transform: none;
+}
+
+body.portfolio-refresh #experience .experience-location .creative-icon {
+    width: 18px;
+    height: 18px;
+}
+
+body.portfolio-refresh .icon-arrow-right::before,
+body.portfolio-refresh .icon-arrow-up::before {
+    background: currentColor;
+    -webkit-mask: var(--icon-image) center / contain no-repeat;
+    mask: var(--icon-image) center / contain no-repeat;
+}
+
+body.portfolio-refresh #blog .project-link .creative-icon {
+    width: 18px;
+    height: 18px;
+}
+
+body.portfolio-refresh #certifications .collection-item a::after {
+    content: "Voir le certificat →";
+    font-family: "Manrope", sans-serif;
+}
+
+body.portfolio-refresh #scrollup .creative-icon {
+    width: 28px;
+    height: 28px;
+}
+
+@media screen and (max-width: 575px) {
+    body.portfolio-refresh .section-title .title-icon.creative-icon {
+        width: 54px;
+        height: 54px;
+        border-radius: 18px;
+    }
+}

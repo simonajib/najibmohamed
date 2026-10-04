@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <defs>
+    <linearGradient id="profile" x1="12" y1="12" x2="66" y2="68" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#12b5ad"/><stop offset=".55" stop-color="#278bd9"/><stop offset="1" stop-color="#4f6bea"/>
+    </linearGradient>
+    <linearGradient id="sparkle" x1="62" y1="4" x2="74" y2="25" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffe49a"/><stop offset="1" stop-color="#f2ad35"/>
+    </linearGradient>
+  </defs>
+  <rect x="10" y="12" width="59" height="61" rx="14" fill="url(#profile)"/>
+  <path d="M24 12h31a14 14 0 0 1 14 14v10L10 54V26a14 14 0 0 1 14-14Z" fill="#fff" opacity=".14"/>
+  <path d="M45 49 69 37v22a14 14 0 0 1-14 14H36Z" fill="#10233f" opacity=".12"/>
+  <circle cx="39" cy="32" r="10" fill="#f5fffc"/>
+  <path d="M21 57a18 18 0 0 1 36 0v3H21Z" fill="#f5fffc"/>
+  <path d="M31 68h16" stroke="#10233f" stroke-width="3" stroke-linecap="round" opacity=".45"/>
+  <path d="m67 3 3 8 8 3-8 3-3 8-3-8-8-3 8-3Z" fill="url(#sparkle)" stroke="#fff" stroke-width="1" stroke-linejoin="round"/>
+  <circle cx="5" cy="40" r="2.5" fill="#12b5ad" opacity=".65"/>
+</svg>

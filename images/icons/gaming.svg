@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <defs>
+    <linearGradient id="gaming-body" x1="15" y1="24" x2="65" y2="68" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#12b5ad"/>
+      <stop offset=".55" stop-color="#278bd9"/>
+      <stop offset="1" stop-color="#4f6bea"/>
+    </linearGradient>
+    <linearGradient id="gaming-gold" x1="54" y1="9" x2="69" y2="47" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffe49a"/>
+      <stop offset="1" stop-color="#f2ad35"/>
+    </linearGradient>
+  </defs>
+  <path d="M9 30c2-11 13-18 24-18" stroke="#12b5ad" stroke-width="2" stroke-linecap="round" opacity=".35"/>
+  <path d="M31 25v-5c0-5 5-8 10-8h4" stroke="#10233f" stroke-width="3" stroke-linecap="round"/>
+  <path d="M23 23h34c7 0 12 6 14 14l5 21c2 9-8 16-15 9L50 56H30L19 67C12 74 2 67 4 58l5-21c2-8 7-14 14-14Z" fill="url(#gaming-body)"/>
+  <path d="M23 23h34c6 0 10 4 13 10H10c3-6 7-10 13-10Z" fill="#fff" opacity=".16"/>
+  <path d="m30 56-11 11c-4 4-9 3-12 0l18-21Z" fill="#10233f" opacity=".12"/>
+  <path d="m50 56 11 11c4 4 9 3 12 0L55 46Z" fill="#10233f" opacity=".15"/>
+  <path d="M20 35h7v6h6v7h-6v6h-7v-6h-6v-7h6Z" fill="#f5fffc"/>
+  <path d="M23.5 39v11M18 44.5h11" stroke="#10233f" stroke-width="2" stroke-linecap="round" opacity=".35"/>
+  <circle cx="59" cy="36" r="4" fill="url(#gaming-gold)"/>
+  <circle cx="51" cy="44" r="4" fill="#f5fffc"/>
+  <circle cx="67" cy="44" r="4" fill="#10233f"/>
+  <circle cx="59" cy="52" r="4" fill="#12e1c3"/>
+  <path d="M36 38h8" stroke="#10233f" stroke-width="3" stroke-linecap="round"/>
+  <path d="m65 5 2.2 5.8L73 13l-5.8 2.2L65 21l-2.2-5.8L57 13l5.8-2.2Z" fill="url(#gaming-gold)" stroke="#fff" stroke-width="1" stroke-linejoin="round"/>
+  <circle cx="38" cy="69" r="2.5" fill="#4f7cff" opacity=".65"/>
+</svg>

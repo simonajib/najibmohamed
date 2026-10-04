@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <defs>
+    <linearGradient id="code-body" x1="11" y1="12" x2="68" y2="70" gradientUnits="userSpaceOnUse"><stop stop-color="#12b5ad"/><stop offset=".55" stop-color="#278bd9"/><stop offset="1" stop-color="#4f6bea"/></linearGradient>
+    <linearGradient id="code-gold" x1="61" y1="4" x2="74" y2="18" gradientUnits="userSpaceOnUse"><stop stop-color="#ffe49a"/><stop offset="1" stop-color="#f2ad35"/></linearGradient>
+  </defs>
+  <rect x="8" y="14" width="64" height="53" rx="12" fill="url(#code-body)"/>
+  <path d="M8 31V26a12 12 0 0 1 12-12h40L40 31Z" fill="#fff" opacity=".16"/>
+  <path d="M8 29h64" stroke="#10233f" stroke-width="4" opacity=".32"/>
+  <circle cx="19" cy="22" r="2.5" fill="#f5fffc"/>
+  <circle cx="27" cy="22" r="2.5" fill="#f5fffc" opacity=".6"/>
+  <path d="m27 39-9 9 9 9m26-18 9 9-9 9m-9-21-8 24" stroke="#f5fffc" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="m67 3 3 7 7 3-7 3-3 7-3-7-7-3 7-3Z" fill="url(#code-gold)" stroke="#fff" stroke-width="1" stroke-linejoin="round"/>
+</svg>

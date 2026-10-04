@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <defs>
+    <linearGradient id="camera-body" x1="10" y1="22" x2="69" y2="68" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#12b5ad"/>
+      <stop offset=".55" stop-color="#278bd9"/>
+      <stop offset="1" stop-color="#4f6bea"/>
+    </linearGradient>
+    <linearGradient id="camera-lens" x1="30" y1="32" x2="52" y2="57" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#12e1c3"/>
+      <stop offset="1" stop-color="#4f6bea"/>
+    </linearGradient>
+    <linearGradient id="camera-gold" x1="57" y1="5" x2="75" y2="35" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffe49a"/>
+      <stop offset="1" stop-color="#f2ad35"/>
+    </linearGradient>
+  </defs>
+  <path d="M7 34c0-13 10-23 23-26" stroke="#12b5ad" stroke-width="2" stroke-linecap="round" opacity=".35"/>
+  <rect x="13" y="20" width="13" height="7" rx="2" fill="#10233f"/>
+  <path d="m29 17-6 10h-9a7 7 0 0 0-7 7v29a7 7 0 0 0 7 7h52a7 7 0 0 0 7-7V34a7 7 0 0 0-7-7h-9l-6-10Z" fill="url(#camera-body)"/>
+  <path d="M14 27h52a7 7 0 0 1 7 7v5H7v-5a7 7 0 0 1 7-7Z" fill="#fff" opacity=".16"/>
+  <path d="m48 48 25 13v2a7 7 0 0 1-7 7H30Z" fill="#10233f" opacity=".12"/>
+  <rect x="55" y="31" width="12" height="7" rx="2" fill="url(#camera-gold)"/>
+  <circle cx="39" cy="48" r="19" fill="#f5fffc"/>
+  <circle cx="39" cy="48" r="15" fill="#10233f"/>
+  <circle cx="39" cy="48" r="10.5" fill="url(#camera-lens)"/>
+  <path d="M33 47a7 7 0 0 1 7-7" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".75"/>
+  <circle cx="43" cy="53" r="2" fill="#fff" opacity=".4"/>
+  <path d="m67 4 2.4 6.6L76 13l-6.6 2.4L67 22l-2.4-6.6L58 13l6.6-2.4Z" fill="url(#camera-gold)" stroke="#fff" stroke-width="1" stroke-linejoin="round"/>
+  <circle cx="9" cy="76" r="2.5" fill="#4f7cff" opacity=".65"/>
+</svg>

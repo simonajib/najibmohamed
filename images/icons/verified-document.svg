@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <defs>
+    <linearGradient id="verified-body" x1="12" y1="5" x2="65" y2="74" gradientUnits="userSpaceOnUse"><stop stop-color="#12b5ad"/><stop offset=".55" stop-color="#278bd9"/><stop offset="1" stop-color="#4f6bea"/></linearGradient>
+    <linearGradient id="verified-gold" x1="45" y1="44" x2="75" y2="76" gradientUnits="userSpaceOnUse"><stop stop-color="#ffe49a"/><stop offset="1" stop-color="#f2ad35"/></linearGradient>
+  </defs>
+  <path d="M22 5h25l18 18v41a10 10 0 0 1-10 10H22a10 10 0 0 1-10-10V15A10 10 0 0 1 22 5Z" fill="url(#verified-body)"/>
+  <path d="M12 44V15A10 10 0 0 1 22 5h25L35 44Z" fill="#fff" opacity=".14"/>
+  <path d="M47 5v13a5 5 0 0 0 5 5h13Z" fill="#10233f" opacity=".45"/>
+  <path d="M24 34h27M24 44h19M24 54h12" stroke="#f5fffc" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="59" cy="60" r="18" fill="url(#verified-gold)" stroke="#fff" stroke-width="3"/>
+  <path d="m51 60 5 5 11-12" stroke="#10233f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

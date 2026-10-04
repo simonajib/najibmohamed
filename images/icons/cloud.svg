@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <defs>
+    <linearGradient id="cloud-body" x1="9" y1="16" x2="71" y2="63" gradientUnits="userSpaceOnUse"><stop stop-color="#12b5ad"/><stop offset=".55" stop-color="#278bd9"/><stop offset="1" stop-color="#4f6bea"/></linearGradient>
+    <linearGradient id="cloud-gold" x1="62" y1="4" x2="74" y2="19" gradientUnits="userSpaceOnUse"><stop stop-color="#ffe49a"/><stop offset="1" stop-color="#f2ad35"/></linearGradient>
+  </defs>
+  <path d="M20 57a16 16 0 0 1-2-32 23 23 0 0 1 43-3 18 18 0 0 1-1 35Z" fill="url(#cloud-body)"/>
+  <path d="M18 25a23 23 0 0 1 43-3L32 40 5 39a16 16 0 0 1 13-14Z" fill="#fff" opacity=".16"/>
+  <path d="M60 57H20L50 37l28 1a18 18 0 0 1-18 19Z" fill="#10233f" opacity=".1"/>
+  <path d="M40 57v12M24 69h32" stroke="#10233f" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="24" cy="70" r="5" fill="#12b5ad"/>
+  <circle cx="56" cy="70" r="5" fill="#4f6bea"/>
+  <path d="m68 3 2.5 6.5L77 12l-6.5 2.5L68 21l-2.5-6.5L59 12l6.5-2.5Z" fill="url(#cloud-gold)" stroke="#fff" stroke-width="1" stroke-linejoin="round"/>
+</svg>

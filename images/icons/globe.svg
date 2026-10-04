@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <defs>
+    <linearGradient id="globe-body" x1="13" y1="9" x2="68" y2="69" gradientUnits="userSpaceOnUse"><stop stop-color="#12b5ad"/><stop offset=".55" stop-color="#278bd9"/><stop offset="1" stop-color="#4f6bea"/></linearGradient>
+    <linearGradient id="globe-gold" x1="58" y1="6" x2="73" y2="21" gradientUnits="userSpaceOnUse"><stop stop-color="#ffe49a"/><stop offset="1" stop-color="#f2ad35"/></linearGradient>
+  </defs>
+  <circle cx="40" cy="40" r="33" fill="url(#globe-body)"/>
+  <path d="M10 26A33 33 0 0 1 64 17L40 40 8 48a33 33 0 0 1 2-22Z" fill="#fff" opacity=".14"/>
+  <path d="M40 7c18 17 18 49 0 66C22 56 22 24 40 7ZM9 40h62M14 21c16 8 36 8 52 0M14 59c16-8 36-8 52 0" stroke="#f5fffc" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/>
+  <circle cx="65" cy="14" r="8" fill="url(#globe-gold)" stroke="#fff" stroke-width="2"/>
+</svg>

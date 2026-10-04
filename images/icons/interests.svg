@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <defs>
+    <linearGradient id="heart" x1="7" y1="17" x2="62" y2="67" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#12b5ad"/><stop offset=".55" stop-color="#278bd9"/><stop offset="1" stop-color="#4f6bea"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="57" y1="3" x2="77" y2="29" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffe49a"/><stop offset="1" stop-color="#f2ad35"/>
+    </linearGradient>
+  </defs>
+  <path d="M39 71 12 44C-3 29 8 8 25 14c6 2 10 6 14 12 4-6 8-10 14-12 17-6 28 15 13 30Z" fill="url(#heart)"/>
+  <path d="M25 14c6 2 10 6 14 12 4-6 8-10 14-12 9-3 16 1 19 8L13 45l-1-1C-3 29 8 8 25 14Z" fill="#fff" opacity=".14"/>
+  <path d="m39 44 28-1-28 28-16-16Z" fill="#10233f" opacity=".12"/>
+  <path d="M16 29c0-4 4-7 8-6" stroke="#f5fffc" stroke-width="4" stroke-linecap="round" opacity=".75"/>
+  <path d="m65 3 3.5 9.5L78 16l-9.5 3.5L65 29l-3.5-9.5L52 16l9.5-3.5Z" fill="url(#gold)" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="m10 56 1.5 4.5L16 62l-4.5 1.5L10 68l-1.5-4.5L4 62l4.5-1.5Z" fill="#12b5ad"/>
+</svg>

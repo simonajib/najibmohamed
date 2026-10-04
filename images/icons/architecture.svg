@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <defs>
+    <linearGradient id="architecture-body" x1="12" y1="7" x2="67" y2="73" gradientUnits="userSpaceOnUse"><stop stop-color="#12b5ad"/><stop offset=".55" stop-color="#278bd9"/><stop offset="1" stop-color="#4f6bea"/></linearGradient>
+    <linearGradient id="architecture-gold" x1="61" y1="5" x2="74" y2="21" gradientUnits="userSpaceOnUse"><stop stop-color="#ffe49a"/><stop offset="1" stop-color="#f2ad35"/></linearGradient>
+  </defs>
+  <path d="M40 34v11M20 53v-8h40v8" stroke="#10233f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="m40 5 16 9v19l-16 9-16-9V14Z" fill="url(#architecture-body)"/>
+  <path d="m24 14 16 9 16-9-16-9Z" fill="#fff" opacity=".2"/>
+  <path d="m40 23 16-9v19l-16 9Z" fill="#10233f" opacity=".18"/>
+  <path d="m20 49 16 9v13l-16 8-16-8V58Z" fill="url(#architecture-body)"/>
+  <path d="m4 58 16 9 16-9-16-9Z" fill="#fff" opacity=".2"/>
+  <path d="m20 67 16-9v13l-16 8Z" fill="#10233f" opacity=".18"/>
+  <path d="m60 49 16 9v13l-16 8-16-8V58Z" fill="url(#architecture-body)"/>
+  <path d="m44 58 16 9 16-9-16-9Z" fill="#fff" opacity=".2"/>
+  <path d="m60 67 16-9v13l-16 8Z" fill="#10233f" opacity=".18"/>
+  <path d="m68 3 2.5 6.5L77 12l-6.5 2.5L68 21l-2.5-6.5L59 12l6.5-2.5Z" fill="url(#architecture-gold)" stroke="#fff" stroke-width="1" stroke-linejoin="round"/>
+</svg>

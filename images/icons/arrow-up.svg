@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <defs><linearGradient id="arrow-up-body" x1="18" y1="10" x2="61" y2="70" gradientUnits="userSpaceOnUse"><stop stop-color="#12b5ad"/><stop offset=".55" stop-color="#278bd9"/><stop offset="1" stop-color="#4f6bea"/></linearGradient></defs>
+  <path d="M34 70V30L20 44a6 6 0 0 1-9-9l25-25a6 6 0 0 1 8 0l25 25a6 6 0 0 1-9 9L46 30v40a6 6 0 0 1-12 0Z" fill="url(#arrow-up-body)"/>
+  <path d="M34 70V30L20 44a6 6 0 0 1-9-9l25-25a6 6 0 0 1 4-2v68a6 6 0 0 1-6-6Z" fill="#fff" opacity=".12"/>
+</svg>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <defs>
+    <linearGradient id="chip" x1="15" y1="15" x2="64" y2="66" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#12b5ad"/><stop offset=".55" stop-color="#278bd9"/><stop offset="1" stop-color="#4f6bea"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="58" y1="2" x2="77" y2="25" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffe49a"/><stop offset="1" stop-color="#f2ad35"/>
+    </linearGradient>
+  </defs>
+  <path d="M28 8v9m12-9v9m12-9v9M28 63v9m12-9v9m12-9v9M8 28h9M8 40h9M8 52h9m46-24h9m-9 12h9m-9 12h9" stroke="#23466f" stroke-width="5" stroke-linecap="round"/>
+  <rect x="15" y="15" width="50" height="50" rx="11" fill="url(#chip)"/>
+  <path d="M26 15h28a11 11 0 0 1 11 11v4L15 50V26a11 11 0 0 1 11-11Z" fill="#fff" opacity=".14"/>
+  <path d="m40 40 25 12v2a11 11 0 0 1-11 11H28Z" fill="#10233f" opacity=".12"/>
+  <rect x="25" y="25" width="30" height="30" rx="6" stroke="#f5fffc" stroke-width="2.5" opacity=".7"/>
+  <path d="m34 33-6 7 6 7m12-14 6 7-6 7" stroke="#f5fffc" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="m42 32-4 16" stroke="#ffe49a" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="m67 3 2.8 7.2L77 13l-7.2 2.8L67 23l-2.8-7.2L57 13l7.2-2.8Z" fill="url(#gold)" stroke="#fff" stroke-width="1" stroke-linejoin="round"/>
+</svg>

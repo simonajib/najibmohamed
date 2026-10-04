@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <defs>
+    <linearGradient id="cap" x1="6" y1="13" x2="68" y2="51" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#12b5ad"/><stop offset=".55" stop-color="#278bd9"/><stop offset="1" stop-color="#4f6bea"/>
+    </linearGradient>
+    <linearGradient id="book" x1="18" y1="52" x2="68" y2="74" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4f7cff"/><stop offset="1" stop-color="#23466f"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="57" y1="26" x2="71" y2="55" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffe49a"/><stop offset="1" stop-color="#f2ad35"/>
+    </linearGradient>
+  </defs>
+  <path d="M18 53h45a5 5 0 0 1 5 5v14H18a9.5 9.5 0 0 1 0-19Z" fill="url(#book)"/>
+  <path d="M19 58h43v9H19a4.5 4.5 0 0 1 0-9Z" fill="#f5fffc"/>
+  <path d="M50 58h8v14l-4-3-4 3Z" fill="url(#gold)"/>
+  <path d="M20 30h40v12c-10 11-30 11-40 0Z" fill="url(#cap)"/>
+  <path d="M40 13 5 29l35 17 35-17Z" fill="url(#cap)" stroke="#f5fffc" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="m40 13 35 16-35 4-35-4Z" fill="#fff" opacity=".15"/>
+  <path d="m40 29 25 6v14" stroke="url(#gold)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M65 43c-3 0-5 7-5 11h10c0-4-2-11-5-11Z" fill="url(#gold)"/>
+  <circle cx="40" cy="29" r="3" fill="#ffe49a"/>
+  <path d="m67 4 2 5 5 2-5 2-2 5-2-5-5-2 5-2Z" fill="url(#gold)"/>
+</svg>

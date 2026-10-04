@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <defs>
+    <linearGradient id="dashboard" x1="7" y1="14" x2="68" y2="71" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#12b5ad"/><stop offset=".55" stop-color="#278bd9"/><stop offset="1" stop-color="#4f6bea"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="50" y1="34" x2="65" y2="64" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffe49a"/><stop offset="1" stop-color="#f2ad35"/>
+    </linearGradient>
+  </defs>
+  <rect x="7" y="14" width="66" height="57" rx="12" fill="url(#dashboard)"/>
+  <path d="M19 14h42a12 12 0 0 1 12 12v3H7v-3a12 12 0 0 1 12-12Z" fill="#10233f" opacity=".75"/>
+  <path d="m7 46 66-17v30a12 12 0 0 1-12 12H39Z" fill="#fff" opacity=".08"/>
+  <circle cx="17" cy="22" r="2.5" fill="#ffe49a"/>
+  <path d="M25 22h13" stroke="#f5fffc" stroke-width="3" stroke-linecap="round" opacity=".7"/>
+  <path d="M18 61h44" stroke="#f5fffc" stroke-width="3" stroke-linecap="round" opacity=".6"/>
+  <rect x="20" y="47" width="9" height="14" rx="2" fill="#f5fffc"/>
+  <rect x="36" y="39" width="9" height="22" rx="2" fill="#f5fffc" opacity=".8"/>
+  <rect x="52" y="33" width="9" height="28" rx="2" fill="url(#gold)"/>
+  <path d="m65 3 2.5 6.5L74 12l-6.5 2.5L65 21l-2.5-6.5L56 12l6.5-2.5Z" fill="url(#gold)" stroke="#fff" stroke-width="1" stroke-linejoin="round"/>
+</svg>
