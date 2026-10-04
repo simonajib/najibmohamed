@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <defs>
+    <linearGradient id="medal" x1="18" y1="13" x2="65" y2="58" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#12b5ad"/>
+      <stop offset=".55" stop-color="#278bd9"/>
+      <stop offset="1" stop-color="#4f6bea"/>
+    </linearGradient>
+    <linearGradient id="ribbon" x1="24" y1="49" x2="58" y2="77" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4f7cff"/>
+      <stop offset="1" stop-color="#23466f"/>
+    </linearGradient>
+    <linearGradient id="sparkle" x1="62" y1="5" x2="74" y2="22" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffe49a"/>
+      <stop offset="1" stop-color="#f2ad35"/>
+    </linearGradient>
+  </defs>
+  <path d="M9 34C7 21 20 7 34 6" stroke="#12b5ad" stroke-width="2" stroke-linecap="round" opacity=".35"/>
+  <path d="m24 49-7 24 12-5 7 9 7-20Z" fill="url(#ribbon)"/>
+  <path d="m42 55 6 22 8-9 12 5-9-26Z" fill="url(#medal)"/>
+  <path d="m24 49 5 19-12 5Z" fill="#fff" opacity=".12"/>
+  <path d="m59 47-3 21 12 5Z" fill="#10233f" opacity=".15"/>
+  <path d="M36 9a8 8 0 0 1 8 0l17 9.8a8 8 0 0 1 4 6.9v18.6a8 8 0 0 1-4 6.9L44 61a8 8 0 0 1-8 0l-17-9.8a8 8 0 0 1-4-6.9V25.7a8 8 0 0 1 4-6.9Z" fill="url(#medal)"/>
+  <path d="m40 8 21 12-21 15-24-12Z" fill="#fff" opacity=".16"/>
+  <path d="m40 35 24 12-24 15Z" fill="#10233f" opacity=".12"/>
+  <path d="m40 17 17 10v16L40 53 23 43V27Z" stroke="#fff" stroke-width="1.6" opacity=".55"/>
+  <circle cx="40" cy="35" r="12.5" fill="#f5fffc"/>
+  <path d="m34 35 4 4 9-9" stroke="#078c94" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="m68 4 2.8 7.2L78 14l-7.2 2.8L68 24l-2.8-7.2L58 14l7.2-2.8Z" fill="url(#sparkle)" stroke="#fff" stroke-width="1" stroke-linejoin="round"/>
+  <circle cx="8" cy="47" r="2.5" fill="#4f7cff" opacity=".65"/>
+</svg>
